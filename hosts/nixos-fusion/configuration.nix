@@ -28,6 +28,8 @@
 
   nix.settings.experimental-features = [ "nix-flakes" "nix-command" ];
 
+  virtualisation.vmware.guest.enable = true;
+
 	#  # Use latest kernel.
 	#  boot.kernelPackages = pkgs.linuxPackages_latest;
 	#
