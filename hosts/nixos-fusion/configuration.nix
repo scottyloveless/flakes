@@ -12,7 +12,7 @@
 
   # bootloader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.cantouchefivariables = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # hyprland
   # programs.hyprland = {
