@@ -47,22 +47,22 @@
 	 networking.networkmanager.enable = true;
 	#
 	#  # set your time zone.
-	 time.timezone = "america/chicago";
-	#
-	#  # select internationalisation properties.
-	 i18n.defaultlocale = "en_us.utf-8";
-	#
-	 i18n.extralocalesettings = {
-	   lc_address = "en_us.utf-8";
-	   lc_identification = "en_us.utf-8";
-	   lc_measurement = "en_us.utf-8";
-	   lc_monetary = "en_us.utf-8";
-	   lc_name = "en_us.utf-8";
-	   lc_numeric = "en_us.utf-8";
-	   lc_paper = "en_us.utf-8";
-	   lc_telephone = "en_us.utf-8";
-	   lc_time = "en_us.utf-8";
-	 };
+	#  time.timezone = "america/chicago";
+	# #
+	# #  # select internationalisation properties.
+	#  i18n.defaultlocale = "en_us.utf-8";
+	# #
+	#  i18n.extralocalesettings = {
+	#    lc_address = "en_us.utf-8";
+	#    lc_identification = "en_us.utf-8";
+	#    lc_measurement = "en_us.utf-8";
+	#    lc_monetary = "en_us.utf-8";
+	#    lc_name = "en_us.utf-8";
+	#    lc_numeric = "en_us.utf-8";
+	#    lc_paper = "en_us.utf-8";
+	#    lc_telephone = "en_us.utf-8";
+	#    lc_time = "en_us.utf-8";
+	#  };
 	#
 	#  # configure keymap in x11
 	#  services.xserver.xkb = {
