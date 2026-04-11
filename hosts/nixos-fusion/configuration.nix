@@ -75,7 +75,7 @@
 	#
 	#  # define a user account. don't forget to set a password with ‘passwd’.
 	 users.users.mox = {
-	   isnormaluser = true;
+	   isNormalUser = true;
 	   description = "mox";
 	   extraGroups = [ "networkmanager" "wheel" ];
 	#    packages = with pkgs; [
