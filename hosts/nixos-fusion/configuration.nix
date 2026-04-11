@@ -27,7 +27,7 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  environment.systempackages = with pkgs; [ git curl wget ];
+  environment.systemPackages = with pkgs; [ git curl wget ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
