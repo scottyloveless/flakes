@@ -6,6 +6,4 @@
         viAlias = true;
         vimAlias = true;
       };
-
-      xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink /home/mox/.config/nvim;
   }
