@@ -8,9 +8,9 @@
       ./hyprland.nix
     ];
 
-    home.username = "mox"
+    home.username = "mox";
     home.homeDirectory = "/home/mox";
-    home.stateVersion = "25.11"
+    home.stateVersion = "25.11";
 
     programs.home-manager.enable = true;
 

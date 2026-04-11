@@ -15,11 +15,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Hyprland
-  programs.hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
+  # programs.hyprland = {
+  #     enable = true;
+  #     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #   };
   
+	#  # Hyprland
+	 programs.hyprland.enable = true;
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
@@ -71,10 +74,10 @@
 	#  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	#
 	#  # Define a user account. Don't forget to set a password with ‘passwd’.
-	#  users.users.mox = {
-	#    isNormalUser = true;
-	#    description = "mox";
-	#    extraGroups = [ "networkmanager" "wheel" ];
+	 users.users.mox = {
+	   isNormalUser = true;
+	   description = "mox";
+	   extraGroups = [ "networkmanager" "wheel" ];
 	#    packages = with pkgs; [
 	#    	stow
 	# yazi
@@ -83,14 +86,12 @@
 	# oh-my-posh
 	# wofi
 	#    ];
-	#  };
+	 };
 	#
 	#  # zsh
 	#  programs.zsh.enable = true;
 	#  users.defaultUserShell = pkgs.zsh;
 	#
-	#  # Hyprland
-	#  programs.hyprland.enable = true;
 	#
 	#  # open-vm-tools
 	#  virtualisation.vmware.guest.enable = true;
@@ -131,7 +132,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
