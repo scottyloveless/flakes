@@ -34,7 +34,7 @@
   virtualisation.vmware.guest.enable = true;
 
 	#  # use latest kernel.
-	 boot.kernelpackages = pkgs.linuxpackages_latest;
+	 # boot.kernelpackages = pkgs.linuxpackages_latest;
 	#
 	 networking.hostname = "nixos-fusion"; # define your hostname.
 	#  # networking.wireless.enable = true;  # enables wireless support via wpa_supplicant.
