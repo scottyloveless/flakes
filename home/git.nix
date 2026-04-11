@@ -2,11 +2,11 @@
 {
     programs.git = {
       enable = true;
-      userName = "Scotty Loveless";
-      userEmail = "scottyloveless@icloud.com";
-      extraConfig = {
-          init.defaultBranch = "main";
-          pull.rebase = true;
+      settings = {
+        user.email = "scottyloveless@icloud.com"
+        user.name = "Scotty Loveless"
+        init.defaultBranch = "main";
+        pull.rebase = true;
         };
       };
   }
