@@ -44,7 +44,7 @@
 	#  # networking.proxy.noproxy = "127.0.0.1,localhost,internal.domain";
 	#
 	#  # enable networking
-	 networking.networkManager.enable = true;
+	 networking.networkmanager.enable = true;
 	#
 	#  # set your time zone.
 	#  time.timezone = "america/chicago";
