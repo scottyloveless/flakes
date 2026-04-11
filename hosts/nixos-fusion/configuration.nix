@@ -77,7 +77,7 @@
 	 users.users.mox = {
 	   isnormaluser = true;
 	   description = "mox";
-	   extragroups = [ "networkmanager" "wheel" ];
+	   extraGroups = [ "networkmanager" "wheel" ];
 	#    packages = with pkgs; [
 	#    	stow
 	# yazi
