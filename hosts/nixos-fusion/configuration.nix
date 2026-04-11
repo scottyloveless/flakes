@@ -6,65 +6,65 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ # include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
+  # bootloader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.cantouchefivariables = true;
 
-  # Hyprland
+  # hyprland
   # programs.hyprland = {
   #     enable = true;
   #     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   #   };
   
-	#  # Hyprland
+	#  # hyprland
 	 programs.hyprland.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 
-  environment.systemPackages = with pkgs; [ git curl wget ];
+  environment.systempackages = with pkgs; [ git curl wget ];
 
-  nix.settings.experimental-features = [ "nix-flakes" "nix-command" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   virtualisation.vmware.guest.enable = true;
 
-	#  # Use latest kernel.
-	 boot.kernelPackages = pkgs.linuxPackages_latest;
+	#  # use latest kernel.
+	 boot.kernelpackages = pkgs.linuxpackages_latest;
 	#
-	 networking.hostName = "nixos-fusion"; # Define your hostname.
-	#  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+	 networking.hostname = "nixos-fusion"; # define your hostname.
+	#  # networking.wireless.enable = true;  # enables wireless support via wpa_supplicant.
 	#
-	#  # Configure network proxy if necessary
+	#  # configure network proxy if necessary
 	#  # networking.proxy.default = "http://user:password@proxy:port/";
-	#  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	#  # networking.proxy.noproxy = "127.0.0.1,localhost,internal.domain";
 	#
-	#  # Enable networking
+	#  # enable networking
 	 networking.networkmanager.enable = true;
 	#
-	#  # Set your time zone.
-	 time.timeZone = "America/Chicago";
+	#  # set your time zone.
+	 time.timezone = "america/chicago";
 	#
-	#  # Select internationalisation properties.
-	 i18n.defaultLocale = "en_US.UTF-8";
+	#  # select internationalisation properties.
+	 i18n.defaultlocale = "en_us.utf-8";
 	#
-	 i18n.extraLocaleSettings = {
-	   LC_ADDRESS = "en_US.UTF-8";
-	   LC_IDENTIFICATION = "en_US.UTF-8";
-	   LC_MEASUREMENT = "en_US.UTF-8";
-	   LC_MONETARY = "en_US.UTF-8";
-	   LC_NAME = "en_US.UTF-8";
-	   LC_NUMERIC = "en_US.UTF-8";
-	   LC_PAPER = "en_US.UTF-8";
-	   LC_TELEPHONE = "en_US.UTF-8";
-	   LC_TIME = "en_US.UTF-8";
+	 i18n.extralocalesettings = {
+	   lc_address = "en_us.utf-8";
+	   lc_identification = "en_us.utf-8";
+	   lc_measurement = "en_us.utf-8";
+	   lc_monetary = "en_us.utf-8";
+	   lc_name = "en_us.utf-8";
+	   lc_numeric = "en_us.utf-8";
+	   lc_paper = "en_us.utf-8";
+	   lc_telephone = "en_us.utf-8";
+	   lc_time = "en_us.utf-8";
 	 };
 	#
-	#  # Configure keymap in X11
+	#  # configure keymap in x11
 	#  services.xserver.xkb = {
 	#    layout = "us";
 	#    variant = "";
@@ -73,11 +73,11 @@
 	#  # flakes
 	#  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	#
-	#  # Define a user account. Don't forget to set a password with ‘passwd’.
+	#  # define a user account. don't forget to set a password with ‘passwd’.
 	 users.users.mox = {
-	   isNormalUser = true;
+	   isnormaluser = true;
 	   description = "mox";
-	   extraGroups = [ "networkmanager" "wheel" ];
+	   extragroups = [ "networkmanager" "wheel" ];
 	#    packages = with pkgs; [
 	#    	stow
 	# yazi
@@ -90,7 +90,7 @@
 	#
 	#  # zsh
 	#  programs.zsh.enable = true;
-	#  users.defaultUserShell = pkgs.zsh;
+	#  users.defaultusershell = pkgs.zsh;
 	#
 	#
 	#  # open-vm-tools
@@ -102,10 +102,10 @@
 	#  # services.upower.enable = true;
 	#  # services.tuned.enable = true; 
 	#
-	#  # List packages installed in system profile. To search, run:
+	#  # list packages installed in system profile. to search, run:
 	#  # $ nix search wget
-	#  environment.systemPackages = with pkgs; [
-	#  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+	#  environment.systempackages = with pkgs; [
+	#  #  vim # do not forget to add an editor to edit configuration.nix! the nano editor is also installed by default.
 	#  #  wget
 	# neovim
 	# firefox
@@ -115,31 +115,31 @@
 	# gcc
 	#  ];
 
-  # Some programs need SUID wrappers, can be configured further or are
+  # some programs need suid wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
-  #   enableSSHSupport = true;
+  #   enablesshsupport = true;
   # };
 
-  # List services that you want to enable:
+  # list services that you want to enable:
 
-  # Enable the OpenSSH daemon.
+  # enable the openssh daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
+  # open ports in the firewall.
+  # networking.firewall.allowedtcpports = [ ... ];
+  # networking.firewall.allowedudpports = [ ... ];
+  # or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
+  # this value determines the nixos release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. it‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
+  # before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateversion = "25.11"; # did you read the comment?
 
 }
