@@ -36,7 +36,7 @@
 	#  # use latest kernel.
 	 # boot.kernelpackages = pkgs.linuxpackages_latest;
 	#
-	 networking.hostname = "nixos-fusion"; # define your hostname.
+	 networking.hostName = "nixos-fusion"; # define your hostname.
 	#  # networking.wireless.enable = true;  # enables wireless support via wpa_supplicant.
 	#
 	#  # configure network proxy if necessary
@@ -44,7 +44,7 @@
 	#  # networking.proxy.noproxy = "127.0.0.1,localhost,internal.domain";
 	#
 	#  # enable networking
-	 networking.networkmanager.enable = true;
+	 networking.networkManager.enable = true;
 	#
 	#  # set your time zone.
 	#  time.timezone = "america/chicago";
