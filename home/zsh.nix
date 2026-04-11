@@ -8,7 +8,7 @@
             ll = "eza -l";
             cat = "bat";
           };
-          initExtra = ''
+          initContent = ''
 
           '';
       };
