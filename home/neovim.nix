@@ -7,5 +7,5 @@
         vimAlias = true;
       };
 
-    xdg.configFile."nvim".source = ../.config/nvim;
+      xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink /home/mox/.config/nvim;
   }
