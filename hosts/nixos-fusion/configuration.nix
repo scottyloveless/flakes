@@ -31,9 +31,9 @@
   virtualisation.vmware.guest.enable = true;
 
 	#  # Use latest kernel.
-	#  boot.kernelPackages = pkgs.linuxPackages_latest;
+	 boot.kernelPackages = pkgs.linuxPackages_latest;
 	#
-	#  networking.hostName = "nixos"; # Define your hostname.
+	 networking.hostName = "nixos-fusion"; # Define your hostname.
 	#  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 	#
 	#  # Configure network proxy if necessary
@@ -41,25 +41,25 @@
 	#  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 	#
 	#  # Enable networking
-	#  networking.networkmanager.enable = true;
+	 networking.networkmanager.enable = true;
 	#
 	#  # Set your time zone.
-	#  time.timeZone = "America/Chicago";
+	 time.timeZone = "America/Chicago";
 	#
 	#  # Select internationalisation properties.
-	#  i18n.defaultLocale = "en_US.UTF-8";
+	 i18n.defaultLocale = "en_US.UTF-8";
 	#
-	#  i18n.extraLocaleSettings = {
-	#    LC_ADDRESS = "en_US.UTF-8";
-	#    LC_IDENTIFICATION = "en_US.UTF-8";
-	#    LC_MEASUREMENT = "en_US.UTF-8";
-	#    LC_MONETARY = "en_US.UTF-8";
-	#    LC_NAME = "en_US.UTF-8";
-	#    LC_NUMERIC = "en_US.UTF-8";
-	#    LC_PAPER = "en_US.UTF-8";
-	#    LC_TELEPHONE = "en_US.UTF-8";
-	#    LC_TIME = "en_US.UTF-8";
-	#  };
+	 i18n.extraLocaleSettings = {
+	   LC_ADDRESS = "en_US.UTF-8";
+	   LC_IDENTIFICATION = "en_US.UTF-8";
+	   LC_MEASUREMENT = "en_US.UTF-8";
+	   LC_MONETARY = "en_US.UTF-8";
+	   LC_NAME = "en_US.UTF-8";
+	   LC_NUMERIC = "en_US.UTF-8";
+	   LC_PAPER = "en_US.UTF-8";
+	   LC_TELEPHONE = "en_US.UTF-8";
+	   LC_TIME = "en_US.UTF-8";
+	 };
 	#
 	#  # Configure keymap in X11
 	#  services.xserver.xkb = {
@@ -131,7 +131,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

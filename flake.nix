@@ -14,9 +14,10 @@
 
       outputs = { self, nixpkgs, home-manager, hyprland, ... }: {
         nixosConfigurations = {
+          nixos-fusion = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             modules = [
-              .hosts/nixos-fusion/configuration.nix
+              ./hosts/nixos-fusion/configuration.nix
               home-manager.nixosModules.homeManager
               {
                 home-manager.useGlobalPkgs = true;
@@ -24,6 +25,7 @@
                 home-manager.users.mox = import ./home;
               }
             ];
+            };
           };
       };
   }
