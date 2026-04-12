@@ -73,6 +73,8 @@
                   vibrancy = 0.1696;
               };
 
+            };
+
               input = {
                   kb_layout = "us";
                   kb_options = "caps:escape";
@@ -85,8 +87,6 @@
                       natural_scroll = true;
                     };
                 };
-            };
-
             env = [
               "WLR_DRM_NO_ATOMIC,1"
               "WLR_RENDERER_ALLOW_SOFTWARE,1"
