@@ -10,7 +10,6 @@
     ./zsh.nix
     ./git.nix
     ./neovim.nix
-    ./ghostty.nix
     ./lazyvim.nix
     ./oh-my-posh.nix
   ];

@@ -10,5 +10,6 @@
     ./default.nix
     ./hyprland.nix
     ./noctalia.nix
+    ./ghostty.nix
   ];
 }
