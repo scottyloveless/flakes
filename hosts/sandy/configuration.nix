@@ -17,6 +17,11 @@
     "nix-command"
   ];
 
+  users.users.mox = {
+    home = "/Users/mox";
+    shell = pkgs.zsh;
+  };
+
   # macOS system defaults
   system.defaults = {
     dock = {
