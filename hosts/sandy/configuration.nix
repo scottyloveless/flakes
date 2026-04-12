@@ -11,8 +11,8 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
-    "nix-flakes"
     "nix-command"
+    "flakes"
   ];
 
   users.users.mox = {
