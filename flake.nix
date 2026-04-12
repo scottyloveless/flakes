@@ -15,6 +15,10 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,6 +28,7 @@
       home-manager,
       hyprland,
       lazyvim,
+      nix-darwin,
       ...
     }@inputs:
     {
@@ -67,19 +72,23 @@
             }
           ];
         };
-        sandy = nixpkgs.lib.nixosSystem {
+      };
+      darwinConfigurations = {
+
+        sandy = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
             ./hosts/sandy/configuration.nix
-            home-manager.nixosModules.homeManager
+            home-manager.darwinModules.homeManager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.mox = import ./home;
+              home-manager.users.mox = import ./home/darwin.nix;
             }
           ];
         };
+
       };
     };
 }
