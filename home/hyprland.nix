@@ -104,8 +104,6 @@
                 "quick,          0.15, 0,    0.1,  1"
               ];
                 animation = [
-                  "# Default animations, see https://wiki.hypr.land/Configuring/Animations/"
-                  "#           NAME,          ONOFF, SPEED, CURVE,        [STYLE]"
                   "animation = global,        1,     10,    default"
                   "animation = border,        1,     5.39,  easeOutQuint"
                   "animation = windows,       1,     4.79,  easeOutQuint"
