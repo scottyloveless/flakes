@@ -25,5 +25,7 @@
       pkgs.kitty
       firefox
       gcc
+      nixd
+      alejandra
     ];
   }

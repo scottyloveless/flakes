@@ -3,6 +3,8 @@
     programs.lazyvim = {
       enable = true;
 
+      installCoreDependencies = true;
+
       extras = {
       	lang.nix.enable = true;
 	lang.go = {
@@ -11,10 +13,5 @@
 	  installRuntimeDependencies = true;
 	};
       }; 
-
-      extraPackages = with pkgs; [
-        nixd
-	alejandra
-      ];
    };
 }
