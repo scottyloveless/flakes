@@ -6,6 +6,7 @@
       ./neovim.nix
       ./ghostty.nix
       ./hyprland.nix
+      ./lazyvim.nix
     ];
 
     home.username = "mox";
