@@ -22,5 +22,6 @@
       eza
       btop
       pkgs.kitty
+      firefox
     ];
   }
