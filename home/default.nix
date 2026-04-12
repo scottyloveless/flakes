@@ -23,5 +23,6 @@
       btop
       pkgs.kitty
       firefox
+      gcc
     ];
   }
