@@ -13,7 +13,7 @@
 	lazyvim.url = "github:pfassina/lazyvim-nix";
       };
 
-      outputs = { self, nixpkgs, home-manager, hyprland, lazyvim, ... }: {
+      outputs = { self, nixpkgs, home-manager, hyprland, lazyvim, ... } @inputs: {
         nixosConfigurations = {
           nixos-fusion = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
@@ -23,6 +23,7 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+		home-manager.extraSpecialArgs = { inherit inputs; };
                 home-manager.users.mox = import ./home;
               }
             ];
