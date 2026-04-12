@@ -6,6 +6,7 @@
     curl
     wget
   ];
+  nix.enable = false;
 
   # Allow proprietary packages
   nixpkgs.config.allowUnfree = true;
