@@ -21,5 +21,6 @@
       bat
       eza
       btop
+      pkgs.kitty
     ];
   }

@@ -4,7 +4,7 @@
         enable = true;
         settings = {
             monitor = ",preferred,auto,2";
-            "$terminal" = "ghostty";
+            "$terminal" = "kitty";
             "$mod" = "SUPER";
             "$browser" = "firefox";
 

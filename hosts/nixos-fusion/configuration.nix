@@ -47,7 +47,7 @@
 	 networking.networkmanager.enable = true;
 	#
 	#  # set your time zone.
-	#  time.timezone = "america/chicago";
+	 time.timeZone = "America/Chicago";
 	# #
 	# #  # select internationalisation properties.
 	#  i18n.defaultlocale = "en_us.utf-8";
