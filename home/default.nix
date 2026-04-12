@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
     imports = [
-      lazyvim.homeManagerModules.default
       ./zsh.nix
       ./git.nix
       ./neovim.nix
