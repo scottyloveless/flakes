@@ -1,6 +1,5 @@
-{ inputs, pkgs, ... }:
+{ imports, config, pkgs, ... }:
 {
-    imports = [ lazyvim.homeManagerModules.default ];
     programs.lazyvim = {
       enable = true;
 
