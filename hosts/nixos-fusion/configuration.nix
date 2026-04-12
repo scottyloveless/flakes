@@ -90,17 +90,9 @@
       "networkmanager"
       "wheel"
     ];
-
-    environment.shells = with pkgs; [ zsh ];
-    #    packages = with pkgs; [
-    #    	stow
-    # yazi
-    # eza
-    # zoxide
-    # oh-my-posh
-    # wofi
-    #    ];
   };
+
+  environment.shells = with pkgs; [ zsh ];
   #
   # zsh
   # users.defaultusershell = pkgs.zsh;
