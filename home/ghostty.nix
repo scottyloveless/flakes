@@ -11,17 +11,18 @@
       cursor-style = "block";
       shell-integration-features = "no-cursor";
       font-family = "JetBrainsMono Nerd Font";
-      font-size = 13;
+      font-size = if pkgs.stdenv.isDarwin then 16 else 13;
       font-thicken = true;
       clipboard-trim-trailing-spaces = true;
       theme = "TokyoNight Night";
       window-decoration = false;
+      macos-titlebar-style = "hidden";
       background = "1a1b26";
       window-padding-x = 12;
       window-padding-y = 12;
       window-padding-color = "background";
       quit-after-last-window-closed = true;
-      async-backend = "epoll";
+      quick-terminal-animation-duration = 1;
     };
   };
 }
