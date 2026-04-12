@@ -21,6 +21,7 @@
     shell = pkgs.zsh;
   };
   system.primaryUser = "mox";
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
