@@ -23,12 +23,13 @@
       bat
       eza
       btop
-      pkgs.kitty
       firefox
       gcc
       nixd
       alejandra
       lazygit
       oh-my-posh
+      statix #nix linter
+      deadnix #nix linter
     ];
   }
