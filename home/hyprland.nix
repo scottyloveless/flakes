@@ -24,6 +24,13 @@
                 gaps_out = 10;
                 border_size = 2;
               };
+
+            env = [
+              "WLR_DRM_NO_ATOMIC,1"
+              "WLR_RENDERER_ALLOW_SOFTWARE,1"
+              "__GLX_VENDOR_LIBRARY_NAME,mesa"
+              "LIBGL_ALWAYS_SOFTWARE,1"
+            ];
           };
       };
   }
