@@ -29,7 +29,7 @@
               style = "plain";
               foreground = "#86e1fc";
               background = "transparent";
-              template = "{{ .Icon }} ";
+              template = "{{ .Icon }}  ";
             }
             {
               type = "path";
