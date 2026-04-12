@@ -10,9 +10,10 @@
           };
 
         hyprland.url = "github:hyprwm/Hyprland";
+	lazyvim.url = "github:pfassina/lazyvim-nix";
       };
 
-      outputs = { self, nixpkgs, home-manager, hyprland, ... }: {
+      outputs = { self, nixpkgs, home-manager, hyprland, lazyvim, ... }: {
         nixosConfigurations = {
           nixos-fusion = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
