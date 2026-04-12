@@ -52,7 +52,7 @@
                 "{{ if gt .Ahead 0 }}#B388FF{{ end }}"
                 "{{ if gt .Behind 0 }}#B388FB{{ end }}"
               ];
-              template = " {{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
+              template = "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
               # Properties/Options were split in your TOML; Nix keeps them in the segment set
               fetch_status = true;
               fetch_upstream_icon = false;
