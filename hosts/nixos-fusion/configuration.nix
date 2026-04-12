@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,101 +21,112 @@
   #     enable = true;
   #     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   #   };
-  
-	#  # hyprland
-	 programs.hyprland.enable = true;
+
+  #  # hyprland
+  programs.hyprland.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 
-  environment.systemPackages = with pkgs; [ git curl wget ];
+  environment.systemPackages = with pkgs; [
+    git
+    curl
+    wget
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   virtualisation.vmware.guest.enable = true;
 
-	#  # use latest kernel.
-	 # boot.kernelpackages = pkgs.linuxpackages_latest;
-	#
-	 networking.hostName = "nixos-fusion"; # define your hostname.
-	#  # networking.wireless.enable = true;  # enables wireless support via wpa_supplicant.
-	#
-	#  # configure network proxy if necessary
-	#  # networking.proxy.default = "http://user:password@proxy:port/";
-	#  # networking.proxy.noproxy = "127.0.0.1,localhost,internal.domain";
-	#
-	#  # enable networking
-	 networking.networkmanager.enable = true;
-	#
-	#  # set your time zone.
-	 time.timeZone = "America/Chicago";
-	# #
-	# #  # select internationalisation properties.
-	#  i18n.defaultlocale = "en_us.utf-8";
-	# #
-	#  i18n.extralocalesettings = {
-	#    lc_address = "en_us.utf-8";
-	#    lc_identification = "en_us.utf-8";
-	#    lc_measurement = "en_us.utf-8";
-	#    lc_monetary = "en_us.utf-8";
-	#    lc_name = "en_us.utf-8";
-	#    lc_numeric = "en_us.utf-8";
-	#    lc_paper = "en_us.utf-8";
-	#    lc_telephone = "en_us.utf-8";
-	#    lc_time = "en_us.utf-8";
-	#  };
-	#
-	#  # configure keymap in x11
-	#  services.xserver.xkb = {
-	#    layout = "us";
-	#    variant = "";
-	#  };
-	#
-	#  # flakes
-	#  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	#
-	#  # define a user account. don't forget to set a password with ‘passwd’.
-	 users.users.mox = {
-	   isNormalUser = true;
-	   description = "mox";
-	   extraGroups = [ "networkmanager" "wheel" ];
-	#    packages = with pkgs; [
-	#    	stow
-	# yazi
-	# eza
-	# zoxide
-	# oh-my-posh
-	# wofi
-	#    ];
-	 };
-	#
-	#  # zsh
-	#  programs.zsh.enable = true;
-	#  users.defaultusershell = pkgs.zsh;
-	#
-	#
-	#  # open-vm-tools
-	#  virtualisation.vmware.guest.enable = true;
-	#
-	#  # noctalia shell
-	#  # hardware.bluetooth.enable = true;
-	#  # services.power-profiles-daemon.enable = true;
-	#  # services.upower.enable = true;
-	#  # services.tuned.enable = true; 
-	#
-	#  # list packages installed in system profile. to search, run:
-	#  # $ nix search wget
-	#  environment.systempackages = with pkgs; [
-	#  #  vim # do not forget to add an editor to edit configuration.nix! the nano editor is also installed by default.
-	#  #  wget
-	# neovim
-	# firefox
-	# git
-	# ghostty
-	# fzf
-	# gcc
-	#  ];
+  #  # use latest kernel.
+  # boot.kernelpackages = pkgs.linuxpackages_latest;
+  #
+  networking.hostName = "nixos-fusion"; # define your hostname.
+  #  # networking.wireless.enable = true;  # enables wireless support via wpa_supplicant.
+  #
+  #  # configure network proxy if necessary
+  #  # networking.proxy.default = "http://user:password@proxy:port/";
+  #  # networking.proxy.noproxy = "127.0.0.1,localhost,internal.domain";
+  #
+  #  # enable networking
+  networking.networkmanager.enable = true;
+  #
+  #  # set your time zone.
+  time.timeZone = "America/Chicago";
+  # #
+  # #  # select internationalisation properties.
+  #  i18n.defaultlocale = "en_us.utf-8";
+  # #
+  #  i18n.extralocalesettings = {
+  #    lc_address = "en_us.utf-8";
+  #    lc_identification = "en_us.utf-8";
+  #    lc_measurement = "en_us.utf-8";
+  #    lc_monetary = "en_us.utf-8";
+  #    lc_name = "en_us.utf-8";
+  #    lc_numeric = "en_us.utf-8";
+  #    lc_paper = "en_us.utf-8";
+  #    lc_telephone = "en_us.utf-8";
+  #    lc_time = "en_us.utf-8";
+  #  };
+  #
+  #  # configure keymap in x11
+  #  services.xserver.xkb = {
+  #    layout = "us";
+  #    variant = "";
+  #  };
+  #
+  programs.zsh.enable = true;
+
+  #  # define a user account. don't forget to set a password with ‘passwd’.
+  users.users.mox = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    description = "mox";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+
+    environment.shells = with pkgs; [ zsh ];
+    #    packages = with pkgs; [
+    #    	stow
+    # yazi
+    # eza
+    # zoxide
+    # oh-my-posh
+    # wofi
+    #    ];
+  };
+  #
+  # zsh
+  # users.defaultusershell = pkgs.zsh;
+  #
+  #
+  #  # open-vm-tools
+  #  virtualisation.vmware.guest.enable = true;
+  #
+  #  # noctalia shell
+  #  # hardware.bluetooth.enable = true;
+  #  # services.power-profiles-daemon.enable = true;
+  #  # services.upower.enable = true;
+  #  # services.tuned.enable = true;
+  #
+  #  # list packages installed in system profile. to search, run:
+  #  # $ nix search wget
+  #  environment.systempackages = with pkgs; [
+  #  #  vim # do not forget to add an editor to edit configuration.nix! the nano editor is also installed by default.
+  #  #  wget
+  # neovim
+  # firefox
+  # git
+  # ghostty
+  # fzf
+  # gcc
+  #  ];
 
   # some programs need suid wrappers, can be configured further or are
   # started in user sessions.
