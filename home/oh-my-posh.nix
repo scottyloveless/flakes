@@ -57,7 +57,7 @@
               fetch_status = true;
               fetch_upstream_icon = false;
               display_status = true;
-              branch_icon = "";
+              branch_icon = " ";
               source = "cli";
             }
           ];
