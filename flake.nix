@@ -37,10 +37,36 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.mox = import ./home;
+              home-manager.users.mox = import ./home/linux.nix;
             }
           ];
         };
+        airbud = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [
+              ./hosts/airbud/configuration.nix
+              home-manager.nixosModules.homeManager
+              {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = { inherit inputs; };
+                  home-manager.users.mox = import ./home/linux.nix;
+                }
+            ];
+          };
+        minimox = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/minimox/configuration.nix
+              home-manager.nixosModules.homeManager
+              {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = { inherit inputs; };
+                  home-manager.users.mox = import ./home/linux.nix;
+                }
+            ];
+          };
       };
     };
 }

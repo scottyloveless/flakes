@@ -7,14 +7,11 @@
 {
   imports = [
     inputs.lazyvim.homeManagerModules.default # Use inputs
-    inputs.noctalia.homeModules.default
     ./zsh.nix
     ./git.nix
     ./neovim.nix
     ./ghostty.nix
-    ./hyprland.nix
     ./lazyvim.nix
-    ./noctalia.nix
     ./oh-my-posh.nix
   ];
 
