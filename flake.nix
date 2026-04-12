@@ -42,7 +42,12 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.mox = import ./home/linux.nix;
+              home-manager.users.mox = {
+                imports = [ ./home/linux.nix ]; # or darwin.nix on Mac
+                home.username = "mox";
+                home.homeDirectory = "/home/mox";
+                home.stateVersion = "26.05";
+              };
             }
           ];
         };
@@ -55,7 +60,12 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.mox = import ./home/linux.nix;
+              home-manager.users.mox = {
+                imports = [ ./home/linux.nix ]; # or darwin.nix on Mac
+                home.username = "mox";
+                home.homeDirectory = "/home/mox";
+                home.stateVersion = "26.05";
+              };
             }
           ];
         };
@@ -68,7 +78,12 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.mox = import ./home/linux.nix;
+              home-manager.users.mox = {
+                imports = [ ./home/linux.nix ]; # or darwin.nix on Mac
+                home.username = "mox";
+                home.homeDirectory = "/home/mox";
+                home.stateVersion = "26.05";
+              };
             }
           ];
         };
@@ -84,7 +99,12 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.mox = import ./home/darwin.nix;
+              home-manager.users.mox = {
+                imports = [ ./home/darwin.nix ]; # or darwin.nix on Mac
+                home.username = "mox";
+                home.homeDirectory = "/Users/mox";
+                home.stateVersion = "26.05";
+              };
             }
           ];
         };

@@ -15,10 +15,6 @@
     ./oh-my-posh.nix
   ];
 
-  home.username = "mox";
-  home.homeDirectory = "/home/mox";
-  home.stateVersion = "26.05";
-
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
