@@ -12,6 +12,7 @@
     ./neovim.nix
     ./lazyvim.nix
     ./oh-my-posh.nix
+    ./ghostty.nix
   ];
 
   programs.home-manager.enable = true;

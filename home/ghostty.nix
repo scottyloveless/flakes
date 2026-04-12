@@ -2,6 +2,8 @@
 {
   programs.ghostty = {
     enable = true;
+    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+
     settings = {
       shell-integration = "zsh";
       mouse-hide-while-typing = true;

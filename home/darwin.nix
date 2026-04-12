@@ -8,6 +8,5 @@
   home.packages = with pkgs; [
     mas # Mac App Store CLI
     rectangle # window snapping (if not using Aerospace)
-    pkgs.ghostty-bin
   ];
 }
