@@ -59,11 +59,11 @@
               ", XF86AudioPrev, exec, playerctl previous    "
             ];
 
-            windowrule = [
-              "name = suppress-maximize-events"
-              "match:class = .*"
-              "suppress_event = maximize"
-            ];
+            windowrule = {
+              name = "suppress-maximize-events";
+              "match:class" = ".*";
+              suppress_event = "maximize";
+            };
 
             general = {
                 gaps_in = 5;
