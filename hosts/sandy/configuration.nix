@@ -22,6 +22,11 @@
     shell = pkgs.zsh;
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [ zsh ];
   # macOS system defaults
   system.defaults = {
     dock = {
