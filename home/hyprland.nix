@@ -31,7 +31,7 @@
 
                 allow_tearing = false;
 
-                layout = dwindle;
+                layout = "dwindle";
 
               };
 
