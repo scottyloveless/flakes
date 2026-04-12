@@ -10,8 +10,6 @@
   # Allow proprietary packages
   nixpkgs.config.allowUnfree = true;
 
-  # Auto-upgrade nix
-  services.nix-daemon.enable = true;
   nix.settings.experimental-features = [
     "nix-flakes"
     "nix-command"
@@ -21,12 +19,15 @@
     home = "/Users/mox";
     shell = pkgs.zsh;
   };
+  system.primaryUser = "mox";
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+
   programs.zsh.enable = true;
   environment.shells = with pkgs; [ zsh ];
+
   # macOS system defaults
   system.defaults = {
     dock = {
