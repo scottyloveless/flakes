@@ -57,7 +57,7 @@
               fetch_status = true;
               fetch_upstream_icon = false;
               display_status = true;
-              branch_icon = "";
+              branch_icon = "\u2800";
               source = "cli";
             }
           ];
