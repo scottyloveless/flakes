@@ -2,6 +2,7 @@
 {
     wayland.windowManager.hyprland = {
         enable = true;
+        systemd.enable = true;
         settings = {
             monitor = ",preferred,auto,2";
             "$terminal" = "ghostty";
@@ -17,6 +18,18 @@
               "$mod, K, movefocus, u"
               "$mod, J, movefocus, d"
               "$mod, B, exec, $browser"
+
+              "$mod, 1, workspace, 1"
+              "$mod, 2, workspace, 2"
+              "$mod, 3, workspace, 3"
+              "$mod, 4, workspace, 4"
+              "$mod, 5, workspace, 5"
+              
+              "$mod SHIFT, 1, movetoworkspace, 1"
+              "$mod SHIFT, 2, movetoworkspace, 2"
+              "$mod SHIFT, 3, movetoworkspace, 3"
+              "$mod SHIFT, 4, movetoworkspace, 4"
+              "$mod SHIFT, 5, movetoworkspace, 5"
             ];
 
             general = {
@@ -24,8 +37,8 @@
                 gaps_out = 20;
                 border_size = 2;
                 
-                col.active_border = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-                col.inactive_border = "rgba(595959aa)";
+                "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+                "col.inactive_border" = "rgba(595959aa)";
 
                 resize_on_border = false;
 
@@ -59,6 +72,19 @@
 
                   vibrancy = 0.1696;
               };
+
+              input = {
+                  kb_layout = "us";
+                  kb_options = "caps:escape";
+
+                  follow_mouse = 1;
+
+                  sensitivity = 0;
+
+                  touchpad = {
+                      natural_scroll = true;
+                    };
+                };
             };
 
             env = [
