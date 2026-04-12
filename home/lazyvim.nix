@@ -1,17 +1,32 @@
 { pkgs, ... }:
 {
-    programs.lazyvim = {
-      enable = true;
+  programs.lazyvim = {
+    enable = true;
 
-      installCoreDependencies = true;
+    installCoreDependencies = true;
 
-      extras = {
-      	lang.nix.enable = true;
-	lang.go = {
-	  enable = true;
-	  installDependencies = true;
-	  installRuntimeDependencies = true;
-	};
-      }; 
-   };
+    plugins = {
+      colorscheme = ''
+                return {
+          -- { "EdenEast/nightfox.nvim" },
+
+          {
+            "LazyVim/LazyVim",
+            opts = {
+              colorscheme = "tokyonight-night",
+            },
+          },
+        }
+      '';
+    };
+
+    extras = {
+      lang.nix.enable = true;
+      lang.go = {
+        enable = true;
+        installDependencies = true;
+        installRuntimeDependencies = true;
+      };
+    };
+  };
 }
