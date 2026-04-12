@@ -7,7 +7,7 @@
 {
   imports = [
     inputs.lazyvim.homeManagerModules.default # Use inputs
-    inputs.noctalia.homeManagerModules.default
+    inputs.noctalia.homeModules.default
     ./zsh.nix
     ./git.nix
     ./neovim.nix
@@ -15,6 +15,7 @@
     ./hyprland.nix
     ./lazyvim.nix
     ./noctalia.nix
+    ./oh-my-posh.nix
   ];
 
   home.username = "mox";
