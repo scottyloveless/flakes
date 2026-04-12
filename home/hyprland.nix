@@ -93,6 +93,11 @@
                   preserve_split = "yes";
                 };
 
+              exec-once = [
+                "waybar"
+                "hyprpaper"
+              ];
+
             animations = {
               enabled = "yes";
 
