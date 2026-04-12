@@ -93,33 +93,6 @@
   };
 
   environment.shells = with pkgs; [ zsh ];
-  #
-  # zsh
-  # users.defaultusershell = pkgs.zsh;
-  #
-  #
-  #  # open-vm-tools
-  #  virtualisation.vmware.guest.enable = true;
-  #
-  #  # noctalia shell
-  #  # hardware.bluetooth.enable = true;
-  #  # services.power-profiles-daemon.enable = true;
-  #  # services.upower.enable = true;
-  #  # services.tuned.enable = true;
-  #
-  #  # list packages installed in system profile. to search, run:
-  #  # $ nix search wget
-  #  environment.systempackages = with pkgs; [
-  #  #  vim # do not forget to add an editor to edit configuration.nix! the nano editor is also installed by default.
-  #  #  wget
-  # neovim
-  # firefox
-  # git
-  # ghostty
-  # fzf
-  # gcc
-  #  ];
-
   # some programs need suid wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

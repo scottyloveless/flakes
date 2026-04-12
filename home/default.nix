@@ -40,5 +40,6 @@
     pkgs.nixfmt # nix linter
     nixd # nix lsp
     alejandra # nix lsp
+    gh
   ];
 }
