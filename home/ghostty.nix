@@ -6,6 +6,8 @@
             shell-integration = "zsh";
             mouse-hide-while-typing = true;
             scrollback-limit = 100000;
+            cursor-style = "block";
+            shell-integration-features = "no-cursor";
             font-family = "JetBrainsMono Nerd Font";
             font-size = 13;
             font-thicken = true;
