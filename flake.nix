@@ -11,6 +11,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     lazyvim.url = "github:pfassina/lazyvim-nix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -7,12 +7,14 @@
 {
   imports = [
     inputs.lazyvim.homeManagerModules.default # Use inputs
+    inputs.noctalia.homeManagerModules.default
     ./zsh.nix
     ./git.nix
     ./neovim.nix
     ./ghostty.nix
     ./hyprland.nix
     ./lazyvim.nix
+    ./noctalia.nix
   ];
 
   home.username = "mox";
@@ -30,12 +32,12 @@
     btop
     firefox
     gcc
-    nixd
-    alejandra
     lazygit
     oh-my-posh
     statix # nix linter
     deadnix # nix linter
-    pkgs.nixfmt
+    pkgs.nixfmt # nix linter
+    nixd # nix lsp
+    alejandra # nix lsp
   ];
 }
