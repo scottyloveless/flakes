@@ -30,6 +30,39 @@
               "$mod SHIFT, 3, movetoworkspace, 3"
               "$mod SHIFT, 4, movetoworkspace, 4"
               "$mod SHIFT, 5, movetoworkspace, 5"
+
+              "$mod, S, togglespecialworkspace, magic"
+              "$mod SHIFT, S, movetoworkspace, special:magic"
+
+              "$mod, mouse_down, workspace, e+1"
+              "$mod, mouse_up, workspace, e-1"
+            ];
+
+            bindm = [
+              "$mod, mouse:272, movewindow"
+              "$mod, mouse:273, resizewindow"
+            ];
+
+            bindel = [
+              ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ "
+              ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-      "
+              ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle            "
+              ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle       "
+              ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+                   "
+              ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-                 "
+            ];
+
+            bindl = [
+              ", XF86AudioNext, exec, playerctl next        "
+              ", XF86AudioPause, exec, playerctl play-pause "
+              ", XF86AudioPlay, exec, playerctl play-pause  "
+              ", XF86AudioPrev, exec, playerctl previous    "
+            ];
+
+            windowrule = [
+              "name = suppress-maximize-events"
+              "match:class = .*"
+              "suppress_event = maximize"
             ];
 
             general = {
@@ -97,6 +130,8 @@
                 "waybar"
                 "hyprpaper"
               ];
+
+
 
             animations = {
               enabled = "yes";
