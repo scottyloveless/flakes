@@ -6,15 +6,17 @@
             monitor = ",preferred,auto,2";
             "$terminal" = "ghostty";
             "$mod" = "SUPER";
+            "$browser" = "firefox";
 
             bind = [
-              "$mod, Return, exec, $terminal"
+              "$mod, RETURN, exec, $terminal"
               "$mod, Q, killactive,"
               "$mod, M, exit,"
               "$mod, H, movefocus, l"
               "$mod, L, movefocus, r"
               "$mod, K, movefocus, u"
               "$mod, J, movefocus, d"
+              "$mod, B, exec, $browser"
             ];
 
             general = {
