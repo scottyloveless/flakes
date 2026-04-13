@@ -16,7 +16,7 @@
     "flakes"
   ];
 
-  services.aerospace.enable = false;
+  services.aerospace.enable = true;
 
   users.users.mox = {
     home = "/Users/mox";
