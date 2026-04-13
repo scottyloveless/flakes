@@ -25,7 +25,30 @@
 
   services.aerospace.enable = true;
 
-  homebrew.enable = true;
+  homebrew = {
+    enable = true;
+
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "zap"; # removes anything not declared here
+    };
+
+    taps = [
+      "nikitabobko/tap" # for aerospace if installed via brew
+    ];
+
+    brews = [
+      # add any formulae that aren't available in nixpkgs
+    ];
+
+    casks = [
+    ];
+
+    masApps = {
+      # "App Name" = App Store ID;
+    };
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

@@ -19,6 +19,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
       hyprland,
       lazyvim,
       nix-darwin,
+      nix-homebrew,
       ...
     }@inputs:
     {
@@ -95,6 +100,15 @@
           modules = [
             ./hosts/sandy/configuration.nix
             home-manager.darwinModules.home-manager
+            nix.homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = false;
+                user = "mox";
+                autoMigrate = true;
+              };
+            }
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
