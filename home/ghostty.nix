@@ -15,7 +15,6 @@
       font-thicken = true;
       clipboard-trim-trailing-spaces = true;
       theme = "TokyoNight Night";
-      # window-decoration = false;
       macos-titlebar-style = "hidden";
       background = "1a1b26";
       window-padding-x = 12;
