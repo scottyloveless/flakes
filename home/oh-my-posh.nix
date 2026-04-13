@@ -57,9 +57,10 @@
               properties = {
                 fetch_status = true;
                 fetch_upstream_icon = false;
-                display_status = true;
+                # display_status = true;
+                github_token = "";
                 branch_icon = "";
-                source = "cli";
+                cache_timeout = 10;
               };
             }
           ];
