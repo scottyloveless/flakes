@@ -25,6 +25,8 @@
 
   services.aerospace.enable = true;
 
+  homebrew.enable = true;
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
