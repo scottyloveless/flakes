@@ -23,6 +23,14 @@
       url = "github:zhaofengli/nix-homebrew";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs =
@@ -34,6 +42,8 @@
       lazyvim,
       nix-darwin,
       nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
       ...
     }@inputs:
     {
@@ -106,9 +116,20 @@
                 enable = true;
                 enableRosetta = false;
                 user = "mox";
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                };
+                mutableTaps = false;
                 autoMigrate = true;
               };
             }
+            (
+              { config, ... }:
+              {
+                homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+              }
+            )
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
