@@ -3,11 +3,11 @@
   xdg.configFile."aerospace/aerospace.toml".text = ''
     after-login-command = []
 
-    exec-on-workspace-change = [
-      '/bin/bash',
-      '-c',
-      'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-    ]
+    #exec-on-workspace-change = [
+    #  '/bin/bash',
+    #  '-c',
+    #  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+    #]
 
     start-at-login = true
 
