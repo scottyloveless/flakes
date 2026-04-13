@@ -16,6 +16,8 @@
     "flakes"
   ];
 
+  services.aerospace.enable = false;
+
   users.users.mox = {
     home = "/Users/mox";
     shell = pkgs.zsh;
