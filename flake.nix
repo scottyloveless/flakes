@@ -30,6 +30,7 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
   };
 
   outputs =
@@ -43,6 +44,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      apple-silicon,
       ...
     }@inputs:
     {
@@ -68,8 +70,9 @@
         beau = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
+            apple-silicon.nixosModules.default
             ./hosts/beau/configuration.nix
-            home-manager.nixosModules.homeManager
+            home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
