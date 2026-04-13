@@ -35,7 +35,6 @@
     };
 
     taps = [
-      "nikitabobko/tap" # for aerospace if installed via brew
     ];
 
     brews = [
@@ -79,11 +78,11 @@
   # Used by nix-darwin internals — must match your macOS hostname
   networking.hostName = "sandy";
 
-environment.systemPath = [
-	"/etc/profiles/per-user/mox/bin"
-	"/opt/homebrew/bin"
-	"/opt/homebrew/sbin"
-];
+  environment.systemPath = [
+    "/etc/profiles/per-user/mox/bin"
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+  ];
 
   system.stateVersion = 5;
 }
