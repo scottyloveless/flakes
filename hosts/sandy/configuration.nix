@@ -125,7 +125,7 @@
         cmd-alt-h = [ ];
         cmd-m = [ ];
 
-        alt-enter = "exec-and-forget open -n /Applications/Ghostty.app";
+        alt-enter = "exec-and-forget open -na /Applications/Ghostty.app --args --new-window";
 
         alt-slash = "layout tiles horizontal vertical";
         alt-comma = "layout accordion horizontal vertical";
