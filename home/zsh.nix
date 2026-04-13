@@ -14,17 +14,6 @@
         bindkey '^p' history-search-backward
         bindkey '^n' history-search-forward
 
-        Load compinit once a day
-        autoload -Uz compinit
-        if [[ -n ${"ZDOTDIR:-$HOME"}/.zcompdump(#qN.mh+24) ]]; then
-            compinit
-        else
-            compinit -C
-        fi
-            # Load After compinit
-        zinit light Aloxaf/fzf-tab
-        zinit cdreplay -q
-
         #History
         HISTSIZE=5000
         HISTFILE=~/.zsh_history
