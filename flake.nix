@@ -65,10 +65,10 @@
             }
           ];
         };
-        airbud = nixpkgs.lib.nixosSystem {
+        beau = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
-            ./hosts/airbud/configuration.nix
+            ./hosts/beau/configuration.nix
             home-manager.nixosModules.homeManager
             {
               home-manager.useGlobalPkgs = true;
