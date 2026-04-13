@@ -13,6 +13,7 @@
     ./lazyvim.nix
     ./oh-my-posh.nix
     ./ghostty.nix
+    ./ssh.nix
   ];
 
   programs.home-manager.enable = true;
