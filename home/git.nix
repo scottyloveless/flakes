@@ -3,8 +3,10 @@
   programs.git = {
     enable = true;
     settings = {
-      user.email = "8176125+scottyloveless@users.noreply.github.com";
-      user.name = "scottyloveless";
+      user = {
+        name = "Scotty Loveless";
+        email = "scottyloveless@icloud.com";
+      };
       init.defaultBranch = "main";
       pull.rebase = true;
       gpg.format = "ssh";
