@@ -128,6 +128,7 @@
 
       exec-once = [
         "noctalia-shell"
+        "systemctl --user start hyprpolkitagent"
       ];
 
       animations = {
