@@ -125,7 +125,7 @@
         cmd-alt-h = [ ];
         cmd-m = [ ];
 
-        alt-enter = ''exec-and-forget osascript -e 'tell application "Ghostty" to activate' -e 'tell application "System Events" to tell process "Ghostty" to keystroke "n" using command down' '';
+        alt-enter = "exec-and-forget osascript -e 'tell application \"Ghostty\" to new window'";
 
         alt-slash = "layout tiles horizontal vertical";
         alt-comma = "layout accordion horizontal vertical";
