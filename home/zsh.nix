@@ -10,22 +10,33 @@
       cat = "bat";
     };
     initContent = ''
-                  bindkey -e
-                  bindkey '^p' history-search-backward
-                  bindkey '^n' history-search-backward
+        bindkey -e
+        bindkey '^p' history-search-backward
+        bindkey '^n' history-search-forward
 
-                  #History
-            HISTSIZE=5000
-            HISTFILE=~/.zsh_history
-            SAVEHIST=$HISTSIZE
-            HISTDUP=erase
-            setopt appendhistory
-            setopt sharehistory
-            setopt hist_ignore_space
-            setopt hist_ignore_all_dups
-            setopt hist_save_no_dups
-            setopt hist_ignore_dups
-            setopt hist_find_no_dups
+        Load compinit once a day
+        autoload -Uz compinit
+        if [[ -n ${"ZDOTDIR:-$HOME"}/.zcompdump(#qN.mh+24) ]]; then
+            compinit
+        else
+            compinit -C
+        fi
+            # Load After compinit
+        zinit light Aloxaf/fzf-tab
+        zinit cdreplay -q
+
+        #History
+        HISTSIZE=5000
+        HISTFILE=~/.zsh_history
+        SAVEHIST=$HISTSIZE
+        HISTDUP=erase
+        setopt appendhistory
+        setopt sharehistory
+        setopt hist_ignore_space
+        setopt hist_ignore_all_dups
+        setopt hist_save_no_dups
+        setopt hist_ignore_dups
+        setopt hist_find_no_dups
 
           vv() {
         # Assumes all configs exist in directories named ~/.config/nvim-*
