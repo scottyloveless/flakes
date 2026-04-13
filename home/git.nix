@@ -12,7 +12,7 @@
       gpg.format = "ssh";
       "gpg \"ssh\"".program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
       commit.gpgsign = true;
-      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjtx6MrUOVgMIlLxXjELyI1MT1qMvDGq/TviW0yIimS";
+      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCL8BMJiFOVlj53eq1AEibxuEQ/XvgNCl4GZcbXne7Y";
     };
   };
 }
