@@ -23,8 +23,6 @@
   system.primaryUser = "mox";
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  services.aerospace.enable = true;
-
   homebrew = {
     enable = true;
 
