@@ -34,6 +34,11 @@
   programs.zsh.enable = true;
   environment.shells = with pkgs; [ zsh ];
 
+  environment.systemPath = [
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+  ];
+
   # macOS system defaults
   system.defaults = {
     dock = {
