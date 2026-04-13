@@ -40,7 +40,6 @@
     ];
 
     casks = [
-      betterdisplay
     ];
 
     masApps = {
