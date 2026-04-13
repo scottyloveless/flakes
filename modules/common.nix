@@ -7,7 +7,7 @@ let
       "~/.1password/agent.sock";
 in
 {
-  programs.ssh = {
+  services.ssh = {
 
     enable = true;
     extraConfig = ''
