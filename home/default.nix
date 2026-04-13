@@ -14,6 +14,7 @@
     ./oh-my-posh.nix
     ./ghostty.nix
     ./ssh.nix
+    ./1password-shell.nix
   ];
 
   programs.home-manager.enable = true;
