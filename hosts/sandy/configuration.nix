@@ -23,6 +23,8 @@
   system.primaryUser = "mox";
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  services.aerospace.enable = true;
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
