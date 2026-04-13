@@ -100,7 +100,7 @@
           modules = [
             ./hosts/sandy/configuration.nix
             home-manager.darwinModules.home-manager
-            homebrew.darwinModules.nix-homebrew
+            nix-homebrew.darwinModules.nix-homebrew
             {
               nix-homebrew = {
                 enable = true;
