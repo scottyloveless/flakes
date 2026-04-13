@@ -9,7 +9,7 @@
     settings = {
       user = {
         name = "Scotty Loveless";
-        email = "scottyloveless@icloud.com";
+        email = "8176125+scottyloveless@users.noreply.github.com";
       };
       init.defaultBranch = "main";
       pull.rebase = true;
