@@ -8,6 +8,8 @@
   security.sudo.wheelNeedsPassword = false;
   programs.hyprland.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   users.users.mox = {
     isNormalUser = true;
     extraGroups = [
