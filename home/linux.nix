@@ -10,6 +10,7 @@
     ./default.nix
     ./hyprland.nix
     # ./noctalia.nix
+    ./waybar.nix
     ./ghostty.nix
   ];
 }
