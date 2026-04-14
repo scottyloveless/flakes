@@ -8,7 +8,7 @@
     withUWSM = true;
   };
 
-  boot.kernelpackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   programs.uwsm = {
     enable = true;
