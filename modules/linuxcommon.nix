@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  networking.wireless.iwd = {
-    enable = true;
-    settings.General.EnableNetworkConfiguration = true;
-  };
 
   security.sudo.wheelNeedsPassword = false;
   programs.hyprland.enable = true;
@@ -23,4 +19,13 @@
     shell = pkgs.zsh;
     description = "mox";
   };
+
+  networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
+  services.tuned.enable = true;
+  services.upower.enable = true;
+  # networking.wireless.iwd = {
+  #   enable = true;
+  #   settings.General.EnableNetworkConfiguration = true;
+  # };
 }
