@@ -5,7 +5,7 @@
     settings = {
       mainBar = {
         position = "top";
-        height = 20;
+        height = 31;
         modules-left = [ "hyprland/workspaces" ];
         modules-right = [
           "network"
