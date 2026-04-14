@@ -137,7 +137,6 @@
         color: #c0caf5;
         background-color: #24283b;
         border-radius: 50%;
-        display: flex;
         align-items: center;
         justify-content: center;
       }
