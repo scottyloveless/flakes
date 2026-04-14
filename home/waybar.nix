@@ -137,8 +137,6 @@
         color: #c0caf5;
         background-color: #24283b;
         border-radius: 50%;
-        align-items: center;
-        justify-content: center;
       }
 
       #workspaces button.active {
