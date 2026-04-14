@@ -25,7 +25,7 @@
 
   environment.shells = with pkgs; [ zsh ];
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   programs._1password.enable = true;
   programs._1password-gui = {
