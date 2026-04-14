@@ -8,7 +8,8 @@
     withUWSM = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  boot.kernelpackages = pkgs.linuxpackages_latest;
+
   programs.uwsm = {
     enable = true;
     waylandCompositors.hyprland = {
