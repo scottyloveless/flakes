@@ -153,7 +153,7 @@
       ];
 
       animations = {
-        enabled = "yes";
+        enabled = "no";
 
         bezier = [
           "easeOutQuint,   0.23, 1,    0.32, 1"
