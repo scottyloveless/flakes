@@ -12,6 +12,7 @@
           path = "~/wallpapers/dopamine.png";
         }
       ];
+      splash = false;
     };
   };
 
