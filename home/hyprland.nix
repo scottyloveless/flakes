@@ -1,5 +1,19 @@
 { ... }:
 {
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "~/wallpapers/dopamine.png"
+      ];
+      wallpaper = [
+        {
+          monitor = "";
+          path = "~/wallpapers/dopamine.png";
+        }
+      ];
+    };
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -130,6 +144,7 @@
         "noctalia-shell"
         "systemctl --user start hyprpolkitagent"
         "1password --silent"
+        "hyprpaper"
       ];
 
       animations = {
