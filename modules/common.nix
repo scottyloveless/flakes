@@ -25,12 +25,11 @@
 
   environment.shells = with pkgs; [ zsh ];
 
-  system.stateVersion = "26.05";
-
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "mox" ];
   };
 
+  system.stateVersion = "25.11";
 }

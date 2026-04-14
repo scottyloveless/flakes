@@ -13,10 +13,10 @@
       };
       init.defaultBranch = "main";
       pull.rebase = true;
-      gpg.format = "ssh";
-      "gpg \"ssh\"".program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
-      commit.gpgsign = true;
-      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCL8BMJiFOVlj53eq1AEibxuEQ/XvgNCl4GZcbXne7Y";
+      # gpg.format = "ssh";
+      # "gpg \"ssh\"".program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+      # commit.gpgsign = true;
+      # user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCL8BMJiFOVlj53eq1AEibxuEQ/XvgNCl4GZcbXne7Y";
     };
   };
 }

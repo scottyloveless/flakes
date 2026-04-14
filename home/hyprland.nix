@@ -150,6 +150,8 @@
         "uwsm app -- 1password --silent"
         "uwsm app -- hyprpaper"
         "uwsm app -- waybar"
+        "uwsm app -- ghostty"
+        "uwsm app --hyprland"
       ];
 
       animations = {

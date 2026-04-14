@@ -12,10 +12,15 @@
     ../../modules/common.nix
   ];
 
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   virtualisation.vmware.guest.enable = true;
+  services.xserver.videoDrivers = [ "vmware" ];
 
+  networking.networkmanager.enable = true;
   networking.hostName = "nixos-fusion"; # define your hostname.
+
 }
