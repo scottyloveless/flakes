@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       mainBar = {
-        position = "bottom";
+        position = "top";
         height = 30;
         modules-left = [ "hyprland/workspaces" ];
         modules-right = [
@@ -135,6 +135,12 @@
       }
 
       #workspaces button.focused {
+        color: #24283b;
+        background-color: #7aa2f7;
+        border-radius: 5px;
+      }
+
+      #workspaces button.active {
         color: #24283b;
         background-color: #7aa2f7;
         border-radius: 5px;
