@@ -9,6 +9,7 @@
     # include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/linuxcommon.nix
+    ../../modules/common.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
