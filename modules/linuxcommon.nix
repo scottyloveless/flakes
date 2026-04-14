@@ -8,6 +8,7 @@
     withUWSM = true;
   };
 
+  nixpkgs.config.allowUnfree = true;
   programs.uwsm = {
     enable = true;
     waylandCompositors.hyprland = {

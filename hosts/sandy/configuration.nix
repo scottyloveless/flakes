@@ -9,7 +9,6 @@
   nix.enable = false;
 
   # Allow proprietary packages
-  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
     "nix-command"
