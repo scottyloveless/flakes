@@ -124,11 +124,12 @@
           
       #workspaces {
         background-color: transparent;
-        margin: 5px;
+        margin: 3px;
         margin-left: 10px;
       }
 
       #workspaces button {
+        all: unset;
         padding: 0;
         min-width: 24px;
         min-height: 24px;
@@ -136,6 +137,9 @@
         color: #c0caf5;
         background-color: #24283b;
         border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       #workspaces button.active {
@@ -148,6 +152,11 @@
         background-color: #7dcfff;
         color: #24283b;
         border-radius: 50%;
+      }
+
+      #workspaces button label {
+        margin: 0;
+        padding: 0;
       }
 
             #custom-date,
