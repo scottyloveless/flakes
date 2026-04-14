@@ -6,11 +6,11 @@
 }:
 {
   imports = [
-    # inputs.lazyvim.homeManagerModules.default # Use inputs
+    inputs.lazyvim.homeManagerModules.default # Use inputs
     ./zsh.nix
     ./git.nix
     ./neovim.nix
-    # ./lazyvim.nix
+    ./lazyvim.nix
     ./oh-my-posh.nix
     ./ghostty.nix
     ./ssh.nix
