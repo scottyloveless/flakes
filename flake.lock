@@ -198,11 +198,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1776191770,
-        "narHash": "sha256-dBBgGS4s30tsQGBScaA6Mh9TcnnXM8CK8kXHClw56eE=",
+        "lastModified": 1776192359,
+        "narHash": "sha256-CWRkedEqymp8e/TTpqKMu233E2inc6PTWABEwZxwsMI=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "25939824f1ab8e6edfaa87f9aaa321aa410189fd",
+        "rev": "ea4dedac7c7338f74470cde57f9faf10c66432dc",
         "type": "github"
       },
       "original": {
@@ -653,16 +653,16 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1776067740,
-        "narHash": "sha256-B35lpsqnSZwn1Lmz06BpwF7atPgFmUgw1l8KAV3zpVQ=",
+        "lastModified": 1775888245,
+        "narHash": "sha256-nwASzrRDD1JBEu/o8ekKYEXm/oJW6EMCzCRdrwcLe90=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7e495b747b51f95ae15e74377c5ce1fe69c1765f",
+        "rev": "13043924aaa7375ce482ebe2494338e058282925",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.11",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
