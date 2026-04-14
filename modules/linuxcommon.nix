@@ -23,6 +23,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "audio"
     ]; # Enable ‘sudo’ for the user.
     #   packages = with pkgs; [
     #     tree
@@ -40,11 +41,16 @@
     enable = true;
     settings.General.EnableNetworkConfiguration = true;
   };
+
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start hyprland-uwsm.desktop'";
+        command = "tuigreet --time --remember --cmd /usr/bin/start-hyprland";
         user = "greeter";
       };
     };

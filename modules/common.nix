@@ -18,6 +18,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    font-awesome_4
   ];
 
   programs.zsh.enable = true;

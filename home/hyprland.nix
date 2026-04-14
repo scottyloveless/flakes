@@ -14,6 +14,9 @@
       ];
     };
   };
+
+  programs.waybar.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
@@ -141,10 +144,11 @@
       };
 
       exec-once = [
-        "uwsm app -- noctalia-shell"
+        # "uwsm app -- noctalia-shell"
         "systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
         "uwsm app -- hyprpaper"
+        "uwsm app -- waybar"
       ];
 
       animations = {
