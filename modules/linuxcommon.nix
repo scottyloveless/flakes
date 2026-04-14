@@ -50,7 +50,7 @@
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start hyprland-uwsm.desktop'";
-        command = "tuigreet --time --remember --cmd /usr/bin/start-hyprland";
+        # command = "${pkgs.tuigreet}/bin/tuigreen --time --remember --cmd /usr/bin/start-hyprland";
         user = "greeter";
       };
     };
