@@ -19,9 +19,9 @@
     systemd.enable = false;
     settings = {
       monitor = ",preferred,auto,2";
-      "$terminal" = "ghostty";
+      "$terminal" = "uwsm app -- ghostty +new-window";
       "$mod" = "SUPER";
-      "$browser" = "firefox";
+      "$browser" = "uwsm app -- firefox";
 
       bind = [
         "$mod, RETURN, exec, $terminal"
