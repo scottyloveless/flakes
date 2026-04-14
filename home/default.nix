@@ -15,7 +15,6 @@
     ./ghostty.nix
     ./ssh.nix
     ./1password-shell.nix
-    ./greetd.nix
   ];
 
   programs.home-manager.enable = true;
