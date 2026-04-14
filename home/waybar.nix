@@ -37,16 +37,16 @@
             "10" = [ ];
           };
           format-icons = {
-            "1" = "dev";
-            "2" = "www";
-            "3" = "dev2";
-            "4" = "doc";
-            "5" = "sys";
-            "6" = "chat";
-            "7" = "mus";
-            "8" = "vid";
-            "9" = "gfx";
-            "10" = "msc";
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+            "10" = "10";
           };
         };
 
@@ -145,8 +145,8 @@
       * {
         border: none;
         border-radius: 0;
-        font-family: VictorMono Nerd Font;
-        font-weight: 600;
+        font-family: JetBrainsMono Nerd Font;
+        # font-weight: 600;
         font-size: 12px;
         min-height: 0;
       }
