@@ -35,14 +35,14 @@
     description = "mox";
   };
 
-  # networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   services.tuned.enable = true;
   services.upower.enable = true;
-  networking.wireless.iwd = {
-    enable = true;
-    settings.General.EnableNetworkConfiguration = true;
-  };
+  # networking.wireless.iwd = {
+  #   enable = true;
+  #   settings.General.EnableNetworkConfiguration = true;
+  # };
 
   # hardware.pulseaudio.enable = true; #this conflicts with Apple silicon support
   # hardware.pulseaudio.support32Bit = true;
