@@ -2,9 +2,20 @@
 {
 
   security.sudo.wheelNeedsPassword = false;
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
 
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors.hyprland = {
+      prettyName = "Hyprland";
+      comment = "Hyprland compositor managed by UWSM";
+      binPath = "/run/current-system/sw/bin/Hyprland";
+    };
+  };
   services.gnome.gnome-keyring.enable = true;
 
   users.users.mox = {
@@ -32,9 +43,7 @@
   services.greetd = {
     enable = true;
     settings = {
-      command = "${pkgs.tuigreet}/bin/tuigreet \
-          --time --time-format '%I:%M %p | %a • %h | %F' \
-          --cmd 'uwsm start hyprland'";
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start hyprland-uwsm.desktop'";
       user = "greeter";
     };
   };
