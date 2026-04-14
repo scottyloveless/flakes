@@ -8,16 +8,16 @@
         height = 31;
         modules-left = [ "hyprland/workspaces" ];
         modules-right = [
+          "temperature"
+          # "disk"
+          "memory"
+          "cpu"
+          # "tray"
           "network"
           "pulseaudio"
           "battery"
           "custom/date"
           "clock"
-          "temperature"
-          "disk"
-          "memory"
-          "cpu"
-          "tray"
         ];
 
         "hyprland/workspaces" = {
