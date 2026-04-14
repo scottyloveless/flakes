@@ -3,6 +3,7 @@
 
   security.sudo.wheelNeedsPassword = false;
   programs.hyprland.enable = true;
+  programs.hyprland.withUWSM = true;
 
   services.gnome.gnome-keyring.enable = true;
 
@@ -31,10 +32,10 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
-        user = "greeter";
-      };
+      command = "${pkgs.tuigreet}/bin/tuigreet \
+          --time --time-format '%I:%M %p | %a • %h | %F' \
+          --cmd 'uwsm start hyprland'";
+      user = "greeter";
     };
   };
 }
