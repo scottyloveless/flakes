@@ -16,8 +16,8 @@
     # };
     profiles.default.search = {
       force = true;
-      default = "Google";
-      privateDefault = "Google";
+      default = "google";
+      privateDefault = "google";
 
       engines = {
         "Nix Packages" = {
