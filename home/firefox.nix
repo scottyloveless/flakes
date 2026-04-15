@@ -2,9 +2,11 @@
 {
   programs.firefox = {
     enable = true;
-    preferences = {
-      "browser.startup.homepage" = "https://example.com";
-      "privacy.resistFingerprinting" = true;
+    profiles.default = {
+      settings = {
+        "browser.startup.homepage" = "https://google.com";
+        "privacy.resistFingerprinting" = true;
+      };
     };
     policies = {
       DisableTelemetry = true;
