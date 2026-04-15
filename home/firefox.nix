@@ -2,18 +2,18 @@
 {
   programs.firefox = {
     enable = true;
-    # profiles.default = {
-    #   settings = {
-    #     "browser.startup.homepage" = "https://google.com";
-    #     "privacy.resistFingerprinting" = true;
-    #   };
-    # };
-    policies = {
-      DisableTelemetry = true;
-      HardwareAcceleration = true;
-      OfferToSaveLogins = false;
-      DefaultDownloadDirectory = "$HOME/Downloads";
+    profiles.default = {
+      settings = {
+        "browser.startup.homepage" = "https://google.com";
+        "privacy.resistFingerprinting" = true;
+      };
     };
+    # policies = {
+    #   DisableTelemetry = true;
+    #   HardwareAcceleration = true;
+    #   OfferToSaveLogins = false;
+    #   DefaultDownloadDirectory = "$HOME/Downloads";
+    # };
     profiles.default.search = {
       force = true;
       default = "Google";
