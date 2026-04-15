@@ -17,8 +17,6 @@
     ../../modules/common.nix
   ];
 
-  programs.light.enable = true;
-
   nix.settings = {
     extra-substituters = [
       "https://nixos-apple-silicon.cachix.org"
