@@ -30,7 +30,7 @@
         "$mod, RETURN, exec, $terminal"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-        "$mod, RETURN, exec, $menu"
+        "$mod, R, exec, $menu"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
