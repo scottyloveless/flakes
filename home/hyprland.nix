@@ -143,11 +143,11 @@
       };
 
       exec-once = [
-        # "uwsm app -- noctalia-shell"
-        "systemctl --user start hyprpolkitagent"
+        "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
         "uwsm app -- hyprpaper"
         "uwsm app -- ghostty"
+        "uwsm app -- qs -c noctalia-shell"
       ];
 
       animations = {
