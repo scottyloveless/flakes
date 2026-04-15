@@ -152,13 +152,13 @@
       ];
 
       animations = {
-        enabled = "no";
+        enabled = "yes";
 
         bezier = [
-          "easeOutQuint,   0.23, 1,    0.32, 1"
-          "easeInOutCubic, 0.65, 0.05, 0.36, 1"
-          "linear,         0,    0,    1,    1"
-          "almostLinear,   0.5,  0.5,  0.75, 1"
+          "easeOutQuint,   0.23, 1,    0.16, 1"
+          "easeInOutCubic, 0.65, 0.05, 0.18, 1"
+          "linear,         0,    0,    0.5,    1"
+          "almostLinear,   0.5,  0.5,  0.20, 1"
           "quick,          0.15, 0,    0.1,  1"
         ];
         animation = [
