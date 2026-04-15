@@ -15,6 +15,7 @@
     ./ghostty.nix
     ./ssh.nix
     ./1password-shell.nix
+    ./firefox.nix
   ];
 
   programs.home-manager.enable = true;
