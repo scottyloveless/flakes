@@ -1,5 +1,15 @@
-{ config, pkgs, ... }:
 {
+  imports,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ../../modules/common.nix
+    ../../modules/darwincommon.nix
+  ];
   # macOS system packages (available to all users)
   environment.systemPackages = with pkgs; [
     git
@@ -45,13 +55,6 @@
       # "App Name" = App Store ID;
     };
   };
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
-  programs.zsh.enable = true;
-  environment.shells = with pkgs; [ zsh ];
 
   # macOS system defaults
   system.defaults = {

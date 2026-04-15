@@ -8,11 +8,19 @@ let
 in
 {
   programs.ssh = {
-
     enable = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent ${onePassPath}
-    '';
+    matchBlocks = {
+      "*" = {
+        forwardAgent = false;
+        serverAliveInterval = 60;
+        controlMaster = "auto";
+        controlPath = "~/.ssh/sockets/%r@%h-%p";
+        controlPersist = "10m";
+        extraOptions = {
+          "IdentitiesOnly" = "no";
+          "IdentityAgent" = "\"${onePassPath}\"";
+        };
+      };
+    };
   };
 }

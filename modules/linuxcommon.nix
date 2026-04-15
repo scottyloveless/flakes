@@ -10,6 +10,8 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  i18n.defaultLocale = "en_US.UTF-8";
+
   programs.uwsm = {
     enable = true;
     waylandCompositors.hyprland = {
@@ -39,6 +41,9 @@
   services.tuned.enable = true;
   services.upower.enable = true;
 
+  programs._1password-gui = {
+    polkitPolicyOwners = [ "mox" ];
+  };
   # hardware.pulseaudio.enable = true; #this conflicts with Apple silicon support
   # hardware.pulseaudio.support32Bit = true;
 

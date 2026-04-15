@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -28,7 +27,6 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "mox" ];
   };
 
   system.stateVersion = "25.11";

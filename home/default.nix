@@ -14,7 +14,7 @@
     ./oh-my-posh.nix
     ./ghostty.nix
     ./ssh.nix
-    ./1password-shell.nix
+    ./1password.nix
     ./firefox.nix
   ];
 
@@ -43,5 +43,6 @@
     gh
     yazi
     zoxide
+    pkgs.weechat
   ];
 }

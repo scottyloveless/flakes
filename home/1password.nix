@@ -8,4 +8,10 @@
       cachix
     ];
   };
+
+  xdg.configFile."1Password/ssh/agent.toml".text = ''
+    # Order of vaults to search for keys
+    [[ssh-keys]]
+    vault = "Private"
+  '';
 }
