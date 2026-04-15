@@ -8,6 +8,7 @@
     withUWSM = true;
   };
 
+  environment.variables.SSH_AUTH_SOCK = "~/.1password/agent.sock";
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   i18n.defaultLocale = "en_US.UTF-8";
