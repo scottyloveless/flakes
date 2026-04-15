@@ -76,7 +76,7 @@
               "id" = "ActiveWindow";
               "maxWidth" = 145;
               "scrollingMode" = "hover";
-              "showIcon" = true;
+              "showIcon" = false;
               "showText" = false;
               "textColor" = "tertiary";
               "useFixedWidth" = false;
@@ -112,14 +112,14 @@
           "right" = [
             {
               "displayMode" = "onhover";
-              "iconColor" = "none";
+              "iconColor" = "error";
               "id" = "Network";
               "textColor" = "none";
             }
             {
               "compactMode" = true;
               "diskPath" = "/";
-              "iconColor" = "none";
+              "iconColor" = "primary";
               "id" = "SystemMonitor";
               "showCpuCores" = false;
               "showCpuFreq" = false;
@@ -171,7 +171,7 @@
               "textColor" = "none";
             }
             {
-              "hideWhenZero" = false;
+              "hideWhenZero" = true;
               "hideWhenZeroUnread" = false;
               "iconColor" = "none";
               "id" = "NotificationHistory";
@@ -271,7 +271,7 @@
         "settingsPanelSideBarCardStyle" = false;
       };
       "location" = {
-        "name" = "Chelsea; AL";
+        "name" = "Chelsea, AL";
         "weatherEnabled" = true;
         "weatherShowEffects" = true;
         "weatherTaliaMascotAlways" = false;
@@ -361,7 +361,7 @@
         "position" = "center";
         "pinnedApps" = [ ];
         "sortByMostUsed" = true;
-        "terminalCommand" = "alacritty -e";
+        "terminalCommand" = "ghostty -e";
         "customLaunchPrefixEnabled" = false;
         "customLaunchPrefix" = "";
         "viewMode" = "list";
@@ -638,8 +638,8 @@
         "predefinedScheme" = "TokyoNight";
         "darkMode" = true;
         "schedulingMode" = "off";
-        "manualSunrise" = "06 =30";
-        "manualSunset" = "18 =30";
+        "manualSunrise" = "06:30";
+        "manualSunset" = "18:30";
         "generationMethod" = "tonal-spot";
         "monitorForColors" = "";
         "syncGsettings" = true;
