@@ -5,7 +5,7 @@
     enable = true;
     plugins = with pkgs; [
       gh
-      cachix
+      # cachix
     ];
   };
 
