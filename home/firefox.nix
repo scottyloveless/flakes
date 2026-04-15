@@ -3,7 +3,7 @@
   programs.firefox = {
     enable = true;
     preferences = {
-      "browser.startup.homepage" = "https://google.com";
+      "browser.startup.homepage" = "https://example.com";
       "privacy.resistFingerprinting" = true;
     };
     policies = {
