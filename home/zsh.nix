@@ -6,9 +6,11 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      ll = "eza -l";
+      ls = "eza --color=always --icons=always --group-directories-first";
+      ll = "eza -l --color=always --icons=always --group-directories-first";
       cat = "bat";
       cd = "z";
+      y = "yazi";
     };
     completionInit = ''
       autoload -U compinit && compinit
