@@ -11,6 +11,7 @@
     git
     curl
     wget
+    cachix
   ];
 
   nixpkgs.config.allowUnfree = true;
