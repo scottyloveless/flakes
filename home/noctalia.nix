@@ -58,11 +58,11 @@
               "followFocusedScreen" = false;
               "fontWeight" = "bold";
               "groupedBorderOpacity" = 1;
-              "hideUnoccupied" = false;
+              "hideUnoccupied" = true;
               "iconScale" = 0.8;
               "id" = "Workspace";
               "labelMode" = "index";
-              "occupiedColor" = "primary";
+              "occupiedColor" = "#ff966c";
               "pillSize" = 0.64;
               "showApplications" = false;
               "showApplicationsHover" = false;
