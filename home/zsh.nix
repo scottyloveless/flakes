@@ -8,6 +8,7 @@
     shellAliases = {
       ll = "eza -l";
       cat = "bat";
+      cd = "z";
     };
     initContent = ''
         bindkey -e
@@ -37,7 +38,7 @@
         # Open Neovim with the selected config
         NVIM_APPNAME=$(basename $config) nvim $@
       }
-
+       eval "$(zoxide init zsh)"
     '';
   };
 }

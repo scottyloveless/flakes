@@ -37,5 +37,7 @@
     nixd # nix lsp
     alejandra # nix lsp
     gh
+    yazi
+    zoxide
   ];
 }
