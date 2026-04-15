@@ -62,12 +62,12 @@
               "iconScale" = 0.8;
               "id" = "Workspace";
               "labelMode" = "index";
-              "occupiedColor" = "ff966c";
+              "occupiedColor" = "primary";
               "pillSize" = 0.64;
               "showApplications" = false;
               "showApplicationsHover" = false;
               "showBadge" = true;
-              "showLabelsOnlyWhenOccupied" = false;
+              "showLabelsOnlyWhenOccupied" = true;
               "unfocusedIconsOpacity" = 1;
             }
             {
