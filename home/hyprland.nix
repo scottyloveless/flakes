@@ -185,6 +185,9 @@
         "__GLX_VENDOR_LIBRARY_NAME,mesa"
         "LIBGL_ALWAYS_SOFTWARE,1"
 
+        "MOZ_ENABLE_WAYLAND,1"
+        "MOZ_USE_XINPUT2,1"
+
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
       ];

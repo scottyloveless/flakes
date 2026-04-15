@@ -10,9 +10,7 @@
       DisableTelemetry = true;
       HardwareAcceleration = true;
       OfferToSaveLogins = false;
-      DefaultDownloadDirectory = "${home}/Downloads";
+      DefaultDownloadDirectory = "$HOME/Downloads";
     };
   };
-  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
-  environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
 }
