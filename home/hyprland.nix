@@ -21,14 +21,16 @@
     systemd.enable = false;
     settings = {
       monitor = ",preferred,auto,1.67";
-      "$terminal" = "uwsm app -- ghostty +new-window";
       "$mod" = "SUPER";
+      "$terminal" = "uwsm app -- ghostty +new-window";
       "$browser" = "uwsm app -- firefox";
+      "$menu" = "noctalia-shell ipc call launcher toggle";
 
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
+        "$mod, RETURN, exec, $menu"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
@@ -99,7 +101,7 @@
 
       decoration = {
 
-        rounding = 10;
+        rounding = 20;
         rounding_power = 2;
 
         # Change transparency of focused and unfocused windows

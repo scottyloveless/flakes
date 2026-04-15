@@ -89,6 +89,20 @@
           },
         }
       '';
+
+      blink-cmp = ''
+        return {
+          {
+            "saghen/blink.cmp",
+            opts = {
+              keymap = {
+                -- This disables <CR> (Enter) for completion
+                ["<CR>"] = { "fallback" },
+              },
+            },
+          },
+        }
+      '';
     };
 
     extras = {
