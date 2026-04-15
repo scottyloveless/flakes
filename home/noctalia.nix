@@ -62,7 +62,7 @@
               "iconScale" = 0.8;
               "id" = "Workspace";
               "labelMode" = "index";
-              "occupiedColor" = "#ff966c";
+              "occupiedColor" = "ff966c";
               "pillSize" = 0.64;
               "showApplications" = false;
               "showApplicationsHover" = false;
