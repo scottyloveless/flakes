@@ -9,7 +9,7 @@
       general = {
         radiusRatio = 0.2;
       };
-      colorSchemes.predefinedScheme = "Tokyo Night";
+      colorSchemes.predefinedScheme = "TokyoNight";
       location = "Chelsea, AL";
       wallpaper.enabled = false;
     };
