@@ -6,7 +6,7 @@
     "nix-command"
     "flakes"
   ];
-
+  nix.settings.download-buffer-size = 500 * 1024 * 1024;
   environment.systemPackages = with pkgs; [
     git
     curl

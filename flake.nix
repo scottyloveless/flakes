@@ -35,6 +35,8 @@
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
 
     textfox.url = "github:adriankarlen/textfox";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
   outputs =
@@ -49,6 +51,7 @@
       homebrew-core,
       homebrew-cask,
       apple-silicon,
+      nixos-hardware,
       ...
     }@inputs:
     {
@@ -94,13 +97,16 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/intel-mac/configuration.nix
-            home-manager.nixosModules.homeManager
+            nixos-hardware.nixosModules.apple-t2
+            home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.mox = {
-                imports = [ ./home/linux.nix ]; # or darwin.nix on Mac
+                imports = [
+                   ./home/linux.nix
+                ]; # or darwin.nix on Mac
                 home.username = "mox";
                 home.homeDirectory = "/home/mox";
                 home.stateVersion = "26.05";
