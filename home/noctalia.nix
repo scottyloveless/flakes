@@ -3,8 +3,6 @@
   programs.noctalia-shell = {
     enable = true;
     settings = {
-      colorSchemes.predefinedScheme = "TokyoNight";
-
       "bar" = {
         "barType" = "floating";
         "position" = "bottom";
