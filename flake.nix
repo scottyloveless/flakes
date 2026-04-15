@@ -90,10 +90,10 @@
             }
           ];
         };
-        minimox = nixpkgs.lib.nixosSystem {
+        intel-mac = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/minimox/configuration.nix
+            ./hosts/intel-mac/configuration.nix
             home-manager.nixosModules.homeManager
             {
               home-manager.useGlobalPkgs = true;
