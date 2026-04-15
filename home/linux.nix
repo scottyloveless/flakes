@@ -6,10 +6,10 @@
 }:
 {
   imports = [
-    # inputs.noctalia.homeModules.default
+    inputs.noctalia.homeModules.default
     ./default.nix
     ./hyprland.nix
-    # ./noctalia.nix
+    ./noctalia.nix
     ./waybar.nix
     ./ghostty.nix
   ];
