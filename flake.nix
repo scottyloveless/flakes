@@ -85,7 +85,7 @@
                 imports = [ ./home/linux.nix ]; # or darwin.nix on Mac
                 home.username = "mox";
                 home.homeDirectory = "/home/mox";
-                home.stateVersion = "25.11";
+                home.stateVersion = "26.05";
               };
             }
           ];

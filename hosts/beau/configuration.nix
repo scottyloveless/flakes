@@ -16,6 +16,9 @@
     ../../modules/linuxcommon.nix
     ../../modules/common.nix
   ];
+
+  programs.light.enable = true;
+
   nix.settings = {
     extra-substituters = [
       "https://nixos-apple-silicon.cachix.org"
@@ -30,6 +33,7 @@
 
   # asahi stuff
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.asahi.useExperimentalGPUDriver = true;
 
   networking.networkmanager.enable = true;
 
