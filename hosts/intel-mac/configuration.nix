@@ -2,16 +2,21 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-#      "${builtins.fetchGit { url = "https://github.com/kekrby/nixos-hardware.git"; ref = "master"; rev = "e964f9f56c01992263c0b8040f989996aa870741"; }}/apple/t2"
-      ../../modules/common.nix
-      ../../modules/linuxcommon.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    #      "${builtins.fetchGit { url = "https://github.com/kekrby/nixos-hardware.git"; ref = "master"; rev = "e964f9f56c01992263c0b8040f989996aa870741"; }}/apple/t2"
+    ../../modules/common.nix
+    ../../modules/linuxcommon.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -20,8 +25,14 @@
 
   networking.hostName = "intel-mac"; # Define your hostname.
 
+  nix.settings = {
+    substituters = [ "https://cache.soopy.moe" ];
+    trusted-substituters = [ "https://cache.soopy.moe" ]; # to allow building as a non-trusted user
+    trusted-public-keys = [ "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo=" ];
+  };
+
   # Configure network connections interactively with nmcli or nmtui.
- # networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -41,8 +52,7 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-# nixpkgs.config.allowUnfree = true;
-  
+  # nixpkgs.config.allowUnfree = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -75,12 +85,12 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-#  environment.systemPackages = with pkgs; [
+  #  environment.systemPackages = with pkgs; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
- #     git
+  #     git
   #    curl
-   #   wget
- # ];
+  #   wget
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -126,4 +136,3 @@
   #system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-
