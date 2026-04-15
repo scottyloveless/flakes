@@ -45,7 +45,6 @@
               "colorizeSystemText" = "none";
               "customIconPath" = "";
               "enableColorization" = false;
-              # "icon" = "rocket";
               "iconColor" = "primary";
               "id" = "Launcher";
               "useDistroLogo" = true;
