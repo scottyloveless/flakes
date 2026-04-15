@@ -46,7 +46,7 @@
     ];
 
     casks = [
-      pearcleaner
+      "pearcleaner"
     ];
 
     masApps = {
