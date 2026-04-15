@@ -33,7 +33,6 @@
 
   # asahi stuff
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
-  hardware.asahi.useExperimentalGPUDriver = true;
 
   networking.networkmanager.enable = true;
 
