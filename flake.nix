@@ -31,7 +31,10 @@
       flake = false;
     };
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
+
+    textfox.url = "github:adriankarlen/textfox";
   };
 
   outputs =
