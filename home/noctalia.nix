@@ -44,9 +44,9 @@
               "colorizeSystemIcon" = "none";
               "colorizeSystemText" = "none";
               "customIconPath" = "";
-              "enableColorization" = true;
+              "enableColorization" = false;
               # "icon" = "rocket";
-              "iconColor" = "none";
+              "iconColor" = "primary";
               "id" = "Launcher";
               "useDistroLogo" = true;
             }
@@ -101,12 +101,12 @@
           ];
           "center" = [
             {
-              "clockColor" = "none";
+              "clockColor" = "tertiary";
               "customFont" = "";
-              "formatHorizontal" = "HH =mm ddd; MMM dd";
+              "formatHorizontal" = "HH:mm ddd, MMM dd";
               "formatVertical" = "HH mm - dd MM";
               "id" = "Clock";
-              "tooltipFormat" = "HH =mm ddd; MMM dd";
+              "tooltipFormat" = "HH:mm ddd, MMM dd";
               "useCustomFont" = false;
             }
           ];
