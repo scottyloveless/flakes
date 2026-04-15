@@ -17,6 +17,8 @@
     ../../modules/common.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -24,9 +26,11 @@
   # asahi stuff
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
+  networking.networkmanager.enable = true;
+
   networking.hostName = "beau";
-  networking.wireless.iwd = {
-    enable = true;
-    settings.General.EnableNetworkConfiguration = true;
-  };
+  # networking.wireless.iwd = {
+  #   enable = true;
+  #   settings.General.EnableNetworkConfiguration = true;
+  # };
 }
