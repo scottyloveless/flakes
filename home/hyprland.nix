@@ -214,6 +214,10 @@
         #   "zoomFactor,    1,     7,     quick"
         # ];
       };
+
+      misc = {
+        vfr = true;
+      };
       env = [
         "WLR_DRM_NO_ATOMIC,1"
         "WLR_RENDERER_ALLOW_SOFTWARE,1"
