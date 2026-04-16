@@ -177,14 +177,14 @@
         ];
 
         animation = [
-          "windowsIn,    1, 2.5, snappy, slide" # new windows slide in fast
-          "windowsOut,   1, 1.5, snappy, slide" # close even faster
-          "windowsMove,  1, 2, snappy" # tile rearranging
-          "workspaces,   1, 3, overshoot, slide" # workspace transitions with slight overshoot
-          "specialWorkspace, 1, 2, snappy, slidevert"
-          "fade,         1, 1, instant" # almost no fade
-          "fadeDim,      1, 2, snappy"
-          "border,       1, 2, snappy"
+          "windowsIn,    1, 0.5, snappy, slide" # new windows slide in fast
+          "windowsOut,   1, 0.5, snappy, slide" # close even faster
+          "windowsMove,  1, 0.5, snappy" # tile rearranging
+          "workspaces,   1, 0.5, snappy, slidevert" # workspace transitions with slight overshoot
+          "specialWorkspace, 0.5, 1, snappy, slidevert"
+          "fade,         1, 0.5, instant" # almost no fade
+          "fadeDim,      1, 0.5, snappy"
+          "border,       1, 0.5, snappy"
           "borderangle,  1, 8, snappy, once"
         ];
         # bezier = [
