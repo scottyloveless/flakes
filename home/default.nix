@@ -32,7 +32,6 @@
     bat
     eza
     btop
-    firefox
     gcc
     lazygit
     oh-my-posh
