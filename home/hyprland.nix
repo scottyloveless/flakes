@@ -182,9 +182,9 @@
           "layersOut,     1,     1.5,   linear,       fade"
           "fadeLayersIn,  1,     1.79,  almostLinear"
           "fadeLayersOut, 1,     1.39,  almostLinear"
-          "workspaces,    1,     1.94,  almostLinear, slidefade"
-          "workspacesIn,  1,     1.21,  almostLinear, slidefade"
-          "workspacesOut, 1,     1.94,  almostLinear, slidefade"
+          "workspaces,    1,     1.94,  almostLinear, slidevert"
+          "workspacesIn,  1,     1.21,  almostLinear, slidevert"
+          "workspacesOut, 1,     1.94,  almostLinear, slidevert"
           "zoomFactor,    1,     7,     quick"
         ];
       };
