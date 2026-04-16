@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.firefox = {
-    enable = true;
+    enable = false;
     profiles.default = {
       settings = {
         "browser.startup.homepage" = "https://google.com";

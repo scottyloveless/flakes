@@ -12,6 +12,6 @@
     ./noctalia.nix
     ./waybar.nix
     ./ghostty.nix
-    ./textfox.nix
+    # ./textfox.nix
   ];
 }

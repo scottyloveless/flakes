@@ -23,7 +23,7 @@
       monitor = ",preferred,auto,1.67";
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
-      "$browser" = "uwsm app -- firefox";
+      "$browser" = "uwsm app -- chromium";
       "$menu" = "noctalia-shell ipc call launcher toggle";
 
       bind = [
