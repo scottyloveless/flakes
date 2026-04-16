@@ -32,6 +32,7 @@
       "$terminal" = "uwsm app -- ghostty +new-window";
       "$browser" = "uwsm app -- chromium";
       "$menu" = "noctalia-shell ipc call launcher toggle";
+      "$pw-manager" = "uwsm app -- 1password";
 
       bind = [
         "$mod, RETURN, exec, $terminal"
@@ -43,6 +44,7 @@
         "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
         "$mod, B, exec, $browser"
+        "$mod, P, exec, $pw-manager"
 
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
@@ -60,7 +62,14 @@
         "$mod SHIFT, S, movetoworkspace, special:magic"
 
         "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
+        "$mod, mouse_up, workspace, e-1" # Keyboard brightness (Super + brightness keys)
+
+        "SUPER, XF86MonBrightnessUp, exec, brightnessctl --device='kbd_backlight' set +10%"
+        "SUPER, XF86MonBrightnessDown, exec, brightnessctl --device='kbd_backlight' set 10%-"
+
+        # Regular brightness keys for screen
+        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
 
       bindm = [

@@ -28,11 +28,14 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "video"
       "audio"
     ]; # Enable ‘sudo’ for the user.
     #   packages = with pkgs; [
     #     tree
     #   ];
+    #
+
     home = "/home/mox";
     shell = pkgs.zsh;
     description = "mox";
