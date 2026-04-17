@@ -23,7 +23,7 @@
       quit-after-last-window-closed = true;
       quick-terminal-animation-duration = 1;
       background-opacity = 0.85;
-      background-blur = true;
+      # background-blur = true;
     };
   };
 }

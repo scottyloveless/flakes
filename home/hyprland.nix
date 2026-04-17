@@ -135,21 +135,23 @@
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
           enabled = true;
-          size = 3;
-          passes = 2;
+          size = 6;
+          passes = 3;
 
           vibrancy = 0.1696;
+          new_optimizations = true;
         };
 
         layerrule = "blur on, match:namespace waybar";
+
       };
 
       input = {
         kb_layout = "us";
         kb_options = "caps:escape";
 
-        repeat_delay = 250;
-        repeat_rate = 50;
+        repeat_delay = 300;
+        repeat_rate = 40;
 
         follow_mouse = 1;
 
