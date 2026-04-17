@@ -180,15 +180,15 @@
     # Keybinds
     binds = with config.lib.niri.actions; {
       # Terminal
-      "Mod+Return".action.spawn "ghostty";
+      "Mod+Return".action.spawn = "ghostty";
 
       # App launcher
-      "Mod+Space".action.spawn "rofi" "-show" "drun";
-      "Mod+R".action.spawn "rofi" "-show" "run";
+      "Mod+Space".action.spawn = "rofi" "-show" "drun";
+      "Mod+R".action.spawn = "rofi" "-show" "run";
 
       # Browser & password manager
-      "Mod+B".action.spawn "chromium";
-      "Mod+P".action.spawn "1password";
+      "Mod+B".action.spawn = "chromium";
+      "Mod+P".action.spawn = "1password";
 
       # Quit app
       "Mod+Q".action.close-window;
