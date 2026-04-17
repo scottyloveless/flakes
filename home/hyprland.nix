@@ -134,7 +134,7 @@
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
-          enabled = false;
+          enabled = true;
           size = 6;
           passes = 3;
 
@@ -228,7 +228,7 @@
       };
 
       misc = {
-        vfr = true;
+        vfr = false;
       };
       env = [
         # "WLR_DRM_NO_ATOMIC,1"
