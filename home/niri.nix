@@ -180,15 +180,15 @@
     # Keybinds
     binds = with config.lib.niri.actions; {
       # Terminal
-      "Mod+Return".action.spawn = = "ghostty";
+      "Mod+Return".action.spawn = "ghostty";
 
       # App launcher
-      "Mod+Space".action.spawn = = "rofi" "-show" "drun";
-      "Mod+R".action.spawn = = "rofi" "-show" "run";
+      "Mod+Space".action.spawn = "rofi" "-show" "drun";
+      "Mod+R".action.spawn = "rofi" "-show" "run";
 
       # Browser & password manager
-      "Mod+B".action.spawn = = "chromium";
-      "Mod+P".action.spawn = = "1password";
+      "Mod+B".action.spawn = "chromium";
+      "Mod+P".action.spawn = "1password";
 
       # Quit app
       "Mod+Q".action = close-window;
@@ -197,7 +197,7 @@
       "Mod+Shift+E".action = quit;
 
       # Lock
-      "Mod+Shift+Q".action.spawn = = "hyprlock";
+      "Mod+Shift+Q".action.spawn = "hyprlock";
 
       # Focus column navigation (left/right along the scroll)
       "Mod+H".action = focus-column-left;
@@ -220,11 +220,11 @@
       "Mod+Period".action = expel-window-from-column;
 
       # Column width presets
-      "Mod+1".action.focus-workspace = [1 ] ;
-      "Mod+2".action.focus-workspace = [2];
-      "Mod+3".action.focus-workspace = [3];
-      "Mod+4".action.focus-workspace = [4] ;
-      "Mod+5".action.focus-workspace = [5];
+      "Mod+1".action.focus-workspace = [ 1 ];
+      "Mod+2".action.focus-workspace = [ 2 ];
+      "Mod+3".action.focus-workspace = [ 3 ];
+      "Mod+4".action.focus-workspace = [ 4 ];
+      "Mod+5".action.focus-workspace = [ 5 ];
 
       # Move to workspace
       "Mod+Shift+1".action.move-column-to-workspace = [ 1 ];
@@ -235,7 +235,7 @@
 
       # Column width (cycle through presets)
       "Mod+Minus".action.set-column-width = "-10%";
-      "Mod+Equal".action.set-column-width  = "+10%";
+      "Mod+Equal".action.set-column-width = "+10%";
       "Mod+0".action = reset-window-height;
 
       # Fullscreen
