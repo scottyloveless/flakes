@@ -112,7 +112,7 @@
 
         allow_tearing = false;
 
-        layout = "scrolling";
+        layout = "dwindle";
 
       };
 
@@ -160,13 +160,12 @@
         fullscreen_on_one_column = true;
         column_width = 0.5;
       };
-      # dwindle = {
-      #   pseudotile = "yes";
-      #   preserve_split = "yes";
-      # };
+      dwindle = {
+        pseudotile = "yes";
+        preserve_split = "yes";
+      };
 
       exec-once = [
-        # "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
       ];
 

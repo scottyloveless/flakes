@@ -8,6 +8,8 @@
     withUWSM = true;
   };
 
+  programs.niri.enable = true;
+
   environment.variables.SSH_AUTH_SOCK = "~/.1password/agent.sock";
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -73,8 +75,8 @@
             --remember \
             --remember-user-session \
             --asterisks \
+            --sessions /run/current-system/sw/share/wayland-sessions \
             --theme 'border=blue;text=cyan;prompt=magenta;time=blue;action=blue;button=magenta;container=black;input=cyan' \
-            --cmd 'uwsm start hyprland-uwsm.desktop'
         '';
         user = "greeter";
       };

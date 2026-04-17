@@ -17,5 +17,6 @@
     ./dunst.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./niri.nix
   ];
 }
