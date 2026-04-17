@@ -245,17 +245,17 @@
       "Mod+W".action = switch-preset-column-width;
 
       # Screenshots
-      "Print" = {
-        action = "screenshot";
-      };
-      # Take a screenshot of the current screen
-      "Ctrl+Print" = {
-        action = "screenshot-screen";
-      };
-      # Take a screenshot of the focused window
-      "Alt+Print" = {
-        action = "screenshot-window";
-      };
+      # "Print" = {
+      #   action = "screenshot";
+      # };
+      # # Take a screenshot of the current screen
+      # "Ctrl+Print" = {
+      #   action = "screenshot-screen";
+      # };
+      # # Take a screenshot of the focused window
+      # "Alt+Print" = {
+      #   action = "screenshot-window";
+      # };
 
       # Volume
       "XF86AudioRaiseVolume".action.spawn = [
