@@ -198,9 +198,9 @@
           "borderangle,  1, 8, snappy, once"
           # disabled animations
           "fade,         0, 1, default" # almost no fade
-          "layers, 0, 1, default"
-          "layersIn, 0, 1, default"
-          "layersOut, 0, 1, default"
+          # "layers, 0, 1, default"
+          # "layersIn, 0, 1, default"
+          # "layersOut, 0, 1, default"
         ];
         # bezier = [
         #   "easeOutQuint,   0.23, 1,    0.16, 1"
