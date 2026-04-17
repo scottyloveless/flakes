@@ -5,10 +5,11 @@
     systemd.enable = true;
     settings = {
       mainBar = {
+        layer = "top";
         position = "top";
         height = 32;
         spacing = 4;
-        margin = "6 8 0 8";
+        margin = "0 0 0 0";
 
         modules-left = [
           "hyprland/workspaces"
