@@ -13,12 +13,12 @@
     enable = true;
     settings = {
       preload = [
-        "~/wallpapers/dopamine.png"
+        "~/wallpapers/landscape2.jpg"
       ];
       wallpaper = [
         {
           monitor = "";
-          path = "~/wallpapers/dopamine.png";
+          path = "~/wallpapers/landscape2.jpg";
         }
       ];
       splash = false;
