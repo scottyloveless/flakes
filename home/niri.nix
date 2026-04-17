@@ -158,6 +158,7 @@
         matches = [
           { namespace = "^waybar$"; }
         ];
+        layer = "top";
         geometry-corner-radius = {
           top-left = 8.0;
           top-right = 8.0;
