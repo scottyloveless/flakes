@@ -250,7 +250,11 @@
       "Mod+0".action = reset-window-height;
 
       # Fullscreen
-      "Mod+F".action = fullscreen-window;
+      "Mod+F".action = maximize-column;
+      "Mod+Shift+F".action = fullscreen-window;
+
+      # Overview
+      "Mod+O".action = toggle-overview;
 
       # Center current column
       "Mod+C".action = center-column;
