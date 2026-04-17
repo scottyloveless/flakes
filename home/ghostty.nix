@@ -22,7 +22,7 @@
       window-padding-color = "background";
       quit-after-last-window-closed = true;
       quick-terminal-animation-duration = 1;
-      background-opacity = 0.8;
+      background-opacity = 0.85;
       background-blur = true;
     };
   };
