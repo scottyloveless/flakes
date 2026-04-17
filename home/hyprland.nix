@@ -170,7 +170,6 @@
       exec-once = [
         "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
-        "uwsm app -- waybar"
       ];
 
       animations = {
