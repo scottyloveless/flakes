@@ -1,12 +1,12 @@
 { config, lib, ... }:
 {
   programs.niri.settings = {
-    # help asahi find renderD128
+    # Help asahi find renderD128
     debug = {
       render-drm-device = "/dev/dri/renderD128";
     };
+
     # Input configuration
-    #
     input = {
       keyboard = {
         xkb = {
@@ -44,7 +44,7 @@
     # Layout
     layout = {
       gaps = 8;
-      center-focused-column = "never"; # "always" for niri-style centering
+      center-focused-column = "never";
 
       preset-column-widths = [
         { proportion = 0.33333; }
@@ -76,7 +76,7 @@
       };
     };
 
-    # spawn = at startup
+    # Spawn at startup
     spawn-at-startup = [
       { command = [ "waybar" ]; }
       {
@@ -98,74 +98,63 @@
 
     # Environment variables
     environment = {
-      DISPLAY = null; # niri is Wayland-only
+      DISPLAY = null;
       MOZ_ENABLE_WAYLAND = "1";
       XCURSOR_SIZE = "24";
       XCURSOR_THEME = "Bibata-Modern-Classic";
     };
 
-    # Hotkey overlay title
+    # Skip hotkey overlay on startup
     hotkey-overlay.skip-at-startup = true;
 
-    # Screenshots go here
+    # Screenshot directory
     screenshot-path = "~/Pictures/Screenshots/Screenshot-%Y-%m-%d-%H-%M-%S.png";
 
     # Animations - snappy feel
     animations = {
-      slowdown = 0.5; # make all animations faster globally
+      slowdown = 0.5;
 
       workspace-switch = {
-        kind = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 1000;
-            epsilon = 0.0001;
-          };
+        kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 1000;
+          epsilon = 0.0001;
         };
       };
 
       horizontal-view-movement = {
-        kind = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 800;
-            epsilon = 0.0001;
-          };
+        kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 800;
+          epsilon = 0.0001;
         };
       };
 
       window-movement = {
-        kind = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 800;
-            epsilon = 0.0001;
-          };
+        kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 800;
+          epsilon = 0.0001;
         };
       };
 
       window-open = {
-        kind = {
-          easing = {
-            duration-ms = 150;
-            curve = "ease-out-quad";
-          };
+        kind.easing = {
+          duration-ms = 150;
+          curve = "ease-out-quad";
         };
       };
 
       window-close = {
-        kind = {
-          easing = {
-            duration-ms = 100;
-            curve = "ease-out-quad";
-          };
+        kind.easing = {
+          duration-ms = 100;
+          curve = "ease-out-quad";
         };
       };
     };
 
     # Window rules
     window-rules = [
-      # Round corners and add opacity for inactive windows
       {
         geometry-corner-radius = {
           top-left = 12.0;
@@ -180,7 +169,7 @@
     # Keybinds
     binds = with config.lib.niri.actions; {
       # Terminal
-      "Mod+Return".action.spawn = "ghostty";
+      "Mod+Return".action.spawn = [ "ghostty" ];
 
       # App launcher
       "Mod+Space".action.spawn = [
@@ -195,8 +184,8 @@
       ];
 
       # Browser & password manager
-      "Mod+B".action.spawn = "chromium";
-      "Mod+P".action.spawn = "1password";
+      "Mod+B".action.spawn = [ "chromium" ];
+      "Mod+P".action.spawn = [ "1password" ];
 
       # Quit app
       "Mod+Q".action = close-window;
@@ -205,7 +194,7 @@
       "Mod+Shift+E".action = quit;
 
       # Lock
-      "Mod+Shift+Q".action.spawn = "hyprlock";
+      "Mod+Shift+Q".action.spawn = [ "hyprlock" ];
 
       # Focus column navigation (left/right along the scroll)
       "Mod+H".action = focus-column-left;
@@ -227,7 +216,7 @@
       "Mod+Comma".action = consume-window-into-column;
       "Mod+Period".action = expel-window-from-column;
 
-      # Column width presets
+      # Focus workspace
       "Mod+1".action.focus-workspace = [ 1 ];
       "Mod+2".action.focus-workspace = [ 2 ];
       "Mod+3".action.focus-workspace = [ 3 ];
@@ -241,9 +230,9 @@
       "Mod+Shift+4".action.move-column-to-workspace = [ 4 ];
       "Mod+Shift+5".action.move-column-to-workspace = [ 5 ];
 
-      # Column width (cycle through presets)
-      "Mod+Minus".action.set-column-width = "-10%";
-      "Mod+Equal".action.set-column-width = "+10%";
+      # Column width
+      "Mod+Minus".action.set-column-width = [ "-10%" ];
+      "Mod+Equal".action.set-column-width = [ "+10%" ];
       "Mod+0".action = reset-window-height;
 
       # Fullscreen
@@ -252,7 +241,7 @@
       # Center current column
       "Mod+C".action = center-column;
 
-      # Column width cycling (like niri's "switch to next preset")
+      # Column width cycling
       "Mod+W".action = switch-preset-column-width;
 
       # Screenshots
@@ -261,22 +250,74 @@
       "Mod+Shift+S".action = screenshot;
 
       # Volume
-      "XF86AudioRaiseVolume".action.spawn = "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+";
-      "XF86AudioLowerVolume".action.spawn = "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
-      "XF86AudioMute".action.spawn = "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-      "XF86AudioMicMute".action.spawn = "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+      "XF86AudioRaiseVolume".action.spawn = [
+        "wpctl"
+        "set-volume"
+        "-l"
+        "1"
+        "@DEFAULT_AUDIO_SINK@"
+        "5%+"
+      ];
+      "XF86AudioLowerVolume".action.spawn = [
+        "wpctl"
+        "set-volume"
+        "@DEFAULT_AUDIO_SINK@"
+        "5%-"
+      ];
+      "XF86AudioMute".action.spawn = [
+        "wpctl"
+        "set-mute"
+        "@DEFAULT_AUDIO_SINK@"
+        "toggle"
+      ];
+      "XF86AudioMicMute".action.spawn = [
+        "wpctl"
+        "set-mute"
+        "@DEFAULT_AUDIO_SOURCE@"
+        "toggle"
+      ];
 
       # Media keys
-      "XF86AudioNext".action.spawn = "playerctl" "next";
-      "XF86AudioPlay".action.spawn = "playerctl" "play-pause";
-      "XF86AudioPause".action.spawn = "playerctl" "play-pause";
-      "XF86AudioPrev".action.spawn = "playerctl" "previous";
+      "XF86AudioNext".action.spawn = [
+        "playerctl"
+        "next"
+      ];
+      "XF86AudioPlay".action.spawn = [
+        "playerctl"
+        "play-pause"
+      ];
+      "XF86AudioPause".action.spawn = [
+        "playerctl"
+        "play-pause"
+      ];
+      "XF86AudioPrev".action.spawn = [
+        "playerctl"
+        "previous"
+      ];
 
       # Brightness
-      "XF86MonBrightnessUp".action.spawn = "brightnessctl" "set" "+10%";
-      "XF86MonBrightnessDown".action.spawn = "brightnessctl" "set" "10%-";
-      "Mod+XF86MonBrightnessUp".action.spawn = "brightnessctl" "--device=kbd_backlight" "set" "+10%";
-      "Mod+XF86MonBrightnessDown".action.spawn = "brightnessctl" "--device=kbd_backlight" "set" "10%-";
+      "XF86MonBrightnessUp".action.spawn = [
+        "brightnessctl"
+        "set"
+        "+10%"
+      ];
+      "XF86MonBrightnessDown".action.spawn = [
+        "brightnessctl"
+        "set"
+        "10%-"
+      ];
+      "Mod+XF86MonBrightnessUp".action.spawn = [
+        "brightnessctl"
+        "--device=kbd_backlight"
+        "set"
+        "+10%"
+      ];
+      "Mod+XF86MonBrightnessDown".action.spawn = [
+        "brightnessctl"
+        "--device=kbd_backlight"
+        "set"
+        "10%-"
+      ];
     };
   };
 }
