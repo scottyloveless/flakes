@@ -97,8 +97,8 @@
             window#waybar {
               background: #1a1b26;
               color: #c0caf5;
-              border: 1px solid #414868;
-              border-radius: 6px;
+              border: 0px solid #414868;
+              border-radius: 0px;
             }
 
             #workspaces {
