@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.noctalia-shell = {
-    enable = true;
+    enable = false;
     settings = {
       "bar" = {
         "barType" = "floating";

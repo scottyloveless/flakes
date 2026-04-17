@@ -31,7 +31,6 @@
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
       "$browser" = "uwsm app -- chromium";
-      "$menu" = "noctalia-shell ipc call launcher toggle";
       "$pw-manager" = "uwsm app -- 1password";
 
       bind = [
@@ -70,6 +69,13 @@
         # Regular brightness keys for screen
         ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
+        # App launcher
+        "$mod, SPACE, exec, uwsm app -- rofi -show drun"
+        "$mod, R, exec, uwsm app -- rofi -show run"
+
+        # Lock
+        "$mod SHIFT, L, exec, uwsm app -- hyprlock"
       ];
 
       bindm = [
@@ -164,7 +170,9 @@
         "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
         "uwsm app -- hyprpaper"
-        "uwsm app -- noctalia-shell"
+        "uwsm app -- waybar"
+        "uwsm app -- dunst"
+        "uwsm app -- hypridle"
       ];
 
       animations = {

@@ -11,10 +11,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     lazyvim.url = "github:pfassina/lazyvim-nix";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # noctalia = {
+    # url = "github:noctalia-dev/noctalia-shell";
+    # inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,7 +105,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.mox = {
                 imports = [
-                   ./home/linux.nix
+                  ./home/linux.nix
                 ]; # or darwin.nix on Mac
                 home.username = "mox";
                 home.homeDirectory = "/home/mox";
