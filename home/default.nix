@@ -44,6 +44,5 @@
     yazi
     zoxide
     pkgs.weechat
-    discord
   ];
 }
