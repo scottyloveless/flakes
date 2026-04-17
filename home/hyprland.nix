@@ -118,6 +118,8 @@
 
       cursor = {
         no_hardware_cursors = false;
+        hide-when-typing = false;
+        hide-after-inactive-ms = null;
       };
       decoration = {
 
