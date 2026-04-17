@@ -6,12 +6,16 @@
 }:
 {
   imports = [
-    inputs.noctalia.homeModules.default
+    # inputs.noctalia.homeModules.default
+    # ./textfox.nix
+    # ./noctalia.nix
     ./default.nix
     ./hyprland.nix
-    ./noctalia.nix
-    ./waybar.nix
     ./ghostty.nix
-    # ./textfox.nix
+    ./waybar.nix
+    ./rofi.nix
+    ./dunst.nix
+    ./hypridle.nix
+    ./hyprlock.nix
   ];
 }
