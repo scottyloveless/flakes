@@ -29,6 +29,10 @@
     enable = true;
     systemd.enable = false;
     settings = {
+      layerrule = [
+        "blur, waybar"
+        "ignorezero, waybar"
+      ];
       monitor = ",preferred,auto,1.67";
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";

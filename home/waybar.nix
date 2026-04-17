@@ -14,6 +14,7 @@
         modules-left = [
           "hyprland/workspaces"
           "hyprland/window"
+          "niri/workspaces"
         ];
         modules-center = [ "clock" ];
         modules-right = [
@@ -30,6 +31,15 @@
           all-outputs = true;
           format = "{id}";
           persistent-workspaces."*" = 5;
+        };
+
+        "niri/workspaces" = {
+          format = "{value}";
+          format-icons = {
+            active = "●";
+            default = "○";
+            empty = "·";
+          };
         };
 
         "hyprland/window" = {
@@ -95,7 +105,7 @@
             }
 
             window#waybar {
-              background: #1a1b26;
+              background: rgba(26, 27, 38, 0.75);
               color: #c0caf5;
               border: 0px solid #414868;
               border-radius: 0px;
