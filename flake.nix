@@ -37,6 +37,10 @@
     textfox.url = "github:adriankarlen/textfox";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -52,6 +56,7 @@
       homebrew-cask,
       apple-silicon,
       nixos-hardware,
+      niri,
       ...
     }@inputs:
     {
@@ -80,12 +85,16 @@
             apple-silicon.nixosModules.default
             ./hosts/beau/configuration.nix
             home-manager.nixosModules.home-manager
+            inputs.niri.nixosModules.niri
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.mox = {
-                imports = [ ./home/linux.nix ]; # or darwin.nix on Mac
+                imports = [
+                  inputs.niri.homeModules.niri
+                  ./home/linux.nix
+                ]; # or darwin.nix on Mac
                 home.username = "mox";
                 home.homeDirectory = "/home/mox";
                 home.stateVersion = "26.05";

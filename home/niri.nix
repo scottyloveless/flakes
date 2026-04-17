@@ -1,7 +1,12 @@
 { config, lib, ... }:
 {
   programs.niri.settings = {
+    # help asahi find renderD128
+    debug = {
+      render-drm-device = "/dev/dri/renderD128";
+    };
     # Input configuration
+    #
     input = {
       keyboard = {
         xkb = {
