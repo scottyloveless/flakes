@@ -38,7 +38,6 @@
         "$mod, RETURN, exec, $terminal"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-        "$mod, R, exec, $menu"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
@@ -89,8 +88,6 @@
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-      "
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle            "
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle       "
-        ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+                   "
-        ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-                 "
       ];
 
       bindl = [
@@ -101,8 +98,6 @@
       ];
 
       suppressevent = "maximize";
-      # windowrule = [
-      # ];
 
       general = {
         gaps_in = 5;
@@ -151,7 +146,7 @@
         kb_layout = "us";
         kb_options = "caps:escape";
 
-        follow_mouse = 1;
+        follow_mouse = 2;
 
         sensitivity = 0;
 
@@ -160,10 +155,14 @@
         };
       };
 
-      dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
+      scrolling = {
+        column_width = 0.5;
+        focus_center = true;
       };
+      # dwindle = {
+      #   pseudotile = "yes";
+      #   preserve_split = "yes";
+      # };
 
       exec-once = [
         "uwsm app -- systemctl --user start hyprpolkitagent"
@@ -226,16 +225,18 @@
         vfr = true;
       };
       env = [
-        "WLR_DRM_NO_ATOMIC,1"
-        "WLR_RENDERER_ALLOW_SOFTWARE,1"
+        # "WLR_DRM_NO_ATOMIC,1"
+        # "WLR_RENDERER_ALLOW_SOFTWARE,1"
         "__GLX_VENDOR_LIBRARY_NAME,mesa"
-        "LIBGL_ALWAYS_SOFTWARE,1"
+        # "LIBGL_ALWAYS_SOFTWARE,1"
 
         "MOZ_ENABLE_WAYLAND,1"
         "MOZ_USE_XINPUT2,1"
 
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+
+        "XCURSOR_THEME,Bibata-Modern-Classic"
       ];
     };
   };
