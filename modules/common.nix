@@ -14,7 +14,13 @@
     cachix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord"
+      "_1password"
+      "_1password-gui"
+    ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
