@@ -20,6 +20,7 @@
       "discord"
       "_1password"
       "_1password-gui"
+      "1password-cli"
     ];
 
   fonts.packages = with pkgs; [
