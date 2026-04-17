@@ -9,8 +9,6 @@
   };
   programs.niri.enable = true;
 
-  programs.niri.enable = true;
-
   environment.variables.SSH_AUTH_SOCK = "~/.1password/agent.sock";
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
