@@ -7,6 +7,9 @@
         hide_cursor = true;
         grace = 0;
         disable_loading_bar = true;
+        no_fade_in = true;
+        no_fade_out = true;
+        immediate_render = true;
       };
 
       background = [
