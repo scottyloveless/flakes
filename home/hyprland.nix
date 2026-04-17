@@ -29,10 +29,6 @@
     enable = true;
     systemd.enable = false;
     settings = {
-      # layerrule = [
-      #   "blur, waybar"
-      #   "ignorezero, waybar"
-      # ];
       monitor = ",preferred,auto,2";
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
@@ -140,18 +136,22 @@
         blur = {
           enabled = true;
           size = 3;
-          passes = 1;
+          passes = 2;
 
           vibrancy = 0.1696;
         };
 
+        layerrule = "blur on, match:namespace waybar";
       };
 
       input = {
         kb_layout = "us";
         kb_options = "caps:escape";
 
-        follow_mouse = 2;
+        repeat_delay = 250;
+        repeat_rate = 50;
+
+        follow_mouse = 1;
 
         sensitivity = 0;
 
