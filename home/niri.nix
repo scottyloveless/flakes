@@ -33,7 +33,7 @@
 
     # Output (monitor) config
     outputs."eDP-1" = {
-      scale = 1.67;
+      scale = 2;
       mode = {
         width = 2560;
         height = 1600;
