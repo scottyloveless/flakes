@@ -245,9 +245,9 @@
       "Mod+W".action = switch-preset-column-width;
 
       # Screenshots
-      "Print".action = screenshot-screen;
-      "Shift+Print".action = screenshot-screen;
-      "Mod+Shift+S".action = screenshot-window;
+      "Print".action = [ "screenshot" ];
+      "Shift+Print".action = [ "screenshot-screen" ];
+      "Mod+Shift+S".action = [ "screenshot" ];
 
       # Volume
       "XF86AudioRaiseVolume".action.spawn = [
