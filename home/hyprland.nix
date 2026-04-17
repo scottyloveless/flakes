@@ -7,6 +7,7 @@
     name = "Bibata-Modern-Classic";
     size = 16;
   };
+
   services.hyprpaper = {
     enable = true;
     settings = {
@@ -169,10 +170,7 @@
       exec-once = [
         "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
-        "uwsm app -- hyprpaper"
         "uwsm app -- waybar"
-        "uwsm app -- dunst"
-        "uwsm app -- hypridle"
       ];
 
       animations = {
