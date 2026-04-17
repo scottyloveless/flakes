@@ -157,8 +157,8 @@
       };
 
       scrolling = {
+        fullscreen_on_one_column = true;
         column_width = 0.5;
-        focus_center = true;
       };
       # dwindle = {
       #   pseudotile = "yes";
