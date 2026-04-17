@@ -76,7 +76,7 @@
       };
     };
 
-    # Spawn at startup
+    # spawn = at startup
     spawn-at-startup = [
       { command = [ "waybar" ]; }
       {
@@ -180,51 +180,51 @@
     # Keybinds
     binds = with config.lib.niri.actions; {
       # Terminal
-      "Mod+Return".action.spawn = "ghostty";
+      "Mod+Return".action.spawn = = "ghostty";
 
       # App launcher
-      "Mod+Space".action.spawn = "rofi" "-show" "drun";
-      "Mod+R".action.spawn = "rofi" "-show" "run";
+      "Mod+Space".action.spawn = = "rofi" "-show" "drun";
+      "Mod+R".action.spawn = = "rofi" "-show" "run";
 
       # Browser & password manager
-      "Mod+B".action.spawn = "chromium";
-      "Mod+P".action.spawn = "1password";
+      "Mod+B".action.spawn = = "chromium";
+      "Mod+P".action.spawn = = "1password";
 
       # Quit app
-      "Mod+Q".action.close-window;
+      "Mod+Q".action = close-window;
 
       # Exit niri
-      "Mod+Shift+E".action.quit;
+      "Mod+Shift+E".action = quit;
 
       # Lock
-      "Mod+Shift+Q".action.spawn "hyprlock";
+      "Mod+Shift+Q".action.spawn = = "hyprlock";
 
       # Focus column navigation (left/right along the scroll)
-      "Mod+H".action.focus-column-left;
-      "Mod+L".action.focus-column-right;
+      "Mod+H".action = focus-column-left;
+      "Mod+L".action = focus-column-right;
 
       # Focus window up/down within column
-      "Mod+K".action.focus-window-up;
-      "Mod+J".action.focus-window-down;
+      "Mod+K".action = focus-window-up;
+      "Mod+J".action = focus-window-down;
 
       # Move columns
-      "Mod+Shift+H".action.move-column-left;
-      "Mod+Shift+L".action.move-column-right;
+      "Mod+Shift+H".action = move-column-left;
+      "Mod+Shift+L".action = move-column-right;
 
       # Move windows within/between columns
-      "Mod+Shift+K".action.move-window-up;
-      "Mod+Shift+J".action.move-window-down;
+      "Mod+Shift+K".action = move-window-up;
+      "Mod+Shift+J".action = move-window-down;
 
       # Consume/expel windows into columns (unique to niri)
-      "Mod+Comma".action.consume-window-into-column;
-      "Mod+Period".action.expel-window-from-column;
+      "Mod+Comma".action = consume-window-into-column;
+      "Mod+Period".action = expel-window-from-column;
 
       # Column width presets
-      "Mod+1".action.focus-workspace 1;
-      "Mod+2".action.focus-workspace 2;
-      "Mod+3".action.focus-workspace 3;
-      "Mod+4".action.focus-workspace 4;
-      "Mod+5".action.focus-workspace 5;
+      "Mod+1".action.focus-workspace = [1 ] ;
+      "Mod+2".action.focus-workspace = [2];
+      "Mod+3".action.focus-workspace = [3];
+      "Mod+4".action.focus-workspace = [4] ;
+      "Mod+5".action.focus-workspace = [5];
 
       # Move to workspace
       "Mod+Shift+1".action.move-column-to-workspace = [ 1 ];
@@ -234,41 +234,41 @@
       "Mod+Shift+5".action.move-column-to-workspace = [ 5 ];
 
       # Column width (cycle through presets)
-      "Mod+Minus".action.set-column-width "-10%";
-      "Mod+Equal".action.set-column-width "+10%";
-      "Mod+0".action.reset-window-height;
+      "Mod+Minus".action.set-column-width = "-10%";
+      "Mod+Equal".action.set-column-width  = "+10%";
+      "Mod+0".action = reset-window-height;
 
       # Fullscreen
-      "Mod+F".action.fullscreen-window;
+      "Mod+F".action = fullscreen-window;
 
       # Center current column
-      "Mod+C".action.center-column;
+      "Mod+C".action = center-column;
 
       # Column width cycling (like niri's "switch to next preset")
-      "Mod+W".action.switch-preset-column-width;
+      "Mod+W".action = switch-preset-column-width;
 
       # Screenshots
-      "Print".action.screenshot;
-      "Shift+Print".action.screenshot-screen;
-      "Mod+Shift+S".action.screenshot;
+      "Print".action = screenshot;
+      "Shift+Print".action = screenshot-screen;
+      "Mod+Shift+S".action = screenshot;
 
       # Volume
-      "XF86AudioRaiseVolume".action.spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+";
-      "XF86AudioLowerVolume".action.spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
-      "XF86AudioMute".action.spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-      "XF86AudioMicMute".action.spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+      "XF86AudioRaiseVolume".action.spawn = "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+";
+      "XF86AudioLowerVolume".action.spawn = "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
+      "XF86AudioMute".action.spawn = "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+      "XF86AudioMicMute".action.spawn = "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
 
       # Media keys
-      "XF86AudioNext".action.spawn "playerctl" "next";
-      "XF86AudioPlay".action.spawn "playerctl" "play-pause";
-      "XF86AudioPause".action.spawn "playerctl" "play-pause";
-      "XF86AudioPrev".action.spawn "playerctl" "previous";
+      "XF86AudioNext".action.spawn = "playerctl" "next";
+      "XF86AudioPlay".action.spawn = "playerctl" "play-pause";
+      "XF86AudioPause".action.spawn = "playerctl" "play-pause";
+      "XF86AudioPrev".action.spawn = "playerctl" "previous";
 
       # Brightness
-      "XF86MonBrightnessUp".action.spawn "brightnessctl" "set" "+10%";
-      "XF86MonBrightnessDown".action.spawn "brightnessctl" "set" "10%-";
-      "Mod+XF86MonBrightnessUp".action.spawn "brightnessctl" "--device=kbd_backlight" "set" "+10%";
-      "Mod+XF86MonBrightnessDown".action.spawn "brightnessctl" "--device=kbd_backlight" "set" "10%-";
+      "XF86MonBrightnessUp".action.spawn = "brightnessctl" "set" "+10%";
+      "XF86MonBrightnessDown".action.spawn = "brightnessctl" "set" "10%-";
+      "Mod+XF86MonBrightnessUp".action.spawn = "brightnessctl" "--device=kbd_backlight" "set" "+10%";
+      "Mod+XF86MonBrightnessDown".action.spawn = "brightnessctl" "--device=kbd_backlight" "set" "10%-";
     };
   };
 }
