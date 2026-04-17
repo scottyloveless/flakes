@@ -134,7 +134,7 @@
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
-          enabled = true;
+          enabled = false;
           size = 6;
           passes = 3;
 
@@ -142,7 +142,7 @@
           new_optimizations = true;
         };
 
-        layerrule = "blur on, match:namespace waybar";
+        # layerrule = "blur on, match:namespace waybar";
 
       };
 
