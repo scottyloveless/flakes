@@ -105,6 +105,9 @@
         "match:class" = ".*";
         suppress_event = "maximize";
       };
+      windowrulev2 = [
+        "noanim, class:^(hyprlock)$"
+      ];
 
       general = {
         gaps_in = 5;
@@ -187,7 +190,7 @@
           "windowsMove,  1, 1, snappy" # tile rearranging
           "workspaces,   1, 1, snappy, slidevert" # workspace transitions with slight overshoot
           "specialWorkspace, 1, 1, snappy, slidevert"
-          "fade,         1, 1, instant" # almost no fade
+          "fade,         0, 1, default" # almost no fade
           "fadeDim,      1, 1, snappy"
           "border,       1, 1, snappy"
           "borderangle,  1, 8, snappy, once"
