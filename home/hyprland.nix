@@ -186,7 +186,7 @@
           "windowsIn,    1, 1, snappy, slide" # new windows slide in fast
           "windowsOut,   1, 1, snappy, slide" # close even faster
           "windowsMove,  1, 1, snappy" # tile rearranging
-          "workspaces,   1, 1, snappy, slidevert" # workspace transitions with slight overshoot
+          "workspaces,   0.5, 1, snappy, overshoot" # workspace transitions with slight overshoot
           "specialWorkspace, 1, 1, snappy, slidevert"
           "fadeDim,      1, 1, snappy"
           "border,       1, 1, snappy"
