@@ -100,9 +100,9 @@
         ", XF86AudioPrev, exec, playerctl previous    "
       ];
 
-      windowrule = [
-        "suppress_event maximize, class:.*"
-      ];
+      suppressevent = "maximize";
+      # windowrule = [
+      # ];
 
       general = {
         gaps_in = 5;
