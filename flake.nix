@@ -92,7 +92,6 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.mox = {
                 imports = [
-                  inputs.niri.homeModules.niri
                   ./home/linux.nix
                 ]; # or darwin.nix on Mac
                 home.username = "mox";
