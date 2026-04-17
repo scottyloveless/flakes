@@ -100,13 +100,8 @@
         ", XF86AudioPrev, exec, playerctl previous    "
       ];
 
-      windowrule = {
-        name = "suppress-maximize-events";
-        "match:class" = ".*";
-        suppress_event = "maximize";
-      };
       windowrule = [
-        "noanim, class:^(hyprlock)$"
+        "suppress_event maximize, class:.*"
       ];
 
       general = {
@@ -190,10 +185,14 @@
           "windowsMove,  1, 1, snappy" # tile rearranging
           "workspaces,   1, 1, snappy, slidevert" # workspace transitions with slight overshoot
           "specialWorkspace, 1, 1, snappy, slidevert"
-          "fade,         0, 1, default" # almost no fade
           "fadeDim,      1, 1, snappy"
           "border,       1, 1, snappy"
           "borderangle,  1, 8, snappy, once"
+          # disabled animations
+          "fade,         0, 1, default" # almost no fade
+          "layers, 0, 1, default"
+          "layersIn, 0, 1, default"
+          "layersOut, 0, 1, default"
         ];
         # bezier = [
         #   "easeOutQuint,   0.23, 1,    0.16, 1"
