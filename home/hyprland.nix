@@ -145,7 +145,7 @@
           new_optimizations = true;
         };
 
-        # layerrule = "blur on, match:namespace waybar";
+        layerrule = "blur on, match:namespace waybar";
 
       };
 
