@@ -197,7 +197,7 @@
           "border,       1, 1, snappy"
           "borderangle,  1, 8, snappy, once"
           # disabled animations
-          "fade,         0, 1, default" # almost no fade
+          # "fade,         0, 1, default" # almost no fade
           # "layers, 0, 1, default"
           # "layersIn, 0, 1, default"
           # "layersOut, 0, 1, default"
