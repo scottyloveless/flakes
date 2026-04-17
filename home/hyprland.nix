@@ -8,6 +8,7 @@
     size = 16;
   };
 
+  services.hyprpolkitagent.enable = true;
   services.hyprpaper = {
     enable = true;
     settings = {
@@ -165,7 +166,7 @@
       # };
 
       exec-once = [
-        "uwsm app -- systemctl --user start hyprpolkitagent"
+        # "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- 1password --silent"
       ];
 

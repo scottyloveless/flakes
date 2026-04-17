@@ -49,8 +49,7 @@
     polkitPolicyOwners = [ "mox" ];
   };
 
-  services.polkit.enable = true;
-  services.hyprpolkitagent.enable = true;
+  security.polkit.enable = true;
   # hardware.pulseaudio.enable = true; #this conflicts with Apple silicon support
   # hardware.pulseaudio.support32Bit = true;
 
