@@ -192,7 +192,7 @@
       "Mod+Shift+E".action = quit;
 
       # Lock
-      "Mod+Shift+L".action = spawn "hyprlock";
+      "Mod+Shift+Q".action = spawn "hyprlock";
 
       # Focus column navigation (left/right along the scroll)
       "Mod+H".action = focus-column-left;
