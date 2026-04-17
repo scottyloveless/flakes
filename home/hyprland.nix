@@ -105,7 +105,7 @@
         "match:class" = ".*";
         suppress_event = "maximize";
       };
-      windowrulev2 = [
+      windowrule = [
         "noanim, class:^(hyprlock)$"
       ];
 
