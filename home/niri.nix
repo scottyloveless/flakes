@@ -153,6 +153,19 @@
       };
     };
 
+    layer-rules = [
+      {
+        matches = [
+          { namespace = "^waybar$"; }
+        ];
+        geometry-corner-radius = {
+          top-left = 8.0;
+          top-right = 8.0;
+          bottom-left = 8.0;
+          bottom-right = 8.0;
+        };
+      }
+    ];
     # Window rules
     window-rules = [
       {
