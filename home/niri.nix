@@ -183,8 +183,16 @@
       "Mod+Return".action.spawn = "ghostty";
 
       # App launcher
-      "Mod+Space".action.spawn = "rofi" "-show" "drun";
-      "Mod+R".action.spawn = "rofi" "-show" "run";
+      "Mod+Space".action.spawn = [
+        "rofi"
+        "-show"
+        "drun"
+      ];
+      "Mod+R".action.spawn = [
+        "rofi"
+        "-show"
+        "run"
+      ];
 
       # Browser & password manager
       "Mod+B".action.spawn = "chromium";
