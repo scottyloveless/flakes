@@ -227,11 +227,11 @@
       "Mod+5".action = focus-workspace 5;
 
       # Move to workspace
-      "Mod+Shift+1".action.move-column-to-workspace [ 1 ];
-      "Mod+Shift+2".action.move-column-to-workspace [ 2 ];
-      "Mod+Shift+3".action.move-column-to-workspace [ 3 ];
-      "Mod+Shift+4".action.move-column-to-workspace [ 4 ];
-      "Mod+Shift+5".action.move-column-to-workspace [ 5 ];
+      "Mod+Shift+1".action.move-column-to-workspace = [ 1 ];
+      "Mod+Shift+2".action.move-column-to-workspace = [ 2 ];
+      "Mod+Shift+3".action.move-column-to-workspace = [ 3 ];
+      "Mod+Shift+4".action.move-column-to-workspace = [ 4 ];
+      "Mod+Shift+5".action.move-column-to-workspace = [ 5 ];
 
       # Column width (cycle through presets)
       "Mod+Minus".action = set-column-width "-10%";
