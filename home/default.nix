@@ -45,5 +45,6 @@
     zoxide
     pkgs.weechat
     pkgs.discordo
+    wl-clipboard
   ];
 }
