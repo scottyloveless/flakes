@@ -138,7 +138,7 @@
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
-          enabled = false;
+          enabled = true;
           size = 3;
           passes = 1;
 
