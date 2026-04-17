@@ -62,6 +62,11 @@
         return {
           "snacks.nvim",
           opts = {
+            explorer = {
+                layout = {
+                    width = 100,
+                },
+            },
             dashboard = {
               preset = {
                 header = [[
