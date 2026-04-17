@@ -178,57 +178,57 @@
         "uwsm app -- 1password --silent"
       ];
 
-      animations = {
-        enabled = "yes";
-
-        bezier = [
-          "snappy, 0.2, 0.9, 0.1, 1.0" # fast start, smooth end
-          "overshoot, 0.05, 0.9, 0.1, 1.05" # slight overshoot for bounce
-          "instant, 0.05, 0.9, 0.1, 1.0" # nearly instant
-        ];
-
-        animation = [
-          "windowsIn,    1, 1, snappy, slide" # new windows slide in fast
-          "windowsOut,   1, 1, snappy, slide" # close even faster
-          "windowsMove,  1, 1, snappy" # tile rearranging
-          "workspaces,   0.5, 1, overshoot, slidevert" # workspace transitions with slight overshoot
-          "specialWorkspace, 1, 1, snappy, slidevert"
-          "fadeDim,      1, 1, snappy"
-          "border,       1, 1, snappy"
-          "borderangle,  1, 8, snappy, once"
-          # disabled animations
-          # "fade,         0, 1, default" # almost no fade
-          # "layers, 0, 1, default"
-          # "layersIn, 0, 1, default"
-          # "layersOut, 0, 1, default"
-        ];
-        # bezier = [
-        #   "easeOutQuint,   0.23, 1,    0.16, 1"
-        #   "easeInOutCubic, 0.65, 0.05, 0.18, 1"
-        #   "linear,         0,    0,    0.5,    1"
-        #   "almostLinear,   0.5,  0.5,  0.1, 1"
-        #   "quick,          0.15, 0,    0.1,  1"
-        # ];
-        # animation = [
-        #   "global,        1,     10,    default"
-        #   "border,        1,     5.39,  easeOutQuint"
-        #   "windows,       1,     4.79,  easeOutQuint"
-        #   "windowsIn,     1,     4.1,   easeOutQuint, popin 87%"
-        #   "windowsOut,    1,     1.49,  linear,       popin 87%"
-        #   "fadeIn,        1,     1.73,  almostLinear"
-        #   "fadeOut,       1,     1.46,  almostLinear"
-        #   "fade,          1,     3.03,  quick"
-        #   "layers,        1,     3.81,  easeOutQuint"
-        #   "layersIn,      1,     4,     easeOutQuint, fade"
-        #   "layersOut,     1,     1.5,   linear,       fade"
-        #   "fadeLayersIn,  1,     1.79,  almostLinear"
-        #   "fadeLayersOut, 1,     1.39,  almostLinear"
-        #   "workspaces,    1,     1.94,  almostLinear, slidevert"
-        #   "workspacesIn,  1,     1.21,  almostLinear, slidevert"
-        #   "workspacesOut, 1,     1.94,  almostLinear, slidevert"
-        #   "zoomFactor,    1,     7,     quick"
-        # ];
-      };
+      # animations = {
+      #   enabled = "yes";
+      #
+      #   bezier = [
+      #     "snappy, 0.2, 0.9, 0.1, 1.0" # fast start, smooth end
+      #     "overshoot, 0.05, 0.9, 0.1, 1.05" # slight overshoot for bounce
+      #     "instant, 0.05, 0.9, 0.1, 1.0" # nearly instant
+      #   ];
+      #
+      #   animation = [
+      #     "windowsIn,    1, 1, snappy, slide" # new windows slide in fast
+      #     "windowsOut,   1, 1, snappy, slide" # close even faster
+      #     "windowsMove,  1, 1, snappy" # tile rearranging
+      #     "workspaces,   0.5, 1, overshoot, slidevert" # workspace transitions with slight overshoot
+      #     "specialWorkspace, 1, 1, snappy, slidevert"
+      #     "fadeDim,      1, 1, snappy"
+      #     "border,       1, 1, snappy"
+      #     "borderangle,  1, 8, snappy, once"
+      #     # disabled animations
+      #     # "fade,         0, 1, default" # almost no fade
+      #     # "layers, 0, 1, default"
+      #     # "layersIn, 0, 1, default"
+      #     # "layersOut, 0, 1, default"
+      #   ];
+      bezier = [
+        "easeOutQuint,   0.23, 1,    0.16, 1"
+        "easeInOutCubic, 0.65, 0.05, 0.18, 1"
+        "linear,         0,    0,    0.5,    1"
+        "almostLinear,   0.5,  0.5,  0.1, 1"
+        "quick,          0.15, 0,    0.1,  1"
+      ];
+      animation = [
+        "global,        1,     10,    default"
+        "border,        1,     5.39,  easeOutQuint"
+        "windows,       1,     4.79,  easeOutQuint"
+        "windowsIn,     1,     4.1,   easeOutQuint, popin 87%"
+        "windowsOut,    1,     1.49,  linear,       popin 87%"
+        "fadeIn,        1,     1.73,  almostLinear"
+        "fadeOut,       1,     1.46,  almostLinear"
+        "fade,          1,     3.03,  quick"
+        "layers,        1,     3.81,  easeOutQuint"
+        "layersIn,      1,     4,     easeOutQuint, fade"
+        "layersOut,     1,     1.5,   linear,       fade"
+        "fadeLayersIn,  1,     1.79,  almostLinear"
+        "fadeLayersOut, 1,     1.39,  almostLinear"
+        "workspaces,    1,     1.94,  almostLinear, slidevert"
+        "workspacesIn,  1,     1.21,  almostLinear, slidevert"
+        "workspacesOut, 1,     1.94,  almostLinear, slidevert"
+        "zoomFactor,    1,     7,     quick"
+      ];
+      # };
 
       misc = {
         vfr = true;
