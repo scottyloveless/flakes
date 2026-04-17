@@ -78,7 +78,7 @@
 
     # Spawn at startup
     spawn-at-startup = [
-      { command = [ "waybar" ]; }
+      # { command = [ ]; }
       {
         command = [
           "1password"
