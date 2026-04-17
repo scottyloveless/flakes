@@ -6,7 +6,7 @@
     settings = {
       mainBar = {
         position = "top";
-        height = 28;
+        height = 32;
         spacing = 4;
         margin = "6 8 0 8";
 
@@ -88,8 +88,8 @@
     style = ''
             * {
               font-family: "JetBrainsMono Nerd Font";
-              font-size: 12px;
-              font-weight: 500;
+              font-size: 13px;
+              font-weight: 700;
               min-height: 0;
             }
 
