@@ -47,6 +47,7 @@
   networking.networkmanager.enable = true;
 
   networking.hostName = "beau";
+
   # networking.wireless.iwd = {
   #   enable = true;
   #   settings.General.EnableNetworkConfiguration = true;
