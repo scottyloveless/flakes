@@ -2,7 +2,7 @@
 {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     font = "JetBrainsMono Nerd Font 12";
     terminal = "ghostty";
     theme =
