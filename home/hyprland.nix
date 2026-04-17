@@ -116,6 +116,9 @@
 
       };
 
+      cursor = {
+        no_hardware_cursors = false;
+      };
       decoration = {
 
         rounding = 20;
@@ -228,7 +231,7 @@
       };
 
       misc = {
-        vfr = false;
+        vfr = true;
       };
       env = [
         # "WLR_DRM_NO_ATOMIC,1"
