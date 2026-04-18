@@ -24,6 +24,7 @@
       "1password"
       "betterdisplay"
       "timescaledb"
+      "vivaldi"
     ];
 
   fonts.packages = with pkgs; [
