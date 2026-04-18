@@ -45,9 +45,6 @@
     pkgs.weechat
     pkgs.discordo
     pkgs.signal-desktop
-  ];
-
-  home.packages = with pkgs; [
     (writeShellScriptBin "claude-app" ''
       exec ${pkgs.chromium}/bin/chromium \
         --app="https://claude.ai" \
@@ -56,6 +53,7 @@
         "$@"
     '')
   ];
+
   xdg.desktopEntries.claude-app = {
     name = "Claude";
     comment = "Claude AI";
