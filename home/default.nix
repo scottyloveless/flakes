@@ -46,4 +46,26 @@
     pkgs.discordo
     pkgs.signal-desktop
   ];
+
+  home.packages = with pkgs; [
+    (writeShellScriptBin "claude-app" ''
+      exec ${pkgs.chromium}/bin/chromium \
+        --app="https://claude.ai" \
+        --class="claude-app" \
+        --name="Claude" \
+        "$@"
+    '')
+  ];
+  xdg.desktopEntries.claude-app = {
+    name = "Claude";
+    comment = "Claude AI";
+    exec = "claude-app";
+    icon = "claude";
+    terminal = false;
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    startupNotify = true;
+  };
 }

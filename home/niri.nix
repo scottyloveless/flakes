@@ -197,6 +197,9 @@
         "run"
       ];
 
+      # AI
+      "Mod+C".action.spawn = [ "claude-app" ];
+
       # Browser & password manager
       "Mod+B".action.spawn = [ "chromium" ];
       "Mod+P".action.spawn = [ "1password" ];

@@ -45,6 +45,7 @@
         "$mod, J, movefocus, d"
         "$mod, B, exec, $browser"
         "$mod, P, exec, $pw-manager"
+        "$mod, A, exec, claude-app"
 
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
