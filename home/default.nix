@@ -25,6 +25,10 @@
     "--cmd cd"
   ];
 
+  programs.steam = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     ripgrep
     fd
