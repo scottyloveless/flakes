@@ -23,6 +23,7 @@
       "1password-cli"
       "1password"
       "betterdisplay"
+      "timescaledb"
     ];
 
   fonts.packages = with pkgs; [
