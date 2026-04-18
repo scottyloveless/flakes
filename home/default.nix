@@ -16,7 +16,6 @@
     ./ssh.nix
     ./1password.nix
     # ./firefox.nix
-    ./chromium.nix
   ];
 
   programs.home-manager.enable = true;

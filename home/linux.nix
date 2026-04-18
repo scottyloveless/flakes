@@ -16,6 +16,7 @@
     ./rofi.nix
     ./dunst.nix
     ./hypridle.nix
+    ./chromium.nix
     ./hyprlock.nix
     ./niri.nix
   ];

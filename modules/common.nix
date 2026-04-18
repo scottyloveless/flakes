@@ -22,6 +22,7 @@
       "_1password-gui"
       "1password-cli"
       "1password"
+      "betterdisplay"
     ];
 
   fonts.packages = with pkgs; [
