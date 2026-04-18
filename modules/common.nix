@@ -45,10 +45,10 @@
 
     extraPlugins = [ pkgs.timescaledb ];
 
-    extraConfig = ''
-      shared_preload_libraries = 'timescaledb'
-      timescaledb.telemetry_level = 'off'
-    '';
+    settings = {
+      shared_preload_libraries = "timescaledb";
+      "timescaledb.telemetry_level" = "off";
+    };
   };
 
   # programs.steam = {
