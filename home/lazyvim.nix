@@ -59,29 +59,29 @@
       '';
 
       snacks = ''
-                      return {
-                        "folke/snacks.nvim",
-                        opts = {
-                          explorer = {
-                            enabled = true,
-                            replace_netrw = true,
-                          },
-                          picker = {
-                            sources = {
+                          return {
+                            "folke/snacks.nvim",
+                            opts = {
                               explorer = {
-                                layout = {
-                                  preset = "sidebar",
-                                  layout = {
-                                    width = 30,
+                                enabled = true,
+                                replace_netrw = true,
+                              },
+                              picker = {
+                                sources = {
+                                  explorer = {
+                                    layout = {
+                                      preset = "sidebar",
+                                      layout = {
+                                        width = 30,
+                                      },
+                                    },
                                   },
                                 },
                               },
-                            },
-                          },
-                          dashboard = {
-                            enabled = true,
-                            preset = {
-                              header = [[
+                              dashboard = {
+                                enabled = true,
+                                preset = {
+                                  header = [[
         	                                                                       
         	                                                                     
         	       ████ ██████           █████      ██                     
@@ -92,11 +92,11 @@
         	  ███████████ ███    ███ █████████ █████ █████ ████ █████  
         	 ██████  █████████████████████ ████ █████ █████ ████ ██████ 
         	                                                                       
-                              ]],
+                                  ]],
+                                },
+                              },
                             },
-                          },
-                        },
-                      }
+                          }
       '';
 
       nvim-lspconfig = ''
