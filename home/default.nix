@@ -44,5 +44,6 @@
     zoxide
     pkgs.weechat
     pkgs.discordo
+    pkgs.signal-desktop
   ];
 }
