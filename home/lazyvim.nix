@@ -62,6 +62,10 @@
         return {
           "folke/snacks.nvim",
           opts = {
+            explorer = {
+              enabled = true,
+              replace_netrw = false,
+            },
             picker = {
               sources = {
                 explorer = {
@@ -75,6 +79,7 @@
               },
             },
             dashboard = {
+              enabled = true,
               preset = {
                 header = [[
                                                                                                       
