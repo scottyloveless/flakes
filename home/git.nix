@@ -25,5 +25,11 @@ in
       commit.gpgsign = true;
       user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCL8BMJiFOVlj53eq1AEibxuEQ/XvgNCl4GZcbXne7Y";
     };
+    ignores = [
+      ".DS_Store"
+      "*.swp"
+      "result"
+      ".env"
+    ];
   };
 }
