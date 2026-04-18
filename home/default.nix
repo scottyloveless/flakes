@@ -4,6 +4,13 @@
   pkgs,
   ...
 }:
+let
+  claude-chromium-app =
+    if pkgs.stdenv.isLinux then
+      "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    else
+      "~/.1password/agent.sock";
+in
 {
   imports = [
     inputs.lazyvim.homeManagerModules.default # Use inputs
@@ -54,17 +61,19 @@
         "$@"
     '')
   ];
-
-  xdg.desktopEntries.claude-app = {
-    name = "Claude";
-    comment = "Claude AI";
-    exec = "claude-app";
-    icon = "claude";
-    terminal = false;
-    categories = [
-      "Network"
-      "WebBrowser"
-    ];
-    startupNotify = true;
+  xdg.desktopEntries = lib.mkIf pkgs.stdenv.isLinux {
+    claude-app = {
+      name = "Claude";
+      comment = "Claude AI";
+      exec = "claude-app";
+      icon = "claude";
+      terminal = false;
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
+      startupNotify = true;
+    };
   };
+
 }
