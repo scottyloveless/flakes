@@ -43,7 +43,7 @@
     enable = true;
     package = pkgs.postgresql_17;
 
-    extraPlugins = [ pkgs.timescaledb ];
+    extraPlugins = [ postgresqlPackages.timescaledb ];
 
     settings = {
       shared_preload_libraries = "timescaledb";
