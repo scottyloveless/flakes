@@ -46,13 +46,6 @@
     pkgs.weechat
     pkgs.discordo
     pkgs.signal-desktop
-    (writeShellScriptBin "claude-app" ''
-      exec ${pkgs.chromium}/bin/chromium \
-        --app="https://claude.ai" \
-        --class="claude-app" \
-        --name="Claude" \
-        "$@"
-    '')
   ];
   xdg.desktopEntries = lib.mkIf pkgs.stdenv.isLinux {
     claude-app = {

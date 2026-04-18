@@ -23,5 +23,12 @@
 
   home.packages = with pkgs; [
     swaybg
+    (writeShellScriptBin "claude-app" ''
+      exec ${pkgs.chromium}/bin/chromium \
+        --app="https://claude.ai" \
+        --class="claude-app" \
+        --name="Claude" \
+        "$@"
+    '')
   ];
 }
