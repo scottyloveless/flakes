@@ -15,7 +15,6 @@
 
         modules-left = [
           "hyprland/workspaces"
-          "hyprland/window"
           "niri/workspaces"
         ];
         modules-center = [ "clock" ];
@@ -122,8 +121,8 @@
     style = ''
       * {
         font-family: "JetBrainsMono Nerd Font";
-        font-size: 13px;
-        font-weight: 700;
+        font-size: 14px;
+        font-weight: 1000;
         min-height: 0;
       }
 
