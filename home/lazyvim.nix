@@ -64,7 +64,7 @@
           opts = {
             explorer = {
               enabled = true,
-              replace_netrw = false,
+              replace_netrw = true,
             },
             picker = {
               sources = {
