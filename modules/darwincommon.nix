@@ -42,6 +42,7 @@
     ];
 
     brews = [
+      "postgresql@17"
       # add any formulae that aren't available in nixpkgs
     ];
 
