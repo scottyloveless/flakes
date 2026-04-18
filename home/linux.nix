@@ -20,4 +20,8 @@
     ./hyprlock.nix
     ./niri.nix
   ];
+
+  home.packages = with pkgs; [
+    swaybg
+  ];
 }
