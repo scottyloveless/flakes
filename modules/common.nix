@@ -42,6 +42,13 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_17;
+
+    extraPlugins = [ pkgs.timescaledb ];
+
+    extraConfig = ''
+      shared_preload_libraries = 'timescaledb'
+      timescaledb.telemetry_level = 'off'
+    '';
   };
 
   # programs.steam = {
