@@ -45,6 +45,7 @@
     pkgs.weechat
     pkgs.discordo
     pkgs.signal-desktop
+    swaybg
     (writeShellScriptBin "claude-app" ''
       exec ${pkgs.chromium}/bin/chromium \
         --app="https://claude.ai" \

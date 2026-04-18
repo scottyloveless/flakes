@@ -81,7 +81,11 @@
       # { command = [ ]; }
       {
         command = [
-          "hyprpaper"
+          "swaybg"
+          "-i"
+          "/home/mox/wallpapers/landscape2.jpg"
+          "-m"
+          "fill"
         ];
       }
       {
