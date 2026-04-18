@@ -38,5 +38,9 @@
     enable = true;
   };
 
+  programs.steam = {
+    enable = true;
+  };
+
   system.stateVersion = "25.11";
 }
