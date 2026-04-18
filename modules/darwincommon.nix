@@ -47,6 +47,7 @@
 
     casks = [
       "pearcleaner"
+      "vivaldi"
     ];
 
     masApps = {

@@ -23,6 +23,7 @@
 
   home.packages = with pkgs; [
     swaybg
+    vivaldi
     (writeShellScriptBin "claude-app" ''
       exec ${pkgs.chromium}/bin/chromium \
         --app="https://claude.ai" \
