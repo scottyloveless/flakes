@@ -135,7 +135,6 @@
           color = "rgba(1a1a1aee)";
         };
 
-        # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
           enabled = true;
           size = 6;
@@ -145,7 +144,7 @@
           new_optimizations = true;
         };
 
-        layerrule = "blur on, match:namespace waybar";
+        # layerrule = "blur on, match:namespace waybar";
 
       };
 
