@@ -81,6 +81,11 @@
       # { command = [ ]; }
       {
         command = [
+          "hyprpaper"
+        ];
+      }
+      {
+        command = [
           "1password"
           "--silent"
         ];
