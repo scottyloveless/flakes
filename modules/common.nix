@@ -44,8 +44,6 @@
     enable = true;
     package = pkgs.postgresql_17;
 
-    extraConfig = with pkgs.postgresql_17.pkgs; [ timescaledb ];
-
     settings = {
       shared_preload_libraries = "timescaledb";
       "timescaledb.telemetry_level" = "off";
