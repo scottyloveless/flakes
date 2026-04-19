@@ -29,6 +29,15 @@
     };
   };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_17;
+
+    settings = {
+      shared_preload_libraries = "timescaledb";
+      "timescaledb.telemetry_level" = "off";
+    };
+  };
   homebrew = {
     enable = true;
 
