@@ -48,7 +48,6 @@
     };
 
     taps = [
-      "BarutSRB/tap"
     ];
 
     brews = [
@@ -57,7 +56,7 @@
     casks = [
       "pearcleaner"
       "vivaldi"
-      "omniwm"
+      "acsandmann/tap/rift"
     ];
 
     masApps = {
