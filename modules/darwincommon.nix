@@ -48,9 +48,11 @@
     };
 
     taps = [
+      "BarutSRB/tap"
     ];
 
     brews = [
+      "omniwm"
       # add any formulae that aren't available in nixpkgs
     ];
 
@@ -73,7 +75,7 @@
   system.stateVersion = 5;
 
   services.aerospace = {
-    enable = true;
+    enable = false;
     settings = {
       after-login-command = [ ];
 
