@@ -2,6 +2,7 @@
 {
   imports = [
     ./default.nix # shared: zsh, git, neovim, packages
+    ./rift.nix
   ];
 
   # macOS-specific packages
