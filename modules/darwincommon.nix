@@ -48,7 +48,6 @@
     };
 
     taps = [
-      "acsandmann/tap"
     ];
 
     brews = [
