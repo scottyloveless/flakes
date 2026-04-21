@@ -8,8 +8,8 @@
 
     default_disable = false
 
-    focus_follows_mouse = true
-    mouse_follows_focus = true
+    focus_follows_mouse = false
+    mouse_follows_focus = false
     mouse_hides_on_focus = false
 
     auto_focus_blacklist = []
@@ -24,7 +24,7 @@
     column_width_ratio = 0.485
     min_column_width_ratio = 0.25
     max_column_width_ratio = 1.0
-    alignment = "left"
+    alignment = "right"
     focus_navigation_style = "niri"
 
     [settings.layout.scrolling.gestures]
