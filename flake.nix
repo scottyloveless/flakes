@@ -30,6 +30,18 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+    acsandmann-tap = {
+      url = "github:acsandmann/homebrew-tap";
+      flake = false;
+    };
+    barutsrb-tap = {
+      url = "github:BarutSRB/homebrew-tap";
+      flake = false;
+    };
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 
     _1password-shell-plugins.url = "github:1Password/shell-plugins";

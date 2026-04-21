@@ -38,25 +38,47 @@
       "timescaledb.telemetry_level" = "off";
     };
   };
+
+  nix-homebrew = {
+    enable = true;
+    enableRosetta = false;
+    user = "mox";
+    autoMigrate = true;
+
+    taps = {
+      "homebrew/homebrew-core" = inputs.homebrew-core;
+      "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+      "acsandmann/homebrew-tap" = inputs.acsandmann-tap;
+      "BarutSRB/homebrew-tap" = inputs.barutsrb-tap;
+    };
+    mutableTaps = false;
+  };
+
   homebrew = {
     enable = true;
 
-    onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-      cleanup = "zap"; # removes anything not declared here
+    # onActivation = {
+    #   autoUpdate = true;
+    #   upgrade = true;
+    #   cleanup = "zap"; # removes anything not declared here
+    # };
+
+    taps = builtins.attrValues {
+      "homebrew/homebrew-core" = "homebrew/homebrew-core";
+      "homebrew/homebrew-cask" = "homebrew/homebrew-cask";
+      "acsandmann/homebrew-tap" = "acsandmann/homebrew-tap";
+      "BarutSRB/homebrew-tap" = "BarutSRB/homebrew-tap";
     };
 
-    taps = [
-    ];
-
     brews = [
+      "acsandmann/homebrew-tap/rift"
     ];
 
     casks = [
       "pearcleaner"
       "vivaldi"
-      "rift"
+      "BarutSRB/homebrew-tap/omniwm"
     ];
 
     masApps = {
