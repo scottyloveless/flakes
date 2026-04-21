@@ -8,8 +8,8 @@
 
     default_disable = false
 
-    focus_follows_mouse = false
-    mouse_follows_focus = false
+    focus_follows_mouse = true
+    mouse_follows_focus = true
     mouse_hides_on_focus = false
 
     auto_focus_blacklist = []
@@ -34,14 +34,14 @@
     propagate_to_workspace_swipe = true
 
     [settings.layout.gaps.outer]
-    top = 16
-    left = 16
-    bottom = 16
-    right = 16
+    top = 8
+    left = 8
+    bottom = 8
+    right = 8
 
     [settings.layout.gaps.inner]
-    horizontal = 16
-    vertical = 16
+    horizontal = 8
+    vertical = 8
 
     [settings.ui.menu_bar]
     enabled = true
