@@ -3,8 +3,8 @@
   xdg.configFile."rift/config.toml".text = ''
     [settings]
     animate = true
-    animation_duration = 0.25
-    animation_fps = 100.0
+    animation_duration = 0.20
+    animation_fps = 120.0
 
     default_disable = false
 
