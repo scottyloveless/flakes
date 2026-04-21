@@ -25,7 +25,7 @@
     min_column_width_ratio = 0.25
     max_column_width_ratio = 1.0
     alignment = "center"
-    focus_navigation_style = "niri"
+    focus_navigation_style = "anchored"
 
     [settings.layout.scrolling.gestures]
     enabled = true
