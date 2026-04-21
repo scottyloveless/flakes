@@ -52,13 +52,13 @@
     ];
 
     brews = [
-      "omniwm"
       # add any formulae that aren't available in nixpkgs
     ];
 
     casks = [
       "pearcleaner"
       "vivaldi"
+      "omniwm"
     ];
 
     masApps = {
