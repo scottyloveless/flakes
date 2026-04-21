@@ -140,22 +140,12 @@
 
         sandy = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/sandy/configuration.nix
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
             {
-              nix-homebrew = {
-                enable = true;
-                enableRosetta = false;
-                user = "mox";
-                taps = {
-                  "homebrew/homebrew-core" = homebrew-core;
-                  "homebrew/homebrew-cask" = homebrew-cask;
-                };
-                mutableTaps = false;
-                autoMigrate = true;
-              };
             }
             (
               { config, ... }:
