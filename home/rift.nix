@@ -144,7 +144,7 @@
     "Alt + F" = "toggle_fullscreen"
 
     # === Column width (niri: Mod+R cycles presets, Mod+Minus/Plus resize) ===
-    "Alt + R" = { resize_window_by = 0.0 }  # rift doesn't have preset cycling, placeholder
+    # "Alt + R" = { resize_window_by = 0.0 }  # rift doesn't have preset cycling, placeholder
     "Alt + Minus" = "resize_window_shrink"
     "Alt + Equal" = "resize_window_grow"
 
