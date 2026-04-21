@@ -56,7 +56,7 @@
     casks = [
       "pearcleaner"
       "vivaldi"
-      "acsandmann/tap/rift"
+      "rift"
     ];
 
     masApps = {
