@@ -52,12 +52,12 @@
     ];
 
     brews = [
-      "omniwm"
     ];
 
     casks = [
       "pearcleaner"
       "vivaldi"
+      "omniwm"
     ];
 
     masApps = {
