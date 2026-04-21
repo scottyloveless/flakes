@@ -41,6 +41,10 @@
       };
     };
 
+    outputs."Virtual-1" = {
+      scale = 2;
+    };
+
     # Layout
     layout = {
       gaps = 8;
