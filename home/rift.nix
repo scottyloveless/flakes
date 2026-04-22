@@ -8,8 +8,8 @@
 
     default_disable = false
 
-    focus_follows_mouse = false
-    mouse_follows_focus = false
+    focus_follows_mouse = true
+    mouse_follows_focus = true
     mouse_hides_on_focus = false
 
     auto_focus_blacklist = []
