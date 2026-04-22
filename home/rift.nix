@@ -21,7 +21,7 @@
 
     [settings.layout.scrolling]
     # niri default: 50% column width
-    column_width_ratio = 0.5
+    column_width_ratio = 0.49
     min_column_width_ratio = 0.25
     max_column_width_ratio = 1.0
     alignment = "center"
