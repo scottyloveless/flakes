@@ -34,15 +34,15 @@
     };
   };
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_17;
-
-    settings = {
-      shared_preload_libraries = "timescaledb";
-      "timescaledb.telemetry_level" = "off";
-    };
-  };
+  # services.postgresql = {
+  #   enable = false;
+  #   package = pkgs.postgresql_17;
+  #
+  #   settings = {
+  #     shared_preload_libraries = "timescaledb";
+  #     "timescaledb.telemetry_level" = "off";
+  #   };
+  # };
 
   nix-homebrew = {
     enable = true;
@@ -78,6 +78,7 @@
 
     brews = [
       "acsandmann/homebrew-tap/rift"
+      "postgresql@17"
     ];
 
     casks = [
