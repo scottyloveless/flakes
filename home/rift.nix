@@ -2,7 +2,7 @@
 {
   xdg.configFile."rift/config.toml".text = ''
     [settings]
-    animate = true
+    animate = false
     animation_duration = 0.1
     animation_fps = 120.0
 
@@ -17,7 +17,7 @@
     hot_reload = true
 
     [settings.layout]
-    mode = "scrolling"
+    mode = "BSP"
 
     [settings.layout.scrolling]
     # niri default: 50% column width
