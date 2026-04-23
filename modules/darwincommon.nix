@@ -44,6 +44,14 @@
     };
   };
 
+  services.jankyborders = {
+    enable = true;
+    active_color = "0xff7DCFFF";
+    inactive_color = "0xff24283A";
+    hidpi = true;
+    width = 4.0;
+  };
+
   nix-homebrew = {
     enable = true;
     enableRosetta = false;
