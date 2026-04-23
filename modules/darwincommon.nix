@@ -46,8 +46,8 @@
 
   services.jankyborders = {
     enable = true;
-    active_color = "0xff7DCFFF";
-    inactive_color = "0xff24283A";
+    active_color = "0xff2CC3DF";
+    inactive_color = "0xff565F89";
     hidpi = true;
     width = 4.0;
   };
