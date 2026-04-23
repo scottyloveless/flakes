@@ -34,14 +34,14 @@
     propagate_to_workspace_swipe = true
 
     [settings.layout.gaps.outer]
-    top = 8
-    left = 8
-    bottom = 8
-    right = 8
+    top = 12
+    left = 12
+    bottom = 12
+    right = 12
 
     [settings.layout.gaps.inner]
-    horizontal = 8
-    vertical = 8
+    horizontal = 12
+    vertical = 12
 
     [settings.ui.menu_bar]
     enabled = true
