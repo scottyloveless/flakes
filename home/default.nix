@@ -46,6 +46,7 @@
     pkgs.weechat
     pkgs.discordo
     pkgs.signal-desktop
+    go
   ];
   xdg.desktopEntries = lib.mkIf pkgs.stdenv.isLinux {
     claude-app = {
