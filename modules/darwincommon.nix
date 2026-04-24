@@ -87,6 +87,8 @@
 
     brews = [
       "acsandmann/homebrew-tap/rift"
+      "goose"
+      "sqlc"
     ];
 
     casks = [
