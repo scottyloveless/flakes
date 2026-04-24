@@ -9,5 +9,6 @@
   home.packages = with pkgs; [
     mas # Mac App Store CLI
     betterdisplay
+    pkgs.sqlfluff
   ];
 }
