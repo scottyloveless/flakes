@@ -50,6 +50,7 @@
     inactive_color = "0xff565F89";
     hidpi = false;
     width = 4.0;
+    order = "above";
   };
 
   nix-homebrew = {
