@@ -108,7 +108,7 @@
   system.stateVersion = 5;
 
   services.aerospace = {
-    enable = false;
+    enable = true;
     settings = {
       after-login-command = [ ];
 
