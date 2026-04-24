@@ -130,6 +130,10 @@
         installDependencies = true;
         installRuntimeDependencies = true;
       };
+      lang.sql.enable = true;
+      lang.markdown.enable = true;
+      lang.json.enable = true;
+      lang.toml.enable = true;
     };
   };
 }
