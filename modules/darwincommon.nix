@@ -141,7 +141,7 @@
         outer.bottom = 12;
         outer.top = [
           { monitor."built-in" = 12; }
-          40
+          12
         ];
         outer.right = 12;
       };
