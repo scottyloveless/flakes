@@ -15,6 +15,5 @@
 
   services.cato-client = {
     enable = true;
-    package = cato-client-newer;
   };
 }
