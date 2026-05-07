@@ -17,6 +17,11 @@
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
     initContent = ''
+        if [ -f "$HOME/.config/op/plugins.sh" ]; then
+            source "$HOME/.config/op/plugins.sh"
+        fi
+
+
         bindkey -e
         bindkey '^p' history-search-backward
         bindkey '^n' history-search-forward
