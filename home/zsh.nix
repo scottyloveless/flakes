@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -16,17 +16,12 @@
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
-    initContent = ''
-        if [ -f "$HOME/.config/op/plugins.sh" ]; then
-            source "$HOME/.config/op/plugins.sh"
-        fi
-
-
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
         bindkey -e
         bindkey '^p' history-search-backward
         bindkey '^n' history-search-forward
 
-        #History
         HISTSIZE=5000
         HISTFILE=~/.zsh_history
         SAVEHIST=$HISTSIZE
@@ -39,17 +34,21 @@
         setopt hist_ignore_dups
         setopt hist_find_no_dups
 
-          vv() {
-        # Assumes all configs exist in directories named ~/.config/nvim-*
-        local config=$(fd --max-depth 1 --glob 'nvim-*' ~/.config | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
-       
-        # If I exit fzf without selecting a config, don't open Neovim
-        [[ -z $config ]] && echo "No config selected" && return
-       
-        # Open Neovim with the selected config
-        NVIM_APPNAME=$(basename $config) nvim $@
-      }
-       eval "$(zoxide init zsh)"
-    '';
+        vv() {
+          local config=$(fd --max-depth 1 --glob 'nvim-*' ~/.config | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
+          [[ -z $config ]] && echo "No config selected" && return
+          NVIM_APPNAME=$(basename $config) nvim $@
+        }
+        eval "$(zoxide init zsh)"
+      '')
+      (lib.mkAfter ''
+        # Source 1Password plugins last, after gh function is defined
+        unalias gh 2>/dev/null
+        unset -f gh 2>/dev/null
+        if [ -f "$HOME/.config/op/plugins.sh" ]; then
+          source "$HOME/.config/op/plugins.sh"
+        fi
+      '')
+    ];
   };
 }
