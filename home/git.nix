@@ -9,7 +9,7 @@ in
 {
   programs.gh = {
     enable = true;
-    gitCredentialHelper.enable = true;
+    gitCredentialHelper.enable = false;
   };
   programs.git = {
     enable = true;
@@ -24,6 +24,11 @@ in
       "gpg \"ssh\"".program = opsshsignPath;
       commit.gpgsign = true;
       user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCL8BMJiFOVlj53eq1AEibxuEQ/XvgNCl4GZcbXne7Y";
+
+      credential = {
+        "https://github.com".helper = "!op plugin run -- gh auth git-credential";
+        "https://gist.github.com".helper = "!op plugin run -- gh auth git-credential";
+      };
     };
     ignores = [
       ".DS_Store"
