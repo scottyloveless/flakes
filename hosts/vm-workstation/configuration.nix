@@ -5,13 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/linuxcommon.nix
-      ../../modules/common.nix
-      # ../../modules/ibml.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/linuxcommon.nix
+    ../../modules/common.nix
+    ../../modules/ibml.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -27,8 +27,5 @@
   services.xserver.videoDrivers = [ "vmware" ];
 
   networking.networkmanager.enable = true;
-
-
-
 
 }

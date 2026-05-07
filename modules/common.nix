@@ -25,6 +25,7 @@
       "betterdisplay"
       "timescaledb"
       "vivaldi"
+      "cato-client"
     ];
 
   fonts.packages = with pkgs; [
