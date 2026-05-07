@@ -127,7 +127,29 @@
               home-manager.users.mox = {
                 imports = [
                   ./home/linux.nix
-                ]; # or darwin.nix on Mac
+                ];
+                home.username = "mox";
+                home.homeDirectory = "/home/mox";
+                home.stateVersion = "26.05";
+              };
+            }
+          ];
+        };
+
+        vm-workstation = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/vm-workstation/configuration.nix
+            home-manager.nixosModules.home-manager
+            inputs.niri.nixosModules.niri
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.mox = {
+                imports = [
+                  ./home/linux.nix
+                ];
                 home.username = "mox";
                 home.homeDirectory = "/home/mox";
                 home.stateVersion = "26.05";
@@ -158,7 +180,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.mox = {
-                imports = [ ./home/darwin.nix ]; # or darwin.nix on Mac
+                imports = [ ./home/darwin.nix ]; 
                 home.username = "mox";
                 home.homeDirectory = "/Users/mox";
                 home.stateVersion = "26.05";
