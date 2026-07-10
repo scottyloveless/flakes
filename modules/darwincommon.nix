@@ -86,7 +86,6 @@
     };
 
     brews = [
-      "acsandmann/homebrew-tap/rift"
       "goose"
       "sqlc"
     ];
@@ -94,7 +93,6 @@
     casks = [
       "pearcleaner"
       "vivaldi"
-      "BarutSRB/homebrew-tap/omniwm"
     ];
 
     masApps = {
