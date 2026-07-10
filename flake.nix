@@ -2,7 +2,7 @@
   description = "Multi-host NixOS + macOS config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -180,7 +180,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.mox = {
-                imports = [ ./home/darwin.nix ]; 
+                imports = [ ./home/darwin.nix ];
                 home.username = "mox";
                 home.homeDirectory = "/Users/mox";
                 home.stateVersion = "26.05";
