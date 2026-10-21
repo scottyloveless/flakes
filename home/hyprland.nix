@@ -6,8 +6,14 @@
 }:
 let
   hasNvidia = lib.elem "nvidia" osConfig.services.xserver.videoDrivers;
+  isLaptop = lib.elem osConfig.networking.hostName [
+    "beau"
+    "intel-mac"
+  ];
 in
 {
+  home.packages = [ pkgs.hyprshot ];
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -20,9 +26,6 @@ in
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [
-        "~/wallpapers/landscape2.jpg"
-      ];
       wallpaper = [
         {
           monitor = "";
@@ -69,16 +72,15 @@ in
           scale = "1.666667";
           bitdepth = 10;
           cm = "auto";
-          sdrbrightness = 0.5;
-          sdrsaturation = 1.0;
           supports_wide_color = 1;
 
           # HDR luminance overrides (nits)
           max_luminance = 1000; # peak brightness
           min_luminance = 0; # black level (near-zero for OLED)
 
-          # SDR content inside HDR mode
-          sdr_max_luminance = 200; # SDR white / desktop brightness
+          # SDR content inside HDR mode. Single knob for desktop brightness:
+          # replaces the old sdr_max_luminance 200 x sdrbrightness 0.5 combo.
+          sdr_max_luminance = 100; # SDR white (nits)
           sdr_min_luminance = 0;
 
         }
@@ -116,21 +118,28 @@ in
         "$mod SHIFT, S, movetoworkspace, special:magic"
 
         "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1" # Keyboard brightness (Super + brightness keys)
-
-        "SUPER, XF86MonBrightnessUp, exec, brightnessctl --device='kbd_backlight' set +10%"
-        "SUPER, XF86MonBrightnessDown, exec, brightnessctl --device='kbd_backlight' set 10%-"
-
-        # Regular brightness keys for screen
-        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        "$mod, mouse_up, workspace, e-1"
 
         # App launcher
         "$mod, SPACE, exec, uwsm app -- rofi -show drun"
         "$mod, R, exec, uwsm app -- rofi -show run"
 
-        # Lock
-        "$mod SHIFT, L, exec, uwsm app -- hyprlock"
+        # Lock (via hypridle's lock_cmd, so only one hyprlock runs)
+        "$mod SHIFT, L, exec, loginctl lock-session"
+
+        # Screenshots: region / monitor / window, saved and copied to clipboard
+        ", Print, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "SHIFT, Print, exec, hyprshot -m output -o ~/Pictures/Screenshots"
+        "$mod, Print, exec, hyprshot -m window -o ~/Pictures/Screenshots"
+      ]
+      ++ lib.optionals isLaptop [
+        # Keyboard backlight (Super + brightness keys)
+        "SUPER, XF86MonBrightnessUp, exec, brightnessctl --device='kbd_backlight' set +10%"
+        "SUPER, XF86MonBrightnessDown, exec, brightnessctl --device='kbd_backlight' set 10%-"
+
+        # Screen backlight
+        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
 
       bindm = [
@@ -139,20 +148,33 @@ in
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ "
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-      "
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle            "
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle       "
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
 
       bindl = [
-        ", XF86AudioNext, exec, playerctl next        "
-        ", XF86AudioPause, exec, playerctl play-pause "
-        ", XF86AudioPlay, exec, playerctl play-pause  "
-        ", XF86AudioPrev, exec, playerctl previous    "
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
       ];
 
-      suppressevent = "maximize";
+      # 0.54 window rules use named blocks; effects only apply via these
+      windowrule = [
+        {
+          name = "suppress-maximize-events";
+          "match:class" = ".*";
+          suppress_event = "maximize";
+        }
+        {
+          # Let games tear (needs general:allow_tearing)
+          name = "games-allow-tearing";
+          "match:class" = "^(steam_app_.*)$";
+          immediate = "yes";
+        }
+      ];
 
       general = {
         gaps_in = 5;
@@ -171,6 +193,9 @@ in
       };
       misc = {
         vrr = 2;
+        # hyprpaper handles the wallpaper; don't flash the default one first
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
       };
 
       render = {
@@ -231,10 +256,6 @@ in
         };
       };
 
-      scrolling = {
-        fullscreen_on_one_column = true;
-        column_width = 0.5;
-      };
       dwindle = {
         preserve_split = "yes";
       };
