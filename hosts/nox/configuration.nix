@@ -82,4 +82,6 @@
   };
   programs.gamemode.enable = true;
   users.users.mox.extraGroups = [ "gamemode" ];
+
+  system.stateVersion = "26.05"; # NixOS release nox was installed with
 }
