@@ -82,6 +82,20 @@ in
         }
       ];
 
+      # Trying niri-style columns on workspace 2; the rest stay on general.layout (dwindle)
+      workspace_rule = {
+        workspace = "2";
+        layout = "scrolling";
+      };
+
+      # Frosted-glass Quickshell bar; ignore_alpha keeps the transparent corners unblurred
+      layer_rule = {
+        name = "quickshell-bar-blur";
+        match.namespace = "^quickshell:bar$";
+        blur = true;
+        ignore_alpha = 0.3;
+      };
+
       window_rule = [
         {
           name = "suppress-maximize-events";

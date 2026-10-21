@@ -12,7 +12,7 @@
     ./default.nix
     ./hyprland.nix
     ./ghostty.nix
-    ./waybar.nix
+    ./quickshell.nix
     ./rofi.nix
     ./dunst.nix
     ./hypridle.nix
