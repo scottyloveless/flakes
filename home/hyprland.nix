@@ -56,16 +56,17 @@
           position = "0x0";
           scale = "1.666667";
           bitdepth = 10;
-          cm = "hdr";
-          sdrbrightness = 0.5;
+          cm = "auto";
+          sdrbrightness = 1.0;
           sdrsaturation = 1.0;
+          supports_wide_color = 1;
 
           # HDR luminance overrides (nits)
           max_luminance = 1000; # peak brightness
           min_luminance = 0; # black level (near-zero for OLED)
 
           # SDR content inside HDR mode
-          sdr_max_luminance = 200; # SDR white / desktop brightness
+          sdr_max_luminance = 120; # SDR white / desktop brightness
           sdr_min_luminance = 0;
 
         }
@@ -166,7 +167,7 @@
       };
 
       cursor = {
-        no_hardware_cursors = true;
+        no_hardware_cursors = false;
       };
 
       xwayland = {
