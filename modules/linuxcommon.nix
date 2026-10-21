@@ -16,6 +16,12 @@ in
     portalPackage = hypr.xdg-desktop-portal-hyprland;
   };
 
+  # The NixOS module wraps Hyprland with cap_sys_nice (for SCHED_RR). The wrapper makes
+  # it ambient, and the pinned 0.54.3 never drops it, so every app launched from
+  # Hyprland inherits it and bwrap-based apps (Steam's FHS env) refuse to start:
+  # "bwrap: Unexpected capabilities but not setuid". Revisit when leaving 0.54.3.
+  security.wrappers.Hyprland.enable = false;
+
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
