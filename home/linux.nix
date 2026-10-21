@@ -19,6 +19,7 @@
     ./chromium.nix
     ./hyprlock.nix
     ./niri.nix
+    ./gaming.nix
   ];
 
   home.packages = with pkgs; [

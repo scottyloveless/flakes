@@ -43,8 +43,32 @@
     systemd.enable = false;
 
     settings = {
-      monitor = [
-        "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, auto"
+      # monitor = [
+      #   # "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, auto"
+      #   # "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98"
+      #   "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, hdredid, sdrbrightness, 1.2, sdrsaturation, 0.9"
+      # ];
+
+      monitorv2 = [
+        {
+          output = "HDMI-A-2";
+          mode = "3840x2160@240";
+          position = "0x0";
+          scale = "1.666667";
+          bitdepth = 10;
+          cm = "hdr";
+          sdrbrightness = 0.5;
+          sdrsaturation = 1.0;
+
+          # HDR luminance overrides (nits)
+          max_luminance = 1000; # peak brightness
+          min_luminance = 0; # black level (near-zero for OLED)
+
+          # SDR content inside HDR mode
+          sdr_max_luminance = 200; # SDR white / desktop brightness
+          sdr_min_luminance = 0;
+
+        }
       ];
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
