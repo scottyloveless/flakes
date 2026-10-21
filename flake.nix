@@ -10,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.54.3";
     lazyvim.url = "github:pfassina/lazyvim-nix";
     # noctalia = {
     # url = "github:noctalia-dev/noctalia-shell";
@@ -61,7 +60,6 @@
       self,
       nixpkgs,
       home-manager,
-      hyprland,
       lazyvim,
       nix-darwin,
       nix-homebrew,
