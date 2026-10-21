@@ -79,6 +79,8 @@
     protontricks.enable = true;
     gamescopeSession.enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
+    # gamescope's Vulkan WSI layer, needed for HDR in games run under gamescope
+    extraPackages = [ pkgs.gamescope-wsi ];
   };
   programs.gamemode.enable = true;
   users.users.mox.extraGroups = [ "gamemode" ];
