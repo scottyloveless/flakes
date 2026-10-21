@@ -1,8 +1,14 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}:
 {
   programs.niri.settings = {
-    # Help asahi find renderD128
-    debug = {
+    # Help asahi find renderD128. Skipped on nox, where renderD128 may be the
+    # 9800X3D iGPU instead of the Nvidia card driving the display.
+    debug = lib.mkIf (osConfig.networking.hostName != "nox") {
       render-drm-device = "/dev/dri/renderD128";
     };
 

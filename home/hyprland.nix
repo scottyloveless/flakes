@@ -1,4 +1,12 @@
-{ inputs, pkgs, ... }:
+{
+  pkgs,
+  lib,
+  osConfig,
+  ...
+}:
+let
+  hasNvidia = lib.elem "nvidia" osConfig.services.xserver.videoDrivers;
+in
 {
   home.pointerCursor = {
     gtk.enable = true;
@@ -25,11 +33,13 @@
     };
   };
 
+  # Nvidia vars break GLX/VA-API on non-Nvidia hosts, so only set them where the driver is loaded
   xdg.configFile."uwsm/env".text = ''
-    export LIBVA_DRIVER_NAME=nvidia
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export NVD_BACKEND=direct
-    export XCURSOR_THEME=Bibata-Modern-Classic
+    ${lib.optionalString hasNvidia ''
+      export LIBVA_DRIVER_NAME=nvidia
+      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export NVD_BACKEND=direct
+    ''}export XCURSOR_THEME=Bibata-Modern-Classic
     export XCURSOR_SIZE=24
   '';
 
@@ -81,7 +91,7 @@
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod, Q, killactive,"
-        "$mod, M, exit,"
+        "$mod, M, exec, uwsm stop"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"

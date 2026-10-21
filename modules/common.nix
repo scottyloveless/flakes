@@ -46,5 +46,5 @@
   #   enable = true;
   # };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = lib.mkDefault "25.11"; # hosts override with their install release
 }

@@ -9,17 +9,22 @@ in
 {
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    # Old home-manager defaults are spelled out below instead
+    enableDefaultConfig = false;
+    settings = {
       "*" = {
-        forwardAgent = false;
-        serverAliveInterval = 60;
-        controlMaster = "auto";
-        controlPath = "~/.ssh/sockets/%r@%h-%p";
-        controlPersist = "10m";
-        extraOptions = {
-          "IdentitiesOnly" = "no";
-          "IdentityAgent" = "\"${onePassPath}\"";
-        };
+        AddKeysToAgent = "no";
+        Compression = false;
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/sockets/%r@%h-%p";
+        ControlPersist = "10m";
+        ForwardAgent = false;
+        HashKnownHosts = false;
+        ServerAliveCountMax = 3;
+        ServerAliveInterval = 60;
+        UserKnownHostsFile = "~/.ssh/known_hosts";
+        IdentitiesOnly = false;
+        IdentityAgent = "\"${onePassPath}\"";
       };
     };
   };

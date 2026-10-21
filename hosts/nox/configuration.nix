@@ -21,7 +21,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
+  # Default (LTS) kernel — safer with nvidiaPackages.latest than linuxPackages_latest.
   boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nox"; # Define your hostname.
@@ -29,6 +29,20 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;
+
+  # Audio
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true; # Steam / Proton
+    pulse.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol # waybar pulseaudio on-click
+    playerctl # media keys
+  ];
 
   # Enable OpenGL / hardware graphics
   hardware.graphics = {
@@ -48,8 +62,7 @@
     # Modesetting is required for most Wayland compositors and modern setups
     modesetting.enable = true;
 
-    # Use open-source kernel modules (recommended for Turing/RTX 20-series and newer)
-    # Set to false for older cards like GTX 10-series or earlier
+    # Open kernel modules are required for Blackwell (RTX 50-series)
     open = true;
 
     # Enable Nvidia Settings menu
@@ -68,4 +81,7 @@
     extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
   programs.gamemode.enable = true;
+  users.users.mox.extraGroups = [ "gamemode" ];
+
+  system.stateVersion = "26.05"; # NixOS release nox was installed with
 }
