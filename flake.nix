@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -136,6 +136,27 @@
           ];
         };
 
+        nox = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/nox/configuration.nix
+            home-manager.nixosModules.home-manager
+            inputs.niri.nixosModules.niri
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.mox = {
+                imports = [
+                  ./home/linux.nix
+                ];
+                home.username = "mox";
+                home.homeDirectory = "/home/mox";
+                home.stateVersion = "26.05";
+              };
+            }
+          ];
+        };
         vm-workstation = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [

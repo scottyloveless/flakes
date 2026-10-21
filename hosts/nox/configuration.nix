@@ -13,16 +13,16 @@
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nox"; # Define your hostname.
 
   # Allow unfree packages (required for proprietary Nvidia drivers)
+  nixpkgs.config.allowUnfree = true;
 
 
 networking.networkmanager.enable = true;
@@ -48,7 +48,7 @@ networking.networkmanager.enable = true;
     nvidiaSettings = true;
 
     # Select driver package (stable, production, beta, etc.)
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
 

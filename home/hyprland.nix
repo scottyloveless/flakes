@@ -27,9 +27,12 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     systemd.enable = false;
     settings = {
-      monitor = ",preferred,auto,1.67";
+      monitor = [
+        "HDMI-A-2, 3480x2160@240, 0x0, 1.67"
+      ];
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
       "$browser" = "uwsm app -- chromium";
@@ -170,7 +173,6 @@
         column_width = 0.5;
       };
       dwindle = {
-        pseudotile = "yes";
         preserve_split = "yes";
       };
 
@@ -230,8 +232,8 @@
       ];
       # };
 
-      misc = {
-        vfr = true;
+      debug = {
+        vfr = false;
       };
       env = [
         # "WLR_DRM_NO_ATOMIC,1"

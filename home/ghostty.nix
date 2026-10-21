@@ -26,4 +26,8 @@
       background-blur = false;
     };
   };
+
+  programs.kitty = {
+    enable = true;
+  };
 }
