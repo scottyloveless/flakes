@@ -51,7 +51,7 @@
 
       monitorv2 = [
         {
-          output = "HDMI-A-2";
+          output = "HDMI-A-1";
           mode = "3840x2160@240";
           position = "0x0";
           scale = "1.666667";
