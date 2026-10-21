@@ -54,22 +54,18 @@ in
     enable = true;
     package = null;
     portalPackage = null;
-    configType = "hyprlang";
+    # Writes ~/.config/hypr/hyprland.lua. Each `settings` attr becomes an hl.<name>(...) call;
+    # binds and autostart live in extraConfig as plain Lua since they take dispatcher objects.
+    configType = "lua";
     systemd.enable = false;
 
     settings = {
-      # monitor = [
-      #   # "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, auto"
-      #   # "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98"
-      #   "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, hdredid, sdrbrightness, 1.2, sdrsaturation, 0.9"
-      # ];
-
-      monitorv2 = [
+      monitor = [
         {
           output = "HDMI-A-1";
           mode = "3840x2160@240";
           position = "0x0";
-          scale = "1.666667";
+          scale = 1.666667;
           bitdepth = 10;
           # sRGB desktop: "auto"/"wide" picks BT.2020 here, which looks washed out on this
           # AW3225QF. HDR is only entered for fullscreen HDR games (render:cm_auto_hdr).
@@ -83,248 +79,356 @@ in
           # replaces the old sdr_max_luminance 200 x sdrbrightness 0.5 combo.
           sdr_max_luminance = 100; # SDR white (nits)
           sdr_min_luminance = 0;
-
         }
       ];
-      "$mod" = "SUPER";
-      "$terminal" = "uwsm app -- ghostty +new-window";
-      "$browser" = "uwsm app -- chromium";
-      "$pw-manager" = "uwsm app -- 1password";
 
-      bind = [
-        "$mod, RETURN, exec, $terminal"
-        "$mod, Q, killactive,"
-        "$mod, M, exec, uwsm stop"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
-        "$mod, B, exec, $browser"
-        "$mod, P, exec, $pw-manager"
-        "$mod, A, exec, claude-app"
-
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-
-        "$mod SHIFT, 1, movetoworkspace, 1"
-        "$mod SHIFT, 2, movetoworkspace, 2"
-        "$mod SHIFT, 3, movetoworkspace, 3"
-        "$mod SHIFT, 4, movetoworkspace, 4"
-        "$mod SHIFT, 5, movetoworkspace, 5"
-
-        "$mod, S, togglespecialworkspace, magic"
-        "$mod SHIFT, S, movetoworkspace, special:magic"
-
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
-
-        # App launcher
-        "$mod, SPACE, exec, uwsm app -- rofi -show drun"
-        "$mod, R, exec, uwsm app -- rofi -show run"
-
-        # Lock (via hypridle's lock_cmd, so only one hyprlock runs)
-        "$mod SHIFT, L, exec, loginctl lock-session"
-
-        # Screenshots: region / monitor / window, saved and copied to clipboard
-        ", Print, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-        "SHIFT, Print, exec, hyprshot -m output -o ~/Pictures/Screenshots"
-        "$mod, Print, exec, hyprshot -m window -o ~/Pictures/Screenshots"
-      ]
-      ++ lib.optionals isLaptop [
-        # Keyboard backlight (Super + brightness keys)
-        "SUPER, XF86MonBrightnessUp, exec, brightnessctl --device='kbd_backlight' set +10%"
-        "SUPER, XF86MonBrightnessDown, exec, brightnessctl --device='kbd_backlight' set 10%-"
-
-        # Screen backlight
-        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
-      ];
-
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-
-      bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ];
-
-      bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
-      ];
-
-      # 0.54 window rules use named blocks; effects only apply via these
-      windowrule = [
+      window_rule = [
         {
           name = "suppress-maximize-events";
-          "match:class" = ".*";
+          match.class = ".*";
           suppress_event = "maximize";
         }
         {
-          # Let games tear (needs general:allow_tearing)
+          # Let games tear (needs general.allow_tearing)
           name = "games-allow-tearing";
-          "match:class" = "^(steam_app_.*)$";
-          immediate = "yes";
+          match.class = "^(steam_app_.*)$";
+          immediate = true;
         }
       ];
 
-      general = {
-        gaps_in = 5;
-        gaps_out = 10;
-        border_size = 2;
+      config = {
+        general = {
+          gaps_in = 5;
+          gaps_out = 10;
+          border_size = 2;
 
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+          col = {
+            active_border = {
+              colors = [
+                "rgba(33ccffee)"
+                "rgba(00ff99ee)"
+              ];
+              angle = 45;
+            };
+            inactive_border = "rgba(595959aa)";
+          };
 
-        resize_on_border = false;
+          resize_on_border = false;
 
-        allow_tearing = true;
+          allow_tearing = true;
 
-        layout = "dwindle";
-
-      };
-      misc = {
-        vrr = 2;
-        # hyprpaper handles the wallpaper; don't flash the default one first
-        force_default_wallpaper = 0;
-        disable_hyprland_logo = true;
-      };
-
-      render = {
-        cm_auto_hdr = 1;
-        direct_scanout = 2;
-      };
-
-      # Advertise HDR to gamescope only, so HDR games run in gamescope can enable it
-      # while the desktop stays SDR (Wine-Wayland HDR still looks wrong on Nvidia).
-      quirks = {
-        prefer_hdr = 2;
-      };
-
-      cursor = {
-        # Auto: software cursor on Nvidia while VRR is active (fullscreen games), which
-        # avoids the over-bright hardware cursor in HDR and allows tearing.
-        no_hardware_cursors = 2;
-      };
-
-      xwayland = {
-        force_zero_scaling = true;
-      };
-
-      decoration = {
-
-        rounding = 20;
-        rounding_power = 2;
-
-        # Change transparency of focused and unfocused windows
-        active_opacity = 1.0;
-        inactive_opacity = 1.0;
-
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
+          layout = "dwindle";
         };
 
-        blur = {
-          enabled = true;
-          size = 6;
-          passes = 2;
-
-          vibrancy = 0.1696;
-          new_optimizations = true;
+        misc = {
+          vrr = 2;
+          # hyprpaper handles the wallpaper; don't flash the default one first
+          force_default_wallpaper = 0;
+          disable_hyprland_logo = true;
         };
 
-        # layerrule = "blur on, match:namespace waybar";
+        render = {
+          cm_auto_hdr = 1;
+          direct_scanout = 2;
+        };
 
-      };
+        # Advertise HDR to gamescope only, so HDR games run in gamescope can enable it
+        # while the desktop stays SDR (Wine-Wayland HDR still looks wrong on Nvidia).
+        quirks = {
+          prefer_hdr = 2;
+        };
 
-      input = {
-        kb_layout = "us";
-        kb_options = "caps:escape,altwin:swap_alt_win";
+        cursor = {
+          # Auto: software cursor on Nvidia while VRR is active (fullscreen games), which
+          # avoids the over-bright hardware cursor in HDR and allows tearing.
+          no_hardware_cursors = 2;
+        };
 
-        repeat_delay = 300;
-        repeat_rate = 40;
+        xwayland = {
+          force_zero_scaling = true;
+        };
 
-        follow_mouse = 1;
+        decoration = {
+          rounding = 20;
+          rounding_power = 2;
 
-        sensitivity = 0;
+          # Change transparency of focused and unfocused windows
+          active_opacity = 1.0;
+          inactive_opacity = 1.0;
 
-        touchpad = {
-          natural_scroll = true;
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+            color = "rgba(1a1a1aee)";
+          };
+
+          blur = {
+            enabled = true;
+            size = 6;
+            passes = 2;
+
+            vibrancy = 0.1696;
+            new_optimizations = true;
+          };
+        };
+
+        input = {
+          kb_layout = "us";
+          kb_options = "caps:escape,altwin:swap_alt_win";
+
+          repeat_delay = 300;
+          repeat_rate = 40;
+
+          follow_mouse = 1;
+
+          sensitivity = 0;
+
+          touchpad = {
+            natural_scroll = true;
+          };
+        };
+
+        dwindle = {
+          preserve_split = true;
         };
       };
 
-      dwindle = {
-        preserve_split = "yes";
-      };
+      # curve is in importantPrefixes, so these are emitted before the animations that use them
+      curve =
+        lib.mapAttrsToList
+          (name: points: {
+            _args = [
+              name
+              {
+                type = "bezier";
+                inherit points;
+              }
+            ];
+          })
+          {
+            easeOutQuint = [
+              [
+                0.23
+                1
+              ]
+              [
+                0.16
+                1
+              ]
+            ];
+            easeInOutCubic = [
+              [
+                0.65
+                0.05
+              ]
+              [
+                0.18
+                1
+              ]
+            ];
+            linear = [
+              [
+                0
+                0
+              ]
+              [
+                0.5
+                1
+              ]
+            ];
+            almostLinear = [
+              [
+                0.5
+                0.5
+              ]
+              [
+                0.1
+                1
+              ]
+            ];
+            quick = [
+              [
+                0.15
+                0
+              ]
+              [
+                0.1
+                1
+              ]
+            ];
+          };
 
-      exec-once = [
-        "uwsm app -- 1password --silent"
+      animation = map (a: { enabled = true; } // a) [
+        {
+          leaf = "global";
+          speed = 10;
+          bezier = "default";
+        }
+        {
+          leaf = "border";
+          speed = 5.39;
+          bezier = "easeOutQuint";
+        }
+        {
+          leaf = "windows";
+          speed = 4.79;
+          bezier = "easeOutQuint";
+        }
+        {
+          leaf = "windowsIn";
+          speed = 4.1;
+          bezier = "easeOutQuint";
+          style = "popin 87%";
+        }
+        {
+          leaf = "windowsOut";
+          speed = 1.49;
+          bezier = "linear";
+          style = "popin 87%";
+        }
+        {
+          leaf = "fadeIn";
+          speed = 1.73;
+          bezier = "almostLinear";
+        }
+        {
+          leaf = "fadeOut";
+          speed = 1.46;
+          bezier = "almostLinear";
+        }
+        {
+          leaf = "fade";
+          speed = 3.03;
+          bezier = "quick";
+        }
+        {
+          leaf = "layers";
+          speed = 3.81;
+          bezier = "easeOutQuint";
+        }
+        {
+          leaf = "layersIn";
+          speed = 4;
+          bezier = "easeOutQuint";
+          style = "fade";
+        }
+        {
+          leaf = "layersOut";
+          speed = 1.5;
+          bezier = "linear";
+          style = "fade";
+        }
+        {
+          leaf = "fadeLayersIn";
+          speed = 1.79;
+          bezier = "almostLinear";
+        }
+        {
+          leaf = "fadeLayersOut";
+          speed = 1.39;
+          bezier = "almostLinear";
+        }
+        {
+          leaf = "workspaces";
+          speed = 1.94;
+          bezier = "almostLinear";
+          style = "slidevert";
+        }
+        {
+          leaf = "workspacesIn";
+          speed = 1.21;
+          bezier = "almostLinear";
+          style = "slidevert";
+        }
+        {
+          leaf = "workspacesOut";
+          speed = 1.94;
+          bezier = "almostLinear";
+          style = "slidevert";
+        }
+        {
+          leaf = "zoomFactor";
+          speed = 7;
+          bezier = "quick";
+        }
       ];
-
-      # animations = {
-      #   enabled = "yes";
-      #
-      #   bezier = [
-      #     "snappy, 0.2, 0.9, 0.1, 1.0" # fast start, smooth end
-      #     "overshoot, 0.05, 0.9, 0.1, 1.05" # slight overshoot for bounce
-      #     "instant, 0.05, 0.9, 0.1, 1.0" # nearly instant
-      #   ];
-      #
-      #   animation = [
-      #     "windowsIn,    1, 1, snappy, slide" # new windows slide in fast
-      #     "windowsOut,   1, 1, snappy, slide" # close even faster
-      #     "windowsMove,  1, 1, snappy" # tile rearranging
-      #     "workspaces,   0.5, 1, overshoot, slidevert" # workspace transitions with slight overshoot
-      #     "specialWorkspace, 1, 1, snappy, slidevert"
-      #     "fadeDim,      1, 1, snappy"
-      #     "border,       1, 1, snappy"
-      #     "borderangle,  1, 8, snappy, once"
-      #     # disabled animations
-      #     # "fade,         0, 1, default" # almost no fade
-      #     # "layers, 0, 1, default"
-      #     # "layersIn, 0, 1, default"
-      #     # "layersOut, 0, 1, default"
-      #   ];
-      bezier = [
-        "easeOutQuint,   0.23, 1,    0.16, 1"
-        "easeInOutCubic, 0.65, 0.05, 0.18, 1"
-        "linear,         0,    0,    0.5,    1"
-        "almostLinear,   0.5,  0.5,  0.1, 1"
-        "quick,          0.15, 0,    0.1,  1"
-      ];
-      animation = [
-        "global,        1,     10,    default"
-        "border,        1,     5.39,  easeOutQuint"
-        "windows,       1,     4.79,  easeOutQuint"
-        "windowsIn,     1,     4.1,   easeOutQuint, popin 87%"
-        "windowsOut,    1,     1.49,  linear,       popin 87%"
-        "fadeIn,        1,     1.73,  almostLinear"
-        "fadeOut,       1,     1.46,  almostLinear"
-        "fade,          1,     3.03,  quick"
-        "layers,        1,     3.81,  easeOutQuint"
-        "layersIn,      1,     4,     easeOutQuint, fade"
-        "layersOut,     1,     1.5,   linear,       fade"
-        "fadeLayersIn,  1,     1.79,  almostLinear"
-        "fadeLayersOut, 1,     1.39,  almostLinear"
-        "workspaces,    1,     1.94,  almostLinear, slidevert"
-        "workspacesIn,  1,     1.21,  almostLinear, slidevert"
-        "workspacesOut, 1,     1.94,  almostLinear, slidevert"
-        "zoomFactor,    1,     7,     quick"
-      ];
-      # };
-
     };
+
+    extraConfig = ''
+      local mod = "SUPER"
+      local terminal = "uwsm app -- ghostty +new-window"
+      local browser = "uwsm app -- chromium"
+      local pwManager = "uwsm app -- 1password"
+
+      local exec = hl.dsp.exec_cmd
+
+      hl.bind(mod .. " + RETURN", exec(terminal))
+      hl.bind(mod .. " + Q", hl.dsp.window.close())
+      hl.bind(mod .. " + M", exec("uwsm stop"))
+      hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
+      hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
+      hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
+      hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
+      hl.bind(mod .. " + B", exec(browser))
+      hl.bind(mod .. " + P", exec(pwManager))
+      hl.bind(mod .. " + A", exec("claude-app"))
+
+      for i = 1, 5 do
+        hl.bind(mod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+        hl.bind(mod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+      end
+
+      hl.bind(mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+      hl.bind(mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+
+      hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+      hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+
+      -- App launcher
+      hl.bind(mod .. " + SPACE", exec("uwsm app -- rofi -show drun"))
+      hl.bind(mod .. " + R", exec("uwsm app -- rofi -show run"))
+
+      -- Lock (via hypridle's lock_cmd, so only one hyprlock runs)
+      hl.bind(mod .. " + SHIFT + L", exec("loginctl lock-session"))
+
+      -- Screenshots: region / monitor / window, saved and copied to clipboard
+      hl.bind("Print", exec("hyprshot -m region -o ~/Pictures/Screenshots"))
+      hl.bind("SHIFT + Print", exec("hyprshot -m output -o ~/Pictures/Screenshots"))
+      hl.bind(mod .. " + Print", exec("hyprshot -m window -o ~/Pictures/Screenshots"))
+    ''
+    + lib.optionalString isLaptop ''
+
+      -- Keyboard backlight (Super + brightness keys)
+      hl.bind(mod .. " + XF86MonBrightnessUp", exec("brightnessctl --device='kbd_backlight' set +10%"))
+      hl.bind(mod .. " + XF86MonBrightnessDown", exec("brightnessctl --device='kbd_backlight' set 10%-"))
+
+      -- Screen backlight
+      hl.bind("XF86MonBrightnessUp", exec("brightnessctl set +10%"))
+      hl.bind("XF86MonBrightnessDown", exec("brightnessctl set 10%-"))
+    ''
+    + ''
+
+      -- Move/resize windows with mod + LMB/RMB and dragging
+      hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+      hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+      -- Volume (was bindel): works while locked, repeats while held
+      local lockedRepeat = { locked = true, repeating = true }
+      hl.bind("XF86AudioRaiseVolume", exec("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), lockedRepeat)
+      hl.bind("XF86AudioLowerVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), lockedRepeat)
+      hl.bind("XF86AudioMute", exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), lockedRepeat)
+      hl.bind("XF86AudioMicMute", exec("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), lockedRepeat)
+
+      -- Media (was bindl): works while locked
+      hl.bind("XF86AudioNext", exec("playerctl next"), { locked = true })
+      hl.bind("XF86AudioPause", exec("playerctl play-pause"), { locked = true })
+      hl.bind("XF86AudioPlay", exec("playerctl play-pause"), { locked = true })
+      hl.bind("XF86AudioPrev", exec("playerctl previous"), { locked = true })
+
+      hl.on("hyprland.start", function()
+        hl.exec_cmd("uwsm app -- 1password --silent")
+      end)
+    '';
   };
 }
