@@ -39,7 +39,6 @@
           [[ -z $config ]] && echo "No config selected" && return
           NVIM_APPNAME=$(basename $config) nvim $@
         }
-        eval "$(zoxide init zsh)"
       '')
       (lib.mkAfter ''
         # Source 1Password plugins last, after gh function is defined

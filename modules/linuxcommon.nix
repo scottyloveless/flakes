@@ -18,7 +18,8 @@ in
   };
   programs.niri.enable = true;
 
-  environment.variables.SSH_AUTH_SOCK = "~/.1password/agent.sock";
+  # Absolute path: "~" is not expanded in environment variables
+  environment.variables.SSH_AUTH_SOCK = "/home/mox/.1password/agent.sock";
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   i18n.defaultLocale = "en_US.UTF-8";

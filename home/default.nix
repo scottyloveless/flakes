@@ -20,10 +20,8 @@
   ];
 
   programs.home-manager.enable = true;
+  # Provides z/zi; zsh.nix aliases cd to z
   programs.zoxide.enable = true;
-  programs.zoxide.options = [
-    "--cmd cd"
-  ];
 
   home.packages = with pkgs; [
     ripgrep
