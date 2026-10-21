@@ -21,7 +21,6 @@
 
   networking.hostName = "nox"; # Define your hostname.
 
-  # Allow unfree packages (required for proprietary Nvidia drivers)
   nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;
@@ -29,7 +28,8 @@
   # Enable OpenGL / hardware graphics
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # Recommended for Steam / 32-bit games
+    enable32Bit = true;
+    extraPackages = [ pkgs.nvidia-vaapi-driver ]; # Recommended for Steam / 32-bit games
   };
 
   # Load Nvidia driver for Xorg and Wayland
@@ -49,10 +49,12 @@
     # Select driver package (stable, production, beta, etc.)
     package = config.boot.kernelPackages.nvidiaPackages.beta;
 
-    programs.steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-    programs.gamemode.enable = true;
+    powerManagement.enable = true;
   };
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  programs.gamemode.enable = true;
 }

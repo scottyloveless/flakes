@@ -2,10 +2,10 @@
 {
   home.pointerCursor = {
     gtk.enable = true;
-    # x11.enable = true;
+    x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
-    size = 16;
+    size = 24;
   };
 
   services.hyprpolkitagent.enable = true;
@@ -25,13 +25,25 @@
     };
   };
 
+  xdg.configFile."uwsm/env".text = ''
+    export LIBVA_DRIVER_NAME=nvidia
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export NVD_BACKEND=direct
+    export XCURSOR_THEME=Bibata-Modern-Classic
+    export XCURSOR_SIZE=24
+  '';
+
+  xdg.configFile."uwsm/env-hyprland".text = ''
+    export HYPRCURSOR_SIZE=24
+  '';
+
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "hyprlang";
     systemd.enable = false;
     settings = {
       monitor = [
-        "HDMI-A-2, 3480x2160@240, 0x0, 1.67"
+        "HDMI-A-2, 3840x2160@240, 0x0, 1.666667"
       ];
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
@@ -114,15 +126,27 @@
 
         resize_on_border = false;
 
-        allow_tearing = false;
+        allow_tearing = true;
 
         layout = "dwindle";
 
+      };
+      misc = {
+        vrr = 2;
+      };
+
+      render = {
+        direct_scanout = 2;
       };
 
       cursor = {
         no_hardware_cursors = false;
       };
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
       decoration = {
 
         rounding = 20;
@@ -154,10 +178,7 @@
 
       input = {
         kb_layout = "us";
-        kb_options = [
-          "caps:escape"
-          "altwin:swap_alt_win"
-        ];
+        kb_options = "caps:escape,altwin:swap_alt_win";
 
         repeat_delay = 300;
         repeat_rate = 40;
@@ -235,23 +256,6 @@
       ];
       # };
 
-      debug = {
-        vfr = false;
-      };
-      env = [
-        # "WLR_DRM_NO_ATOMIC,1"
-        # "WLR_RENDERER_ALLOW_SOFTWARE,1"
-        "__GLX_VENDOR_LIBRARY_NAME,mesa"
-        # "LIBGL_ALWAYS_SOFTWARE,1"
-
-        "MOZ_ENABLE_WAYLAND,1"
-        "MOZ_USE_XINPUT2,1"
-
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
-
-        "XCURSOR_THEME,Bibata-Modern-Classic"
-      ];
     };
   };
 }
