@@ -43,7 +43,7 @@
     systemd.enable = false;
     settings = {
       monitor = [
-        "HDMI-A-2, 3840x2160@240, 0x0, 1.666667"
+        "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, auto"
       ];
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- ghostty +new-window";
@@ -136,6 +136,7 @@
       };
 
       render = {
+        cm_auto_hdr = 1;
         direct_scanout = 2;
       };
 
