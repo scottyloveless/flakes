@@ -13,8 +13,8 @@
   ];
 
   # Bootloader.
-boot.loader.systemd-boot.enable = true;
-boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages;
@@ -24,8 +24,7 @@ boot.loader.efi.canTouchEfiVariables = true;
   # Allow unfree packages (required for proprietary Nvidia drivers)
   nixpkgs.config.allowUnfree = true;
 
-
-networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   # Enable OpenGL / hardware graphics
   hardware.graphics = {
@@ -49,8 +48,11 @@ networking.networkmanager.enable = true;
 
     # Select driver package (stable, production, beta, etc.)
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+
+    programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    programs.gamemode.enable = true;
   };
-
-
-
 }

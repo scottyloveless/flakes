@@ -154,7 +154,10 @@
 
       input = {
         kb_layout = "us";
-        kb_options = "caps:escape";
+        kb_options = [
+          "caps:escape"
+          "altwin:swap_alt_win"
+        ];
 
         repeat_delay = 300;
         repeat_rate = 40;
