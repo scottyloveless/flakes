@@ -1,6 +1,10 @@
 { inputs, pkgs, ... }:
 let
   hypr = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
 in
 {
   security.sudo.wheelNeedsPassword = false;
@@ -35,7 +39,7 @@ in
 
   environment.systemPackages = with pkgs; [
     protonplus
-    claude-code
+    pkgsUnstable.claude-code
   ];
 
   i18n.extraLocaleSettings = {
