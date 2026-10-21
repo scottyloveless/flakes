@@ -71,10 +71,11 @@ in
           position = "0x0";
           scale = "1.666667";
           bitdepth = 10;
-          cm = "auto";
-          supports_wide_color = 1;
+          # sRGB desktop: "auto"/"wide" picks BT.2020 here, which looks washed out on this
+          # AW3225QF. HDR is only entered for fullscreen HDR games (render:cm_auto_hdr).
+          cm = "srgb";
 
-          # HDR luminance overrides (nits)
+          # HDR luminance overrides (nits), used when auto-HDR switches the monitor
           max_luminance = 1000; # peak brightness
           min_luminance = 0; # black level (near-zero for OLED)
 
@@ -203,8 +204,16 @@ in
         direct_scanout = 2;
       };
 
+      # Advertise HDR to gamescope only, so HDR games run in gamescope can enable it
+      # while the desktop stays SDR (Wine-Wayland HDR still looks wrong on Nvidia).
+      quirks = {
+        prefer_hdr = 2;
+      };
+
       cursor = {
-        no_hardware_cursors = false;
+        # Auto: software cursor on Nvidia while VRR is active (fullscreen games), which
+        # avoids the over-bright hardware cursor in HDR and allows tearing.
+        no_hardware_cursors = 2;
       };
 
       xwayland = {
