@@ -41,6 +41,7 @@
     enable = true;
     configType = "hyprlang";
     systemd.enable = false;
+
     settings = {
       monitor = [
         "HDMI-A-2, 3840x2160@240, 0x0, 1.666667, bitdepth, 10, cm, auto"

@@ -29,7 +29,11 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = [ pkgs.nvidia-vaapi-driver ]; # Recommended for Steam / 32-bit games
+    extraPackages = [
+      pkgs.nvidia-vaapi-driver
+      # pkgs.vulkan-hdr-layer-kwin6
+    ]; # Recommended for Steam / 32-bit games
+    # extraPackages32 = [ pkgs.pkgsi686Linux.vulkan-hdr-layer-kwin6 ];
   };
 
   # Load Nvidia driver for Xorg and Wayland
@@ -47,7 +51,7 @@
     nvidiaSettings = true;
 
     # Select driver package (stable, production, beta, etc.)
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
 
     powerManagement.enable = true;
   };
