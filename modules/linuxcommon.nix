@@ -1,11 +1,20 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
+let
+  hypr = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
-
   security.sudo.wheelNeedsPassword = false;
 
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+    package = hypr.hyprland;
+    portalPackage = hypr.xdg-desktop-portal-hyprland;
+  };
+
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
   programs.niri.enable = true;
 
@@ -26,6 +35,7 @@
 
   environment.systemPackages = with pkgs; [
     protonplus
+    claude-code
   ];
 
   i18n.extraLocaleSettings = {
@@ -45,6 +55,7 @@
     layout = "us";
     variant = "";
   };
+
   users.users.mox = {
     isNormalUser = true;
     extraGroups = [
@@ -124,6 +135,7 @@
       "c0caf5"
     ];
   };
+
   boot.kernelParams = [
     "quiet"
     "loglevel=3"

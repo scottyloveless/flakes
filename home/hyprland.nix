@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.pointerCursor = {
     gtk.enable = true;
@@ -39,6 +39,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
+    portalPackage = null;
     configType = "hyprlang";
     systemd.enable = false;
 
@@ -57,7 +59,7 @@
           scale = "1.666667";
           bitdepth = 10;
           cm = "auto";
-          sdrbrightness = 1.0;
+          sdrbrightness = 0.5;
           sdrsaturation = 1.0;
           supports_wide_color = 1;
 
@@ -66,7 +68,7 @@
           min_luminance = 0; # black level (near-zero for OLED)
 
           # SDR content inside HDR mode
-          sdr_max_luminance = 120; # SDR white / desktop brightness
+          sdr_max_luminance = 200; # SDR white / desktop brightness
           sdr_min_luminance = 0;
 
         }

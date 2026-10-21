@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/v0.54.3";
     lazyvim.url = "github:pfassina/lazyvim-nix";
     # noctalia = {
     # url = "github:noctalia-dev/noctalia-shell";
@@ -75,6 +75,8 @@
       nixosConfigurations = {
         nixos-fusion = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
+
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/nixos-fusion/configuration.nix
             home-manager.nixosModules.home-manager
@@ -94,6 +96,8 @@
         };
         beau = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
+
+          specialArgs = { inherit inputs; };
           modules = [
             apple-silicon.nixosModules.default
             ./hosts/beau/configuration.nix
@@ -116,6 +120,7 @@
         };
         intel-mac = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/intel-mac/configuration.nix
             nixos-hardware.nixosModules.apple-t2
@@ -138,6 +143,7 @@
 
         nox = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/nox/configuration.nix
             home-manager.nixosModules.home-manager
@@ -159,6 +165,7 @@
         };
         vm-workstation = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/vm-workstation/configuration.nix
             home-manager.nixosModules.home-manager
