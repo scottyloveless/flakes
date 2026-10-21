@@ -89,7 +89,9 @@ Key points when adding or editing config:
   nixpkgs evaluations — keep that pattern when adding new inputs that themselves depend on nixpkgs.
 - `specialArgs = { inherit inputs; }` is passed to every host, and `home-manager.extraSpecialArgs = { inherit inputs; }`
   to every home-manager config, so any module can reference `inputs.<flakeInput>` directly (e.g.
-  `home/hyprland.nix` uses `inputs.hyprland.packages.${system}`).
+  `home/default.nix` imports `inputs.lazyvim.homeManagerModules.default`). Hyprland itself comes from nixpkgs
+  (`programs.hyprland` in `modules/linuxcommon.nix`), not a flake input; don't pin a pre-0.55 build (it leaks
+  the NixOS wrapper's CAP_SYS_NICE to launched apps and breaks bwrap/Steam).
 - Hardware-configuration files (`hosts/*/hardware-configuration.nix`) and `hosts/beau/apple-silicon-support`
   / `hosts/beau/firmware` are machine-generated/vendor artifacts — avoid hand-editing unless intentionally
   re-running the hardware detection.
