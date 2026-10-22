@@ -44,7 +44,7 @@
     pkgs.weechat
     pkgs.discordo
     pkgs.signal-desktop
-    go
+    go_1_27 # keep in sync with golangci-lint in lazyvim.nix
     jq
   ];
   xdg.desktopEntries = lib.mkIf pkgs.stdenv.isLinux {

@@ -1,9 +1,33 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.lazyvim = {
     enable = true;
 
     installCoreDependencies = true;
+
+    # Prepended to nvim's PATH ahead of the extras' auto-installed tools.
+    extraPackages =
+      with pkgs;
+      [
+        go_1_27
+        # golangci-lint refuses to lint modules targeting a newer Go than it was
+        # built with (exit 3 on save), and nixos-26.05's 2.12.2 can't read go1.27
+        # export data. Build >= 2.13 (go1.27 support) with Go 1.27. Drop this once
+        # nixpkgs builds golangci-lint with Go 1.27.
+        ((golangci-lint.override { buildGo126Module = buildGo127Module; }).overrideAttrs (finalAttrs: {
+          version = "2.15.0";
+          src = fetchFromGitHub {
+            owner = "golangci";
+            repo = "golangci-lint";
+            tag = "v${finalAttrs.version}";
+            hash = "sha256-m9PoJHescRuT9DiKsb6LL+lQlc7RKAWDiRyf8pNMffA=";
+          };
+          vendorHash = "sha256-gWbhZc/BJwuiwyTMaR1ShEBI1lo0bGLCXsdj5n91baw=";
+        }))
+        imagemagick # snacks.image: non-PNG images
+        ghostscript # snacks.image: PDFs
+      ]
+      ++ lib.optionals stdenv.isLinux [ trash-cli ]; # snacks.explorer: delete to trash
 
     config = {
       options = ''
