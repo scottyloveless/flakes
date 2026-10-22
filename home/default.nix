@@ -46,6 +46,7 @@
     pkgs.signal-desktop
     go_1_27 # keep in sync with golangci-lint in lazyvim.nix
     jq
+    discord-ptb
   ];
   xdg.desktopEntries = lib.mkIf pkgs.stdenv.isLinux {
     claude-app = {
