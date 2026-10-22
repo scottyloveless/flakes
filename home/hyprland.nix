@@ -208,7 +208,10 @@ in
         };
       };
 
-      # curve is in importantPrefixes, so these are emitted before the animations that use them
+      # curve is in importantPrefixes, so these are emitted before the animations that use them.
+      # Springs ignore `speed`: their duration falls out of the physics, and they carry velocity
+      # into a retargeted animation, so interrupting a move/resize stays smooth instead of restarting.
+      # Times below are to 95% of travel (zeta = damping ratio, < 1 overshoots).
       curve =
         lib.mapAttrsToList
           (name: points: {
@@ -227,28 +230,18 @@ in
                 1
               ]
               [
-                0.16
+                0.32
                 1
               ]
             ];
-            easeInOutCubic = [
+            easeInQuad = [
               [
-                0.65
-                0.05
+                0.55
+                0.085
               ]
               [
-                0.18
-                1
-              ]
-            ];
-            linear = [
-              [
-                0
-                0
-              ]
-              [
-                0.5
-                1
+                0.68
+                0.53
               ]
             ];
             almostLinear = [
@@ -257,7 +250,7 @@ in
                 0.5
               ]
               [
-                0.1
+                0.75
                 1
               ]
             ];
@@ -271,8 +264,40 @@ in
                 1
               ]
             ];
-          };
+          }
+        ++
+          lib.mapAttrsToList
+            (name: spring: {
+              _args = [
+                name
+                (
+                  {
+                    type = "spring";
+                    mass = 1;
+                  }
+                  // spring
+                )
+              ];
+            })
+            {
+              # ~110ms, zeta 0.8 (0.7% overshoot): window moves, resizes, tiling reflows
+              snap = {
+                stiffness = 1000;
+                dampening = 50.6;
+              };
+              # ~105ms, zeta 0.72 (2.8% overshoot): a small bounce on window open
+              pop = {
+                stiffness = 800;
+                dampening = 40.7;
+              };
+              # ~120ms, zeta 0.9 (no overshoot): workspace switches, so no neighbour peeks past the edge
+              glide = {
+                stiffness = 1200;
+                dampening = 62.4;
+              };
+            };
 
+      # speed is in units of 100ms and only applies to bezier animations
       animation = map (a: { enabled = true; } // a) [
         {
           leaf = "global";
@@ -281,89 +306,77 @@ in
         }
         {
           leaf = "border";
-          speed = 5.39;
+          speed = 2.5;
           bezier = "easeOutQuint";
         }
         {
           leaf = "windows";
-          speed = 4.79;
-          bezier = "easeOutQuint";
+          speed = 1;
+          spring = "snap";
         }
         {
           leaf = "windowsIn";
-          speed = 4.1;
-          bezier = "easeOutQuint";
-          style = "popin 87%";
+          speed = 1;
+          spring = "pop";
+          style = "popin 85%";
         }
         {
           leaf = "windowsOut";
-          speed = 1.49;
-          bezier = "linear";
-          style = "popin 87%";
+          speed = 1.2;
+          bezier = "easeInQuad";
+          style = "popin 90%";
         }
         {
           leaf = "fadeIn";
-          speed = 1.73;
+          speed = 1.2;
           bezier = "almostLinear";
         }
         {
           leaf = "fadeOut";
-          speed = 1.46;
+          speed = 1.1;
           bezier = "almostLinear";
         }
         {
           leaf = "fade";
-          speed = 3.03;
+          speed = 2;
           bezier = "quick";
         }
         {
           leaf = "layers";
-          speed = 3.81;
-          bezier = "easeOutQuint";
+          speed = 1;
+          spring = "snap";
         }
         {
           leaf = "layersIn";
-          speed = 4;
-          bezier = "easeOutQuint";
-          style = "fade";
+          speed = 1;
+          spring = "pop";
+          style = "popin 92%";
         }
         {
           leaf = "layersOut";
-          speed = 1.5;
-          bezier = "linear";
+          speed = 1.2;
+          bezier = "easeInQuad";
           style = "fade";
         }
         {
           leaf = "fadeLayersIn";
-          speed = 1.79;
+          speed = 1.2;
           bezier = "almostLinear";
         }
         {
           leaf = "fadeLayersOut";
-          speed = 1.39;
+          speed = 1.1;
           bezier = "almostLinear";
         }
         {
           leaf = "workspaces";
-          speed = 1.94;
-          bezier = "almostLinear";
-          style = "slidevert";
-        }
-        {
-          leaf = "workspacesIn";
-          speed = 1.21;
-          bezier = "almostLinear";
-          style = "slidevert";
-        }
-        {
-          leaf = "workspacesOut";
-          speed = 1.94;
-          bezier = "almostLinear";
-          style = "slidevert";
+          speed = 1;
+          spring = "glide";
+          style = "slidefadevert 20%";
         }
         {
           leaf = "zoomFactor";
-          speed = 7;
+          speed = 3;
           bezier = "quick";
         }
       ];
