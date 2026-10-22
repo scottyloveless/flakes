@@ -244,16 +244,6 @@ in
                 0.53
               ]
             ];
-            almostLinear = [
-              [
-                0.5
-                0.5
-              ]
-              [
-                0.75
-                1
-              ]
-            ];
             quick = [
               [
                 0.15
@@ -320,26 +310,17 @@ in
           spring = "pop";
           style = "popin 85%";
         }
+        # with no fade to hide the end, closing shrinks all the way into the window's centre
         {
           leaf = "windowsOut";
-          speed = 1.2;
+          speed = 1.5;
           bezier = "easeInQuad";
-          style = "popin 90%";
+          style = "popin 0%";
         }
-        {
-          leaf = "fadeIn";
-          speed = 1.2;
-          bezier = "almostLinear";
-        }
-        {
-          leaf = "fadeOut";
-          speed = 1.1;
-          bezier = "almostLinear";
-        }
+        # no opacity animations anywhere (open/close, dim, dpms, popups): nothing goes see-through
         {
           leaf = "fade";
-          speed = 2;
-          bezier = "quick";
+          enabled = false;
         }
         {
           leaf = "layers";
@@ -356,23 +337,13 @@ in
           leaf = "layersOut";
           speed = 1.2;
           bezier = "easeInQuad";
-          style = "fade";
-        }
-        {
-          leaf = "fadeLayersIn";
-          speed = 1.2;
-          bezier = "almostLinear";
-        }
-        {
-          leaf = "fadeLayersOut";
-          speed = 1.1;
-          bezier = "almostLinear";
+          style = "popin 0%";
         }
         {
           leaf = "workspaces";
           speed = 1;
           spring = "glide";
-          style = "slidefadevert 20%";
+          style = "slidevert";
         }
         {
           leaf = "zoomFactor";
