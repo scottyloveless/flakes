@@ -80,6 +80,39 @@ in
           sdr_max_luminance = 100; # SDR white (nits)
           sdr_min_luminance = 0;
         }
+
+        {
+      output = "desc:Dell Inc. AW3225QF XXXXXXX";
+      mode = "3840x2160@240";
+      position = "0x0";
+      scale = 1.666667;
+      bitdepth = 10;
+      cm = "srgb";
+      max_luminance = 1000;
+      min_luminance = 0;
+      sdr_max_luminance = 100;
+      sdr_min_luminance = 0;
+    }
+
+    # LG B5 65" OLED (couch)
+    {
+      output = "desc:LG Electronics LG TV SSCR2 0x01010101";
+      mode = "3840x2160@120";
+      position = "0x0";
+      scale = 2; # 1920x1080 logical, readable from a couch
+      bitdepth = 10;
+      cm = "srgb";
+      max_luminance = 830; # starting point, tune by eye
+      min_luminance = 0;
+      sdr_max_luminance = 100;
+      sdr_min_luminance = 0;
+    }
+        {
+      output = "";
+      mode = "preferred";
+      position = "auto";
+      scale = 1;
+    }
       ];
 
       # Trying niri-style columns on workspace 2; the rest stay on general.layout (dwindle)
