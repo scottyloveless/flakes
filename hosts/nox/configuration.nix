@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ../../modules/linuxcommon.nix
     ../../modules/common.nix
+    ../../modules/lgtv-wake.nix
   ];
 
   # Bootloader.
@@ -83,6 +84,16 @@
     extraPackages = [ pkgs.gamescope-wsi ];
   };
   programs.gamemode.enable = true;
+
+  # Wake the LG B5 and switch it to HDMI 1 when a DualSense connects over Bluetooth,
+  # unless the HDMI cable is plugged into the AW3225QF. Pair once: `sudo lgtv-wake pair`.
+  services.lgtv-wake = {
+    enable = true;
+    host = "192.168.1.50"; # TODO: the TV's reserved IP
+    mac = "00:00:00:00:00:00"; # TODO: TV > Settings > Support > About This TV
+    input = "HDMI_1";
+    skipIfConnectedTo = [ "AW3225QF" ];
+  };
   users.users.mox.extraGroups = [ "gamemode" ];
 
   system.stateVersion = "26.05"; # NixOS release nox was installed with
