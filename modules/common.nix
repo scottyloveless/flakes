@@ -18,6 +18,7 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "discord"
+      "discord-ptb"
       "_1password"
       "_1password-gui"
       "1password-cli"
